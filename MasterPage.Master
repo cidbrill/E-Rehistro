@@ -1,0 +1,14 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="e_rehistro.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>E-Rehistro: Online Voter's Registration Site</title>
+    <link rel="stylesheet" href="styles.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+</body>
+</html>
