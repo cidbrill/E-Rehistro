@@ -22,8 +22,9 @@ html {
 
 #signin-container,
 #signup-container,
-#authentication-slide {
+#authentication-slider {
     height: 100vh;
+    transition: box-shadow 0.5s ease, left 0.5s ease, right 0.5s ease;
 }
 
 #signin-container,
@@ -38,25 +39,25 @@ html {
 }
 
 #signin-container {
-    left: 0px;
+    left: calc(50% - 40vw/2);
     z-index: 1;
 }
 
 #signup-container {
-    right: 0px;
+    left: calc(100% - 40vw);
     z-index: 2;
 }
 
-#authentication-slide {
+#authentication-slider {
     width: 60vw;
     position: absolute;
+    left: 0px;
     background: #FAF7EE;
     display: flex;
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.4);
     align-items: center;
     justify-content: center;
     z-index: 3;
-    transition: right 0.5s;
 }
 
 .website-title,

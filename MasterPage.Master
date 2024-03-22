@@ -6,9 +6,10 @@
 <head runat="server">
     <title>E-Rehistro: Online Voter's Registration Site</title>
     <link rel="stylesheet" href="styles.css" />
-    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="Head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="Body" runat="server"></asp:ContentPlaceHolder>
+    <script src="script.js"></script>
 </body>
 </html>

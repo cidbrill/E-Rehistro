@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="e_rehistro.Default" %>
 
-<asp:Content ID="AuthenticationPage" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
+<asp:Content ID="AuthenticationPage" ContentPlaceHolderID="Body" runat="server">
     <div class="page-container">
-        <div id="authentication-slide">
-            <img src="assets/authentication-slide.png" alt="logo_ng_pinas">
+        <div id="authentication-slider">
+            <img src="assets/authentication-slider.png" alt="logo_ng_pinas">
         </div>
         <form runat="server">
             <div id="signin-container">
