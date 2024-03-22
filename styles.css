@@ -14,10 +14,50 @@ html {
     background: #FAF7EE;
 }
 
+#nav-bar {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: #294278;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    z-index: 4;
+}
+
+#nav-links {
+    display: flex;
+    align-items: center;
+}
+
+#nav-list {
+    width: 850px;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+}
+
+#nav-list li {
+    display: inline;
+    cursor: pointer;
+}
+
+#nav-list li:hover {
+    color: #E5A73A;
+}
+
 .page-container {
     width: 100vw;
-    height: 100vh;
     display: flex;
+}
+
+#authentication-page {
+    height: 100vh;
+}
+
+#home-page {
+    height: 150vh;
 }
 
 #signin-container,
@@ -83,6 +123,7 @@ html {
     justify-content: flex-start;
     font-size: 50px;
     font-weight: 700;
+    cursor: default;
 }
 
 .website-title img {

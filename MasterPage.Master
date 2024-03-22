@@ -9,7 +9,28 @@
     <asp:ContentPlaceHolder ID="Head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
-    <asp:ContentPlaceHolder ID="Body" runat="server"></asp:ContentPlaceHolder>
+    <header>
+        <nav id="nav-bar">
+            <div class="website-title" style="box-sizing: border-box; padding: 0 0 4px 30px ; font-size: 40px;">
+                <img src="assets/e-rehistro-icon.png" style="width: 40px; height: 40px;" alt="e_rehistro_icon">
+                <p>E-Rehistro</p>
+            </div>
+            <div id="nav-links">
+                <ul id="nav-list">
+                    <li>HOME</li>
+                    <li>REGISTRATION</li>
+                    <li>NEWS AND EVENTS</li>
+                    <li>CONTACT US</li>
+                </ul>
+            </div>
+            <div id="hamburger-menu" style="width: 125px; box-sizing: border-box; padding-bottom: 4px; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/hamburger-menu.png" style="width: 40px; height: 40px;">
+            </div>
+        </nav>
+    </header>
+    <asp:ContentPlaceHolder ID="AuthenticationPage" runat="server"></asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="HomePage" runat="server" Visible="false"></asp:ContentPlaceHolder>
+    <footer></footer>
     <script src="script.js"></script>
 </body>
 </html>

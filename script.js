@@ -1,5 +1,6 @@
 ﻿window.addEventListener('load', function () {
     document.getElementById('signin-container').style.display = 'none';
+    document.getElementById('nav-bar').style.display = 'none';
 });
 
 function toggleAuthenticationSlider() {
