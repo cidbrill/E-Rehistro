@@ -6,7 +6,6 @@
 <head runat="server">
     <title>E-Rehistro: Online Voter's Registration Site</title>
     <link rel="stylesheet" href="styles.css" />
-    <asp:ContentPlaceHolder ID="Head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
     <header>
@@ -20,16 +19,18 @@
                     <li>HOME</li>
                     <li>REGISTRATION</li>
                     <li>NEWS AND EVENTS</li>
+                    <li>ABOUT</li>
                     <li>CONTACT US</li>
                 </ul>
             </div>
-            <div id="hamburger-menu" style="width: 125px; box-sizing: border-box; padding-bottom: 4px; display: flex; align-items: center; justify-content: center;">
+            <div id="hamburger-menu" style="width: 100px; box-sizing: border-box; padding-bottom: 4px; display: flex; align-items: center; justify-content: center;">
                 <img src="assets/hamburger-menu.png" style="width: 40px; height: 40px;">
             </div>
         </nav>
     </header>
-    <asp:ContentPlaceHolder ID="AuthenticationPage" runat="server"></asp:ContentPlaceHolder>
-    <asp:ContentPlaceHolder ID="HomePage" runat="server" Visible="false"></asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="AuthenticationPage" runat="server" Visible="false"></asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="HomePage" runat="server" Visible="true"></asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="AboutPage" runat="server" Visible="false"></asp:ContentPlaceHolder>
     <footer></footer>
     <script src="script.js"></script>
 </body>

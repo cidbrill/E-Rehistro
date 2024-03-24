@@ -33,6 +33,15 @@ namespace e_rehistro
         protected global::System.Web.UI.WebControls.TextBox txtSigninPassword;
 
         /// <summary>
+        /// btnSignInButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSignInButton;
+
+        /// <summary>
         /// txtSignupEmail control.
         /// </summary>
         /// <remarks>
@@ -58,5 +67,32 @@ namespace e_rehistro
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSignupConfirmPassword;
+
+        /// <summary>
+        /// btnSignUpButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSignUpButton;
+
+        /// <summary>
+        /// btnViewStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnViewStatus;
+
+        /// <summary>
+        /// btnRegisterNow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegisterNow;
     }
 }
