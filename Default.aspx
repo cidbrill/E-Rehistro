@@ -73,6 +73,47 @@
     </div>
 </asp:Content>
 
+<asp:Content ID="NewsAndEventsPage" ContentPlaceHolderID="NewsAndEventsPage" runat="server">
+    <div id="news-page" class="page-container" style="background-color: #FAF7EE">
+        <div class="news-panel">
+            <img src="assets/unloaded-image.png" alt="article_image" />
+            <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor</p>
+            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor sit amet metus...</p>
+            <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
+        </div>
+        <div class="news-panel">
+            <img src="assets/unloaded-image.png" alt="article_image" />
+            <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor</p>
+            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor sit amet metus...</p>
+            <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
+        </div>
+        <div class="news-panel">
+            <img src="assets/unloaded-image.png" alt="article_image" />
+            <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor</p>
+            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor sit amet metus...</p>
+            <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
+        </div>
+        <div class="news-panel">
+            <img src="assets/unloaded-image.png" alt="article_image" />
+            <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor</p>
+            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor sit amet metus...</p>
+            <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
+        </div>
+        <div class="news-panel">
+            <img src="assets/unloaded-image.png" alt="article_image" />
+            <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor</p>
+            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor sit amet metus...</p>
+            <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
+        </div>
+        <div class="news-panel">
+            <img src="assets/unloaded-image.png" alt="article_image" />
+            <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor</p>
+            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor sit amet metus...</p>
+            <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
+        </div>
+    </div>
+</asp:Content>
+
 <asp:Content ID="AboutPage" ContentPlaceHolderID="AboutPage" runat="server">
     <div id="about-page" class="page-container" style="background-color: #FAF7EE">
     </div>
