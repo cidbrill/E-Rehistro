@@ -11,7 +11,19 @@ namespace e_rehistro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*AuthenticationPage.Visible = true;*/
+        }
 
+        protected void Home_Click(object sender, EventArgs e)
+        {
+            HomePage.Visible = true;
+            AboutPage.Visible = false;
+        }
+
+        protected void About_Click(object sender, EventArgs e)
+        {
+            HomePage.Visible = false;
+            AboutPage.Visible = true;
         }
     }
 }
