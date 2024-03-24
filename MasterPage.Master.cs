@@ -24,6 +24,16 @@ namespace e_rehistro
             ContactsPage.Visible = false;
         }
 
+        protected void Registration_Click(object sender, EventArgs e)
+        {
+            AuthenticationPage.Visible = false;
+            HomePage.Visible = false;
+            RegistrationPage.Visible = true;
+            NewsAndEventsPage.Visible = false;
+            AboutPage.Visible = false;
+            ContactsPage.Visible = false;
+        }
+
         protected void NewsAndEvents_Click(object sender, EventArgs e)
         {
             AuthenticationPage.Visible = false;

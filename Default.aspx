@@ -64,17 +64,17 @@
         <div id="home-message">
             <p>Welcome to E-Rehistro,</p>
             <p style="font-size: 25px; font-family: 'Pragati Narrow';">where Filipinos can easily register for their Voter's ID online. Join us in streamlining the process and empowering every citizen's voice.</p>
-        </div>
-        <div id="shortcut-buttons">
-            <asp:Button ID="btnViewStatus" runat="server" Text="View Status" CssClass="btnShortcutButton" />
-            <div style="width: 150px; height: 50px;"></div>
-            <asp:Button ID="btnRegisterNow" runat="server" Text="Register Now" CssClass="btnShortcutButton" />
+            <div id="shortcut-buttons">
+                <asp:Button ID="btnViewStatus" runat="server" Text="View Status" CssClass="btnShortcutButton" />
+                <div style="width: 150px; height: 50px;"></div>
+                <asp:Button ID="btnRegisterNow" runat="server" Text="Register Now" CssClass="btnShortcutButton" />
+            </div>
         </div>
     </div>
 </asp:Content>
 
 <asp:Content ID="NewsAndEventsPage" ContentPlaceHolderID="NewsAndEventsPage" runat="server">
-    <div id="news-page" class="page-container" style="background-color: #FAF7EE">
+    <div id="news-page" class="page-container" style="background-color: #FAF7EE;">
         <div class="news-panel">
             <img src="assets/unloaded-image.png" alt="article_image" />
             <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor</p>
@@ -115,11 +115,61 @@
 </asp:Content>
 
 <asp:Content ID="AboutPage" ContentPlaceHolderID="AboutPage" runat="server">
-    <div id="about-page" class="page-container" style="background-color: #FAF7EE">
+    <div id="about-page" class="page-container" style="background-color: #FAF7EE;">
+        <div class="about-section">
+            <p class="section-title">I. Overview of E-Rehistro</p>
+            <ul class="accordion">
+                <li>
+                    <input type="radio" name="accordion" id="first">
+                    <label for="first">What is E-Rehistro?</label>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit eius corporis blanditiis eaque, consequatur ab iusto voluptate soluta aspernatur enim ipsam. Architecto, atque suscipit? Consectetur unde earum molestiae quis in.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="accordion" id="second">
+                    <label for="second">How long is the validity of E-Rehistro?</label>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione officiis recusandae voluptates mollitia explicabo odit soluta consequuntur ipsam nulla? Quia distinctio ex, expedita quos quod natus saepe provident magni accusantium.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="about-section">
+            <p class="section-title">II. Registration Process</p>
+            <ul class="accordion">
+                <li>
+                    <input type="radio" name="accordion" id="third">
+                    <label for="third">What are the steps in registering in E-Rehistro?</label>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit eius corporis blanditiis eaque, consequatur ab iusto voluptate soluta aspernatur enim ipsam. Architecto, atque suscipit? Consectetur unde earum molestiae quis in.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="accordion" id="fourth">
+                    <label for="fourth">How long  is the Registration Process?</label>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione officiis recusandae voluptates mollitia explicabo odit soluta consequuntur ipsam nulla? Quia distinctio ex, expedita quos quod natus saepe provident magni accusantium.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="about-section">
+            <p class="section-title">III. Data Privacy and Security</p>
+            <ul class="accordion">
+                <li>
+                    <input type="radio" name="accordion" id="fifth">
+                    <label for="fifth">How will E-Rehistro ensure the data privacy and security of the informations being uploaded?</label>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione officiis recusandae voluptates mollitia explicabo odit soluta consequuntur ipsam nulla? Quia distinctio ex, expedita quos quod natus saepe provident magni accusantium.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </asp:Content>
 
 <asp:Content ID="ContactsPage" ContentPlaceHolderID="ContactsPage" runat="server">
-    <div id="contacts-page" class="page-container" style="background-color: #FAF7EE">
+    <div id="contacts-page" class="page-container" style="background-color: #FAF7EE;">
     </div>
 </asp:Content>

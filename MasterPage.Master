@@ -18,7 +18,7 @@
                 <div id="nav-links">
                     <ul id="nav-list">
                         <li><asp:LinkButton ID="HomeLink" runat="server" OnClick="Home_Click" CssClass="lnkBtnNavLink">HOME</asp:LinkButton></li>
-                        <li>REGISTRATION</li>
+                        <li><asp:LinkButton ID="RegistrationLink" runat="server" OnClick="Registration_Click" CssClass="lnkBtnNavLink">REGISTRATION</asp:LinkButton></li>
                         <li><asp:LinkButton ID="NewsAndEventsLink" runat="server" OnClick="NewsAndEvents_Click" CssClass="lnkBtnNavLink">NEWS AND EVENTS</asp:LinkButton></li>
                         <li><asp:LinkButton ID="AboutLink" runat="server" OnClick="About_Click" CssClass="lnkBtnNavLink">ABOUT</asp:LinkButton></li>
                         <li><asp:LinkButton ID="ContactsLink" runat="server" OnClick="Contacts_Click" CssClass="lnkBtnNavLink">CONTACT US</asp:LinkButton></li>

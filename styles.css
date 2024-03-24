@@ -19,6 +19,8 @@ html::-webkit-scrollbar {
     display: none;
 }
 
+/*Navigation Bar*/
+
 #nav-bar {
     width: 100vw;
     display: flex;
@@ -57,67 +59,17 @@ html::-webkit-scrollbar {
     color: #E5A73A;
 }
 
+/*Pages*/
+
 .page-container {
     width: 100vw;
     display: flex;
 }
 
+/*Authentication Page*/
+
 #authentication-page {
     height: 100vh;
-}
-
-#home-page {
-    height: calc(100vh - 100px);
-}
-
-#news-page {
-    display: flex;
-    box-sizing: border-box;
-    padding: 70px 50px 70px 50px;
-    flex-wrap: wrap;
-    gap: 50px 0px;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.news-panel {
-    width: 400px;
-    height: 595px;
-    border: 2px solid #A79696;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.news-panel img {
-    width: 400px;
-    height: 400px;
-}
-
-.article-headline {
-    margin: 10px;
-    font-size: 18px;
-    font-weight: 700;
-    text-align: center;
-}
-
-.article-preview {
-    margin: 0 10px 0 10px;
-    text-align: justify;
-}
-
-.btnReadMoreButton {
-    width: 380px;
-    height: 50px;
-    margin: 10px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: #FFFFFF;
-    background-color: #294278;
-    border: none;
-    transition: transform 0.5s ease;
 }
 
 #signin-container,
@@ -281,14 +233,21 @@ html::-webkit-scrollbar {
     cursor: pointer;
 }
 
+/*Home Page*/
+
+#home-page {
+    height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #home-message {
     width: 100vw;
     height: 325px;
-    margin: 25px 0 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     color: #FFFFFF;
     font-weight: 700;
     font-size: 100px;
@@ -296,6 +255,7 @@ html::-webkit-scrollbar {
 
 #shortcut-buttons {
     display: flex;
+    margin: 40px 0 0 0;
     align-items: center;
     justify-content: center;
 }
@@ -316,4 +276,124 @@ html::-webkit-scrollbar {
 
 .btnShortcutButton:hover {
     transform: translateY(-2px);
+}
+
+/*News and Events Page*/
+
+#news-page {
+    display: flex;
+    box-sizing: border-box;
+    padding: 70px 50px 70px 50px;
+    flex-wrap: wrap;
+    gap: 50px 0px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.news-panel {
+    width: 400px;
+    height: 595px;
+    border: 2px solid #A79696;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.news-panel img {
+    width: 400px;
+    height: 400px;
+}
+
+.article-headline {
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.article-preview {
+    margin: 0 10px 0 10px;
+    text-align: justify;
+}
+
+.btnReadMoreButton {
+    width: 380px;
+    height: 50px;
+    margin: 10px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #294278;
+    border: none;
+    transition: transform 0.5s ease;
+}
+
+/*About Page*/
+
+#about-page {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 50px 30px 50px;
+    box-sizing: border-box;
+}
+
+.section-title {
+    margin: 0 20px 0 20px;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.about-section {
+    box-sizing: border-box;
+}
+
+.accordion li {
+    list-style: none;
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    background: #FAF7EE;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
+
+.accordion li label {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+label::before {
+    content: '+';
+    margin-right: 10px;
+    color: #E5A73A;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.accordion .content {
+    color: #555555;
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s, padding 0.5s;
+}
+
+.accordion input[type="radio"]:checked + label + .content {
+    max-height: 400px;
+    padding: 10px 10px 20px;
+}
+
+.accordion input[type="radio"]:checked + label::before {
+    content: '-';
 }
