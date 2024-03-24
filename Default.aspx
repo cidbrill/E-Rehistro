@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="e_rehistro.Default" %>
 
-<asp:Content ID="AuthenticationPage" ContentPlaceHolderID="AuthenticationPage" runat="server">
+<asp:Content ID="AuthenticationPage" ContentPlaceHolderID="AuthenticationPage" runat="server">     
     <div id="authentication-page" class="page-container">
         <div id="authentication-slider">
             <img src="assets/authentication-slider.png" alt="logo_ng_pinas">
@@ -75,5 +75,10 @@
 
 <asp:Content ID="AboutPage" ContentPlaceHolderID="AboutPage" runat="server">
     <div id="about-page" class="page-container" style="background-color: #FAF7EE">
+    </div>
+</asp:Content>
+
+<asp:Content ID="ContactsPage" ContentPlaceHolderID="ContactsPage" runat="server">
+    <div id="contacts-page" class="page-container" style="background-color: #FAF7EE">
     </div>
 </asp:Content>

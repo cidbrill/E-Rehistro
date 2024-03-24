@@ -21,7 +21,7 @@
                         <li>REGISTRATION</li>
                         <li>NEWS AND EVENTS</li>
                         <li><asp:LinkButton ID="AboutLink" runat="server" OnClick="About_Click" CssClass="lnkBtnNavLink">ABOUT</asp:LinkButton></li>
-                        <li>CONTACT US</li>
+                        <li><asp:LinkButton ID="ContactsLink" runat="server" OnClick="Contacts_Click" CssClass="lnkBtnNavLink">CONTACT US</asp:LinkButton></li>
                     </ul>
                 </div>
                 <div id="hamburger-menu" style="width: 100px; box-sizing: border-box; padding-bottom: 4px; display: flex; align-items: center; justify-content: center;">
@@ -30,8 +30,11 @@
             </nav>
         </header>
         <asp:ContentPlaceHolder ID="AuthenticationPage" runat="server" Visible="false"></asp:ContentPlaceHolder>
-        <asp:ContentPlaceHolder ID="HomePage" runat="server" Visible="true"></asp:ContentPlaceHolder>
-        <asp:ContentPlaceHolder ID="AboutPage" runat="server"></asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="HomePage" runat="server" Visible="false"></asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="RegistrationPage" runat="server" Visible="false"></asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="NewsAndEventsPage" runat="server" Visible="false"></asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="AboutPage" runat="server" Visible="false"></asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="ContactsPage" runat="server" Visible="false"></asp:ContentPlaceHolder>
         <footer></footer>
         <script src="script.js"></script>
     </form>

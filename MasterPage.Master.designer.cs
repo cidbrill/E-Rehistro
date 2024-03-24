@@ -33,6 +33,15 @@ namespace e_rehistro
         protected global::System.Web.UI.WebControls.LinkButton AboutLink;
 
         /// <summary>
+        /// ContactsLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton ContactsLink;
+
+        /// <summary>
         /// AuthenticationPage control.
         /// </summary>
         /// <remarks>
@@ -51,6 +60,24 @@ namespace e_rehistro
         protected global::System.Web.UI.WebControls.ContentPlaceHolder HomePage;
 
         /// <summary>
+        /// RegistrationPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder RegistrationPage;
+
+        /// <summary>
+        /// NewsAndEventsPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder NewsAndEventsPage;
+
+        /// <summary>
         /// AboutPage control.
         /// </summary>
         /// <remarks>
@@ -58,5 +85,14 @@ namespace e_rehistro
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder AboutPage;
+
+        /// <summary>
+        /// ContactsPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContactsPage;
     }
 }
