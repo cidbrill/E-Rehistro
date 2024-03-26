@@ -271,6 +271,40 @@
     </div>
 </asp:Content>
 
+<asp:Content ID="UploadDocumentPage" ContentPlaceHolderID="UploadDocumentPage" runat="server">
+    <div id="upload-document-page" class="page-container" style="height: calc(100vh - 100px); background-color: #FAF7EE; display: flex; align-items: center; justify-content: center;">
+        <div class="form-divider" style="width: 50%; box-sizing: border-box; margin: 0 25px 0 25px; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <p style="margin: 5px 0 5px 0; text-align: center; font-size: 35px; font-weight: 700; color: #294278;">UPLOAD 1 VALID IDENTIFICATION DOCUMENT</p>
+            <p style="margin: 5px 0 5px 0; text-align: justify; font-size: 15px; color: #736963;">Please rename the file by incorporating your last name followed by your first name, along with the number of your valid document. The number can be found on the right panel.</p>
+            <p style="margin: 5px 0 5px 0; align-self: flex-start; font-size: 15px; font-weight: 700; color: #E5A73A;">Example: DelaCruz_Juan_1.jpeg</p>
+            <div style="width: 100%; box-sizing: border-box; margin: 5px 0 5px 0;  padding: 10px; background-color: #FFFFFF; border: 2px dashed #000000; border-radius: 50px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <img src="assets/upload-icon.png" style="width: 250px; height: 250px;" />
+                <button id="pseudoFileUploadButton" onclick="clickFileUpload()">CHOOSE FILE</button>
+                <asp:FileUpload ID="fileUploadControl" runat="server" ClientIDMode="Static" CssClass="fileUpload" />
+            </div>
+            <asp:Button runat="server" Text="SUBMIT" CssClass="btnSubmitButton" Style="border-radius: 25px;"></asp:Button>
+        </div>
+        <div class="form-divider" style="width: 50%; box-sizing: border-box; margin: 0 25px 0 25px; padding: 20px; background-color: #FFFFFF; border: 2px solid #000000; border-radius: 25px; display: flex; flex-direction: column; font-size: 15px;">
+            <p style="margin: 0 0 5px 0; font-size: 35px; font-weight: 700; color: #294278;">DOCUMENTARY REQUIREMENTS</p>
+            <p style="margin: 5px 0 5px 0; color: #E5A73A;">A person has to establish his (or her) identity upon filing his (or her) application. The following are valid identification documents:</p>
+            <p style="margin: 5px 0 5px 0; color: #736963;">1. National Identification (ID) card under the Philippine Identification System (PhilSys)</p>
+            <p style="margin: 5px 0 5px 0; color: #736963;">2. Postal ID Card</p>
+            <p style="margin: 5px 0 5px 0; color: #736963;">3. PWD ID Card</p>
+            <p style="margin: 5px 0 5px 0; color: #736963;">4. Student's ID Card or Library Card, signed by the School Authority</p>
+            <p style="margin: 5px 0 5px 0; color: #736963;">5. SC's ID card</p>
+            <p style="margin: 5px 0 5px 0; color: #736963;">6. Land Transportation Office (LTO) Driver's License/Student Permit</p>
+            <p style="margin: 5px 0 5px 0; color: #736963;">7. National Bureau of Investigation (NBI) Clearance</p>
+            <p style="margin: 5px 0 5px 0; color: #736963;">8. Philippine Passport</p>
+            <p style="margin: 5px 0 5px 0; color: #736963;">9. Social Security System (SSS)/Government Service Insurance System (GSIS) or other Unified Multi-Purpose ID card</p>
+            <p style="margin: 5px 0 5px 0; color: #736963;">10. Integrated Bar of the Philippines (IBP) ID Card</p>
+            <p style="margin: 5px 0 5px 0; color: #736963;">11. License issued by the Professional Regulatory Commission (PRC)</p>
+            <p style="margin: 5px 0 5px 0; color: #736963;">12. Certificate of Confirmation issued by the National Commission on Indigenous People (NCIP) in case of members of ICCs or Ips</p>
+            <p style="margin: 5px 0 5px 0; color: #736963;">13. Barangay Identification / Certification with photo</p>
+            <p style="margin: 5px 0 0 0; color: #736963;">14. Any other Government issued valid IDs</p>
+        </div>
+    </div>
+</asp:Content>
+
 <asp:Content ID="NewsAndEventsPage" ContentPlaceHolderID="NewsAndEventsPage" runat="server">
     <div id="news-page" class="page-container" style="background-color: #FAF7EE;">
         <div class="news-panel">
