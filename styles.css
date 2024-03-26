@@ -465,7 +465,7 @@ html {
 
 .fileUpload {
     opacity: 0;
-    /*pointer-events: none;*/
+    pointer-events: none;
 }
 
 #pseudoFileUploadButton {
@@ -487,6 +487,7 @@ html {
 }
 
 /*News and Events Page*/
+
 #news-page {
     display: flex;
     box-sizing: border-box;

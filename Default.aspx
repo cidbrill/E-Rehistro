@@ -279,8 +279,8 @@
             <p style="margin: 5px 0 5px 0; align-self: flex-start; font-size: 15px; font-weight: 700; color: #E5A73A;">Example: DelaCruz_Juan_1.jpeg</p>
             <div style="width: 100%; box-sizing: border-box; margin: 5px 0 5px 0;  padding: 10px; background-color: #FFFFFF; border: 2px dashed #000000; border-radius: 50px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                 <img src="assets/upload-icon.png" style="width: 250px; height: 250px;" />
-                <button id="pseudoFileUploadButton">CHOOSE FILE</button>
-                <asp:FileUpload ID="fileUploadControl" runat="server" CssClass="fileUpload" />
+                <button id="pseudoFileUploadButton" onclick="clickFileUpload()">CHOOSE FILE</button>
+                <asp:FileUpload ID="fileUploadControl" runat="server" ClientIDMode="Static" CssClass="fileUpload" />
             </div>
             <asp:Button runat="server" Text="SUBMIT" CssClass="btnSubmitButton" Style="border-radius: 25px;"></asp:Button>
         </div>
