@@ -28,7 +28,8 @@ namespace e_rehistro
 
         protected void Contacts_Click(object sender, EventArgs e)
         {
-
+            HomePage.Visible = false;
+            ContactsPage.Visible = true;
         }
     }
 }
