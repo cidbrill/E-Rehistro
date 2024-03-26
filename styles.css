@@ -288,6 +288,45 @@ html::-webkit-scrollbar {
     justify-content: center;
 }
 
+#page-indicator {
+    height: 50px;
+    margin: 10px 0 10px 0;
+    display: flex;
+    border-top: 3px solid #717171;
+    border-bottom: 2px solid #717171;
+}
+
+.page-text {
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.page-text img {
+    width: 40px;
+    height: 40px;
+}
+
+.page-text p {
+    font-size: 25px;
+    font-weight: 600;
+    color: #294278;
+}
+
+.triangle-right {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    border: 3px solid #717171;
+    transform: translate(-50%, -50%) rotate(45deg);
+    top: 25px;
+    left: 25px;
+    border-left: none;
+    border-bottom: none;
+
+}
+
 .steps-container {
     width: 400px;
     height: 100%;
@@ -354,18 +393,38 @@ html::-webkit-scrollbar {
 }
 
 #first-registration-form {
+    padding: 30px 0 0 0;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
 .form-divider {
-    height: calc(100vh - 100px);
+    margin: 0 25px 0 25px;
     font-size: 20px;
 }
 
 .txtRegistrationField {
     height: 30px;
+}
+
+.btnNextPageButton {
+    width: 150px;
+    height: 50px;
+    position: relative;
+    left: calc(475px - 150px);
+    margin: 15px 0 0 0;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #294278;
+    border: solid 2px #294278;
+    transition: transform 0.5s ease;
+}
+
+.btnNextPageButton:hover {
+    transform: translateY(-2px);
 }
 
 /*News and Events Page*/

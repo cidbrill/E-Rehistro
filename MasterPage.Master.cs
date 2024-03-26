@@ -19,6 +19,7 @@ namespace e_rehistro
             AuthenticationPage.Visible = false;
             HomePage.Visible = true;
             RegistrationPage.Visible = false;
+            FirstRegistrationForm.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = false;
             ContactsPage.Visible = false;
@@ -29,6 +30,7 @@ namespace e_rehistro
             AuthenticationPage.Visible = false;
             HomePage.Visible = false;
             RegistrationPage.Visible = true;
+            FirstRegistrationForm.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = false;
             ContactsPage.Visible = false;
@@ -39,6 +41,7 @@ namespace e_rehistro
             AuthenticationPage.Visible = false;
             HomePage.Visible = false;
             RegistrationPage.Visible = false;
+            FirstRegistrationForm.Visible = false;
             NewsAndEventsPage.Visible = true;
             AboutPage.Visible = false;
             ContactsPage.Visible = false;
@@ -49,6 +52,7 @@ namespace e_rehistro
             AuthenticationPage.Visible = false;
             HomePage.Visible = false;
             RegistrationPage.Visible = false;
+            FirstRegistrationForm.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = true;
             ContactsPage.Visible = false;
@@ -59,6 +63,7 @@ namespace e_rehistro
             AuthenticationPage.Visible = false;
             HomePage.Visible = false;
             RegistrationPage.Visible = false;
+            FirstRegistrationForm.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = false;
             ContactsPage.Visible = true;
