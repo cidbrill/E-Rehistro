@@ -15,9 +15,9 @@ html {
     background: #FAF7EE;
 }
 
-html::-webkit-scrollbar {
-    display: none;
-}
+    html::-webkit-scrollbar {
+        display: none;
+    }
 
 /*Navigation Bar*/
 
@@ -45,9 +45,9 @@ html::-webkit-scrollbar {
     padding: 0;
 }
 
-#nav-list li {
-    display: inline;
-}
+    #nav-list li {
+        display: inline;
+    }
 
 .lnkBtnNavLink {
     text-decoration: none;
@@ -55,9 +55,9 @@ html::-webkit-scrollbar {
     cursor: pointer;
 }
 
-.lnkBtnNavLink:hover {
-    color: #E5A73A;
-}
+    .lnkBtnNavLink:hover {
+        color: #E5A73A;
+    }
 
 /*Authentication Page*/
 
@@ -131,11 +131,11 @@ html::-webkit-scrollbar {
     cursor: default;
 }
 
-.website-title img {
-    width: 50px;
-    height: 50px;
-    margin: 0 10px 0 0;
-}
+    .website-title img {
+        width: 50px;
+        height: 50px;
+        margin: 0 10px 0 0;
+    }
 
 #signin-message,
 #signup-message {
@@ -158,17 +158,17 @@ html::-webkit-scrollbar {
     margin: 15px 0;
 }
 
-.input-field label {
-    position: absolute;
-    top: 50%;
-    left: 90px;
-    transform: translateY(-50%);
-    font-size: 16px;
-    color: #161B2B;
-    padding: 0 5px;
-    pointer-events: none;
-    transition: 0.3s;
-}
+    .input-field label {
+        position: absolute;
+        top: 50%;
+        left: 90px;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #161B2B;
+        padding: 0 5px;
+        pointer-events: none;
+        transition: 0.3s;
+    }
 
 .txtInputField {
     width: 400px;
@@ -184,14 +184,14 @@ html::-webkit-scrollbar {
     transition: 0.3s;
 }
 
-.txtInputField:focus ~ label,
-.txtInputField:valid ~ label {
-    top: 5px;
-    font-size: 12px;
-    color: white;
-    background-color: #000000;
-    border-radius: 5px;
-}
+    .txtInputField:focus ~ label,
+    .txtInputField:valid ~ label {
+        top: 5px;
+        font-size: 12px;
+        color: white;
+        background-color: #000000;
+        border-radius: 5px;
+    }
 
 #signin-button,
 #signup-button {
@@ -212,9 +212,9 @@ html::-webkit-scrollbar {
     transition: transform 0.5s ease;
 }
 
-.btnSubmitForm:hover {
-    transform: translateY(-2px);
-}
+    .btnSubmitForm:hover {
+        transform: translateY(-2px);
+    }
 
 #switch-to-signup,
 #switch-to-signin {
@@ -274,9 +274,9 @@ html::-webkit-scrollbar {
     transition: transform 0.5s ease;
 }
 
-.btnShortcutButton:hover {
-    transform: translateY(-2px);
-}
+    .btnShortcutButton:hover {
+        transform: translateY(-2px);
+    }
 
 /*Registration Page*/
 
@@ -288,7 +288,7 @@ html::-webkit-scrollbar {
     justify-content: center;
 }
 
-#page-indicator {
+.page-indicator {
     height: 50px;
     margin: 10px 0 10px 0;
     display: flex;
@@ -303,16 +303,16 @@ html::-webkit-scrollbar {
     justify-content: space-evenly;
 }
 
-.page-text img {
-    width: 40px;
-    height: 40px;
-}
+    .page-text img {
+        width: 40px;
+        height: 40px;
+    }
 
-.page-text p {
-    font-size: 25px;
-    font-weight: 600;
-    color: #294278;
-}
+    .page-text p {
+        font-size: 25px;
+        font-weight: 600;
+        color: #294278;
+    }
 
 .triangle-right {
     width: 35px;
@@ -324,7 +324,6 @@ html::-webkit-scrollbar {
     left: 25px;
     border-left: none;
     border-bottom: none;
-
 }
 
 .steps-container {
@@ -388,9 +387,9 @@ html::-webkit-scrollbar {
     transition: transform 0.5s ease;
 }
 
-.btnRegistrationButton:hover {
-    transform: translateY(-2px);
-}
+    .btnRegistrationButton:hover {
+        transform: translateY(-2px);
+    }
 
 #first-registration-form {
     padding: 30px 0 0 0;
@@ -423,8 +422,50 @@ html::-webkit-scrollbar {
     transition: transform 0.5s ease;
 }
 
-.btnNextPageButton:hover {
-    transform: translateY(-2px);
+    .btnNextPageButton:hover {
+        transform: translateY(-2px);
+    }
+
+#second-registration-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.radioButtonList input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    display: flex;
+}
+
+.radioButtonList label {
+    margin-left: 10px;
+}
+
+    .radioButtonList label::before {
+        display: none;
+    }
+
+.radioButtonList span {
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnSubmitButton {
+    width: 300px;
+    height: 50px;
+    margin: 20px 0 20px 0;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #294278;
+    border: solid 2px #294278;
+    transition: transform 0.5s ease;
 }
 
 /*News and Events Page*/
@@ -448,10 +489,10 @@ html::-webkit-scrollbar {
     align-items: center;
 }
 
-.news-panel img {
-    width: 400px;
-    height: 400px;
-}
+    .news-panel img {
+        width: 400px;
+        height: 400px;
+    }
 
 .article-headline {
     margin: 10px;
@@ -508,14 +549,14 @@ html::-webkit-scrollbar {
     box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
 }
 
-.accordion li label {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-}
+    .accordion li label {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+    }
 
 label::before {
     content: '+';

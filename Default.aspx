@@ -121,7 +121,7 @@
 </asp:Content>
 
 <asp:Content ID="FirstRegistrationForm" ContentPlaceHolderID="FirstRegistrationForm" runat="server">
-    <div id="page-indicator">
+    <div class="page-indicator">
         <div class="page-text">
             <img src="assets/page-one.png" />
             <p>Personal Information</p>
@@ -138,7 +138,7 @@
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">NAME</p>
             <div style="display: flex; align-items: center; justify-content: space-between;">
                 <div style="display: flex; flex-direction: column;">
-                    <div style="margin: 5px 0 5px 0px; display: flex; margin;">
+                    <div style="margin: 5px 0 5px 0px; display: flex;">
                         <p style="color: #736963;">First</p>
                         <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 325px; margin: 0 0 0 20px;"></asp:TextBox>
                     </div>
@@ -179,11 +179,11 @@
             </div>
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">CITIZENSHIP</p>
             <div style="margin: 5px 0 5px 0px;">
-                <ul>
-                    <asp:CheckBox runat="server" Text="By Birth" Style="color: #736963;" />
-                    <asp:CheckBox runat="server" Text="Naturalized" Style="color: #736963;" />
-                    <asp:CheckBox runat="server" Text="Reacquired" Style="color: #736963;" />
-                </ul>
+                <asp:RadioButtonList runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
+                    <asp:ListItem Text="By Birth" Value="By Birth" Style="color: #736963;" />
+                    <asp:ListItem Text="Naturalized" Value="Naturalized" Style="color: #736963;" />
+                    <asp:ListItem Text="Reacquired" Value="Reacquired" Style="color: #736963;" />
+                </asp:RadioButtonList>
             </div>
             <p style="margin: 5px 0 5px 0px; font-size: 15px; text-align: center; color: #736963;">(If naturalized/reacquired, state date of naturalization/reacquisition and Certificate Number of naturalization/order of approval of reacquisition)</p>
             <div style="margin: 5px 0 5px 0px; display: flex; align-items: center; justify-content: space-between; color: #736963;">
@@ -200,10 +200,10 @@
         <div class="form-divider" style="width: 475px;">
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">SEX</p>
             <div style="margin: 5px 0 5px 0px;">
-                <ul>
-                    <asp:CheckBox runat="server" Text="Male" Style="color: #736963;" />
-                    <asp:CheckBox runat="server" Text="Female" Style="color: #736963;" />
-                </ul>
+                <asp:RadioButtonList runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
+                    <asp:ListItem Text="Male" Value="Male" Style="color: #736963;" />
+                    <asp:ListItem Text="Female" Value="Female" Style="color: #736963;" />
+                </asp:RadioButtonList>
             </div>
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">DATE OF BIRTH</p>
             <div style="margin: 5px 0 5px 0px; display: flex; flex-direction: column;">
@@ -230,6 +230,43 @@
             <div>
                 <asp:Button CssClass="btnNextPageButton" runat="server" Text="NEXT"></asp:Button>
             </div>
+        </div>
+    </div>
+</asp:Content>
+
+<asp:Content ID="SecondRegistrationForm" ContentPlaceHolderID="SecondRegistrationForm" runat="server">
+    <div class="page-indicator">
+        <div class="page-text">
+            <img src="assets/page-one.png" />
+            <p>Personal Information</p>
+        </div>
+        <div class="triangle-right"></div>
+        <div class="page-text">
+            <img src="assets/page-two.png" />
+            <p>Oath and Consent</p>
+        </div>
+        <div class="triangle-right"></div>
+    </div>
+    <div id="second-registration-form" class="page-container" style="height: calc(100vh - 174px); background-color: #FAF7EE;">
+        <div class="form-divider" style="width: 1155px; display: flex; flex-direction: column; align-items: center;">
+            <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">OATH, NOTICE, and CONSENT (REGULAR)</p>
+            <div style="margin: 5px 0 5px 0px;">
+                <asp:RadioButtonList runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
+                    <asp:ListItem Text="REGISTRATION" Value="Registration" Style="font-weight: 700; color: #294278;" />
+                    <asp:ListItem Text="TRANSFER" Value="Transfer" Style="font-weight: 700; color: #294278;" />
+                </asp:RadioButtonList>
+            </div>
+            <p style="margin: 5px 0 5px 0px; text-align:justify; color: #736963;">I do solemnly swear that the above statements regarding my person are true and correct; that I possess all the qualifications and none of the disqualifications of a voter; and that I am:</p>
+            <div style="margin: 5px 0 5px 0px;">
+                <asp:RadioButtonList runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
+                    <asp:ListItem Text="not registered at the<br>precinct" Value="notRegisteredInPrecinct" Style="text-align: center; color: #736963;" />
+                    <asp:ListItem Text="registered in a precinct of another City/<br>Municipality/District in the Philippines" Value="registeredInPrecinct" Style="text-align: center; color: #736963;" />
+                </asp:RadioButtonList>
+            </div>
+            <p style="margin: 5px 0 5px 0px; text-align:justify; color: #736963;">and that I have reviewed the entries encoded in the VRS and I  confirm that the same are correct, accurate and consistent with  the information I supplied in this application form. Further, by  affixing my signature below, I authorize and give my consent to  the Commission on Elections and the concerned Election  Registration Board to collect and process the personal data I  supplied herein for purposes of voter registration and  elections, and for other purposes and allowable disclosures  under B.P. Blg. 881, R.A. No. 8189, 10173 and 10367, and the  relevant Resolutions of the Commission on Elections.</p>
+        </div>
+        <div>
+            <asp:Button runat="server" Text="SUBMIT" CssClass="btnSubmitButton"></asp:Button>
         </div>
     </div>
 </asp:Content>

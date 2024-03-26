@@ -34,6 +34,7 @@
         <asp:ContentPlaceHolder ID="RegistrationPage" runat="server" Visible="false"></asp:ContentPlaceHolder>
 
         <asp:ContentPlaceHolder ID="FirstRegistrationForm" runat="server" Visible="true"></asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="SecondRegistrationForm" runat="server" Visible="false"></asp:ContentPlaceHolder>
 
         <asp:ContentPlaceHolder ID="NewsAndEventsPage" runat="server" Visible="false"></asp:ContentPlaceHolder>
         <asp:ContentPlaceHolder ID="AboutPage" runat="server" Visible="false"></asp:ContentPlaceHolder>
