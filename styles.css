@@ -45,9 +45,9 @@ html {
     padding: 0;
 }
 
-    #nav-list li {
-        display: inline;
-    }
+#nav-list li {
+    display: inline;
+}
 
 .lnkBtnNavLink {
     text-decoration: none;
@@ -55,9 +55,9 @@ html {
     cursor: pointer;
 }
 
-    .lnkBtnNavLink:hover {
-        color: #E5A73A;
-    }
+.lnkBtnNavLink:hover {
+    color: #E5A73A;
+}
 
 /*Authentication Page*/
 
@@ -131,11 +131,11 @@ html {
     cursor: default;
 }
 
-    .website-title img {
-        width: 50px;
-        height: 50px;
-        margin: 0 10px 0 0;
-    }
+.website-title img {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px 0 0;
+}
 
 #signin-message,
 #signup-message {
@@ -158,17 +158,17 @@ html {
     margin: 15px 0;
 }
 
-    .input-field label {
-        position: absolute;
-        top: 50%;
-        left: 90px;
-        transform: translateY(-50%);
-        font-size: 16px;
-        color: #161B2B;
-        padding: 0 5px;
-        pointer-events: none;
-        transition: 0.3s;
-    }
+.input-field label {
+    position: absolute;
+    top: 50%;
+    left: 90px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #161B2B;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: 0.3s;
+}
 
 .txtInputField {
     width: 400px;
@@ -184,14 +184,14 @@ html {
     transition: 0.3s;
 }
 
-    .txtInputField:focus ~ label,
-    .txtInputField:valid ~ label {
-        top: 5px;
-        font-size: 12px;
-        color: white;
-        background-color: #000000;
-        border-radius: 5px;
-    }
+.txtInputField:focus ~ label,
+.txtInputField:valid ~ label {
+    top: 5px;
+    font-size: 12px;
+    color: white;
+    background-color: #000000;
+    border-radius: 5px;
+}
 
 #signin-button,
 #signup-button {
@@ -212,9 +212,9 @@ html {
     transition: transform 0.5s ease;
 }
 
-    .btnSubmitForm:hover {
-        transform: translateY(-2px);
-    }
+.btnSubmitForm:hover {
+    transform: translateY(-2px);
+}
 
 #switch-to-signup,
 #switch-to-signin {
@@ -274,9 +274,9 @@ html {
     transition: transform 0.5s ease;
 }
 
-    .btnShortcutButton:hover {
-        transform: translateY(-2px);
-    }
+.btnShortcutButton:hover {
+    transform: translateY(-2px);
+}
 
 /*Registration Page*/
 
@@ -303,16 +303,16 @@ html {
     justify-content: space-evenly;
 }
 
-    .page-text img {
-        width: 40px;
-        height: 40px;
-    }
+.page-text img {
+    width: 40px;
+    height: 40px;
+}
 
-    .page-text p {
-        font-size: 25px;
-        font-weight: 600;
-        color: #294278;
-    }
+.page-text p {
+    font-size: 25px;
+    font-weight: 600;
+    color: #294278;
+}
 
 .triangle-right {
     width: 35px;
@@ -387,9 +387,9 @@ html {
     transition: transform 0.5s ease;
 }
 
-    .btnRegistrationButton:hover {
-        transform: translateY(-2px);
-    }
+.btnRegistrationButton:hover {
+    transform: translateY(-2px);
+}
 
 #first-registration-form {
     padding: 30px 0 0 0;
@@ -422,9 +422,9 @@ html {
     transition: transform 0.5s ease;
 }
 
-    .btnNextPageButton:hover {
-        transform: translateY(-2px);
-    }
+.btnNextPageButton:hover {
+    transform: translateY(-2px);
+}
 
 #second-registration-form {
     display: flex;
@@ -436,16 +436,11 @@ html {
 .radioButtonList input[type="radio"] {
     width: 20px;
     height: 20px;
-    display: flex;
 }
 
 .radioButtonList label {
     margin-left: 10px;
 }
-
-    .radioButtonList label::before {
-        display: none;
-    }
 
 .radioButtonList span {
     margin-right: 25px;
@@ -468,8 +463,30 @@ html {
     transition: transform 0.5s ease;
 }
 
-/*News and Events Page*/
+.fileUpload {
+    opacity: 0;
+    /*pointer-events: none;*/
+}
 
+#pseudoFileUploadButton {
+    width: 300px;
+    height: 50px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #E5A73A;
+    border: none;
+    border-radius: 25px;
+    transition: transform 0.5s ease;
+}
+
+#pseudoFileUploadButton:hover {
+    transform: translateY(-2px);
+}
+
+/*News and Events Page*/
 #news-page {
     display: flex;
     box-sizing: border-box;
@@ -489,10 +506,10 @@ html {
     align-items: center;
 }
 
-    .news-panel img {
-        width: 400px;
-        height: 400px;
-    }
+.news-panel img {
+    width: 400px;
+    height: 400px;
+}
 
 .article-headline {
     margin: 10px;
@@ -539,7 +556,7 @@ html {
     box-sizing: border-box;
 }
 
-.accordion li {
+#about-page li {
     list-style: none;
     margin: 20px;
     padding: 10px;
@@ -549,16 +566,16 @@ html {
     box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
 }
 
-    .accordion li label {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        font-size: 18px;
-        font-weight: 500;
-        cursor: pointer;
-    }
+#about-page li label {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
 
-label::before {
+#about-page label::before {
     content: '+';
     margin-right: 10px;
     color: #E5A73A;
@@ -566,11 +583,11 @@ label::before {
     font-weight: 600;
 }
 
-input[type="radio"] {
+#about-page input[type="radio"] {
     display: none;
 }
 
-.accordion .content {
+#about-page .content {
     color: #555555;
     padding: 0 10px;
     line-height: 26px;
@@ -579,11 +596,11 @@ input[type="radio"] {
     transition: max-height 0.5s, padding 0.5s;
 }
 
-.accordion input[type="radio"]:checked + label + .content {
+#about-page input[type="radio"]:checked + label + .content {
     max-height: 400px;
     padding: 10px 10px 20px;
 }
 
-.accordion input[type="radio"]:checked + label::before {
+#about-page input[type="radio"]:checked + label::before {
     content: '-';
 }

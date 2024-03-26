@@ -46,3 +46,11 @@ const switchToSignUp = document.getElementById('sign-up');
 
 switchToSignIn.addEventListener('click', toggleAuthenticationSlider);
 switchToSignUp.addEventListener('click', toggleAuthenticationSlider);
+
+function clickFileUpload() {
+    alert("1");
+    document.getElementById('<%= fileUploadControl.ClientID %>').click();
+}
+
+const pseudoFileUploadButton = document.getElementById('pseudoFileUploadButton');
+pseudoFileUploadButton.addEventListener('click', clickFileUpload);
