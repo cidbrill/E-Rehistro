@@ -59,13 +59,6 @@ html::-webkit-scrollbar {
     color: #E5A73A;
 }
 
-/*Pages*/
-
-.page-container {
-    width: 100vw;
-    display: flex;
-}
-
 /*Authentication Page*/
 
 #authentication-page {
@@ -233,6 +226,13 @@ html::-webkit-scrollbar {
     cursor: pointer;
 }
 
+/*Pages*/
+
+.page-container {
+    width: 100vw;
+    display: flex;
+}
+
 /*Home Page*/
 
 #home-page {
@@ -276,6 +276,96 @@ html::-webkit-scrollbar {
 
 .btnShortcutButton:hover {
     transform: translateY(-2px);
+}
+
+/*Registration Page*/
+
+#registration-page {
+    height: calc(100vh - 100px);
+    padding: 55px 0px 0px 0px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+}
+
+.steps-container {
+    width: 400px;
+    height: 100%;
+    padding: 5px 30px 30px 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.next-step-indicator {
+    width: 60px;
+    height: 60px;
+    display: flex;
+}
+
+.instruction {
+    width: 100%;
+    height: 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.step-count {
+    font-size: 150px;
+    font-weight: 700;
+    color: #294278;
+}
+
+.step-title {
+    font-size: 25px;
+    font-weight: 700;
+    color: #294278;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
+
+.step-description-container {
+    height: 75px;
+    display: flex;
+    align-items: center;
+}
+
+.step-description {
+    font-size: 18px;
+    color: #736C6D;
+}
+
+.btnRegistrationButton {
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #294278;
+    background-color: transparent;
+    border: solid 2px #294278;
+    border-radius: 15px;
+    transition: transform 0.5s ease;
+}
+
+.btnRegistrationButton:hover {
+    transform: translateY(-2px);
+}
+
+#first-registration-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-divider {
+    height: calc(100vh - 100px);
+    font-size: 20px;
+}
+
+.txtRegistrationField {
+    height: 30px;
 }
 
 /*News and Events Page*/

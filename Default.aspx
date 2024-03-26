@@ -73,6 +73,124 @@
     </div>
 </asp:Content>
 
+<asp:Content ID="RegistrationPage" ContentPlaceHolderID="RegistrationPage" runat="server">
+    <div id="registration-page" class="page-container" style="background-color: #FAF7EE;">
+        <div class="steps-container">
+            <div class="instruction">
+                <p style="font-size: 35px; font-weight: 700; color: #294278;">How it works</p>
+                <p style="font-size: 20px; color: #736C6D;">Get started with 3 easy steps</p>
+            </div>
+            <p class="step-count">1</p>
+            <p class="step-title">Complete Personal Details</p>
+            <div class="step-description-container">
+                <p class="step-description">Fill out the Personal Information Form</p>
+            </div>
+            <div class="step-container-button">
+                <asp:Button ID="btnCompleteFormButton" runat="server" Text="COMPLETE FORM" CssClass="btnRegistrationButton" />
+            </div>
+        </div>
+        <div class="next-step-indicator">
+            <img src="assets/next-step-indicator.png" />
+        </div>
+        <div class="steps-container">
+            <div class="instruction"></div>
+            <p class="step-count">2</p>
+            <p class="step-title">Documents</p>
+            <div class="step-description-container">
+                <p class="step-description">Upload required documents</p>
+            </div>
+            <div class="step-container-button">
+                <asp:Button ID="btnUploadDocumentButton" runat="server" Text="UPLOAD DOCUMENT" CssClass="btnRegistrationButton" />
+            </div>
+        </div>
+        <div class="next-step-indicator">
+            <img src="assets/next-step-indicator.png" />
+        </div>
+        <div class="steps-container">
+            <div class="instruction"></div>
+            <p class="step-count">3</p>
+            <p class="step-title">Verification</p>
+            <div class="step-description-container">
+                <p class="step-description">Wait for verification</p>
+            </div>
+            <div class="step-container-button">
+                <asp:Button ID="btnViewStatusButton" runat="server" Text="VIEW STATUS" CssClass="btnRegistrationButton" />
+            </div>
+        </div>
+    </div>
+</asp:Content>
+
+<asp:Content ID="FirstRegistrationForm" ContentPlaceHolderID="FirstRegistrationForm" runat="server">
+    <div id="first-registration-form" class="page-container" style="background-color: #FAF7EE;">
+        <div class="form-divider" style="width: 630px;">
+            <p style="margin: 5px 0 5px 0px; font-weight: 700;">NAME</p>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; flex-direction: column;">
+                    <div style="margin: 5px 0 5px 0px; display: flex; margin;">
+                        <p>First</p>
+                        <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 325px; margin: 0 0 0 20px;"></asp:TextBox>
+                    </div>
+                    <div style="margin: 5px 0 5px 0px; display: flex;">
+                        <p>Last</p>
+                        <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 325px; margin: 0 0 0 20px;"></asp:TextBox>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <div style="margin: 5px 0 5px 0px; display: flex;">
+                        <p>Middle</p>
+                        <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 140px; margin: 0 0 0 20px;"></asp:TextBox>
+                    </div>
+                    <div style="margin: 5px 0 5px 0px; display: flex;">
+                        <p>Suffix</p>
+                        <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 140px; margin: 0 0 0 35px;"></asp:TextBox>
+                    </div>
+                </div>
+            </div>
+            <p style="margin: 5px 0 5px 0px; font-weight: 700;">RESIDENCE/ADDRESS</p>
+            <div style="margin: 5px 0 5px 0px; display: flex; flex-direction: column;">
+                <p>House No./ Street</p>
+                <asp:TextBox runat="server" CssClass="txtRegistrationField"></asp:TextBox>
+            </div>
+            <div style="margin: 5px 0 5px 0px; display: flex; justify-content: space-between;">
+                <div>
+                    <p>Baranggay/Sitio/Purok</p>
+                    <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
+                </div>
+                <div>
+                    <p>City/Municipality</p>
+                    <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
+                </div>
+            </div>
+            <div style="margin: 5px 0 5px 0px; display: flex; flex-direction: column;">
+                <p>Province</p>
+                <asp:TextBox runat="server" CssClass="txtRegistrationField"></asp:TextBox>
+            </div>
+            <p style="margin: 5px 0 5px 0px; font-weight: 700;">CITIZENSHIP</p>
+            <div style="margin: 5px 0 5px 0px;">
+                <ul>
+                    <asp:CheckBox runat="server" Text="By Birth" />
+                    <asp:CheckBox runat="server" Text="Naturalized" />
+                    <asp:CheckBox runat="server" Text="Reacquired" />
+                </ul>
+            </div>
+            <p style="margin: 5px 0 5px 0px; font-size: 15px; text-align: center;">(If naturalized/reacquired, state date of naturalization/reacquisition and Certificate Number of naturalization/order of approval of reacquisition)</p>
+            <div style="margin: 5px 0 5px 0px; display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center;">
+                    <p style="font-size: 15px;">Date of Naturalization/<br>Reacquisition</p>
+                    <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 135px; margin: 0 0 0 20px;"></asp:TextBox>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <p style="font-size: 15px;">Certificate No./<br>Order of Approval</p>
+                    <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 135px; margin: 0 0 0 20px;"></asp:TextBox>
+                </div>
+            </div>
+        </div>
+        <div class="form-divider" style="width: 475px;">
+
+        </div>
+    </div>
+</asp:Content>
+
 <asp:Content ID="NewsAndEventsPage" ContentPlaceHolderID="NewsAndEventsPage" runat="server">
     <div id="news-page" class="page-container" style="background-color: #FAF7EE;">
         <div class="news-panel">
