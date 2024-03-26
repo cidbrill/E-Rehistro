@@ -140,46 +140,46 @@
                 <div style="display: flex; flex-direction: column;">
                     <div style="margin: 5px 0 5px 0px; display: flex;">
                         <p style="color: #736963;">First</p>
-                        <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 325px; margin: 0 0 0 20px;"></asp:TextBox>
+                        <asp:TextBox ID="firstName" runat="server" CssClass="txtRegistrationField" Style="width: 325px; margin: 0 0 0 20px;"></asp:TextBox>
                     </div>
                     <div style="margin: 5px 0 5px 0px; display: flex;">
                         <p style="color: #736963;">Last</p>
-                        <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 325px; margin: 0 0 0 20px;"></asp:TextBox>
+                        <asp:TextBox ID="lastName" runat="server" CssClass="txtRegistrationField" Style="width: 325px; margin: 0 0 0 20px;"></asp:TextBox>
                     </div>
                 </div>
                 <div style="display: flex; flex-direction: column;">
                     <div style="margin: 5px 0 5px 0px; display: flex;">
                         <p style="color: #736963;">Middle</p>
-                        <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 140px; margin: 0 0 0 20px;"></asp:TextBox>
+                        <asp:TextBox ID="middleName" runat="server" CssClass="txtRegistrationField" Style="width: 140px; margin: 0 0 0 20px;"></asp:TextBox>
                     </div>
                     <div style="margin: 5px 0 5px 0px; display: flex;">
                         <p style="color: #736963;">Suffix</p>
-                        <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 140px; margin: 0 0 0 35px;"></asp:TextBox>
+                        <asp:TextBox ID="suffix" runat="server" CssClass="txtRegistrationField" Style="width: 140px; margin: 0 0 0 35px;"></asp:TextBox>
                     </div>
                 </div>
             </div>
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">RESIDENCE/ADDRESS</p>
             <div style="margin: 5px 0 5px 0px; display: flex; flex-direction: column;">
                 <p style="color: #736963;">House No./ Street</p>
-                <asp:TextBox runat="server" CssClass="txtRegistrationField"></asp:TextBox>
+                <asp:TextBox ID="houseNum" runat="server" CssClass="txtRegistrationField"></asp:TextBox>
             </div>
             <div style="margin: 5px 0 5px 0px; display: flex; justify-content: space-between;">
                 <div>
                     <p style="color: #736963;">Baranggay/Sitio/Purok</p>
-                    <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
+                    <asp:TextBox ID="barangay" runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
                 </div>
                 <div>
                     <p style="color: #736963;">City/Municipality</p>
-                    <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
+                    <asp:TextBox ID="municipality" runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
                 </div>
             </div>
             <div style="margin: 5px 0 5px 0px; display: flex; flex-direction: column;">
                 <p style="color: #736963;">Province</p>
-                <asp:TextBox runat="server" CssClass="txtRegistrationField"></asp:TextBox>
+                <asp:TextBox ID="prov" runat="server" CssClass="txtRegistrationField"></asp:TextBox>
             </div>
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">CITIZENSHIP</p>
             <div style="margin: 5px 0 5px 0px;">
-                <asp:RadioButtonList runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
+                <asp:RadioButtonList ID="citizenship" runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
                     <asp:ListItem Text="By Birth" Value="By Birth" Style="color: #736963;" />
                     <asp:ListItem Text="Naturalized" Value="Naturalized" Style="color: #736963;" />
                     <asp:ListItem Text="Reacquired" Value="Reacquired" Style="color: #736963;" />
@@ -189,46 +189,46 @@
             <div style="margin: 5px 0 5px 0px; display: flex; align-items: center; justify-content: space-between; color: #736963;">
                 <div style="display: flex; align-items: center;">
                     <p style="font-size: 15px; color: #736963;">Date of Naturalization/<br>Reacquisition</p>
-                    <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 135px; margin: 0 0 0 20px;"></asp:TextBox>
+                    <asp:TextBox ID="dateOfNat" runat="server" CssClass="txtRegistrationField" Style="width: 135px; margin: 0 0 0 20px;"></asp:TextBox>
                 </div>
                 <div style="display: flex; align-items: center;">
                     <p style="font-size: 15px; color: #736963;">Certificate No./<br>Order of Approval</p>
-                    <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 135px; margin: 0 0 0 20px;"></asp:TextBox>
+                    <asp:TextBox ID="certNo" runat="server" CssClass="txtRegistrationField" Style="width: 135px; margin: 0 0 0 20px;"></asp:TextBox>
                 </div>
             </div>
         </div>
         <div class="form-divider" style="width: 475px;">
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">SEX</p>
             <div style="margin: 5px 0 5px 0px;">
-                <asp:RadioButtonList runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
+                <asp:RadioButtonList ID="gender" runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
                     <asp:ListItem Text="Male" Value="Male" Style="color: #736963;" />
                     <asp:ListItem Text="Female" Value="Female" Style="color: #736963;" />
                 </asp:RadioButtonList>
             </div>
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">DATE OF BIRTH</p>
             <div style="margin: 5px 0 5px 0px; display: flex; flex-direction: column;">
-                <asp:TextBox runat="server" CssClass="txtRegistrationField"></asp:TextBox>
+                <asp:TextBox ID="birthDate" runat="server" CssClass="txtRegistrationField"></asp:TextBox>
             </div>
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">PLACE OF BIRTH</p>
             <div style="margin: 5px 0 5px 0px; display: flex; flex-direction: column;">
                 <p style="color: #736963;">City/Municipality</p>
-                <asp:TextBox runat="server" CssClass="txtRegistrationField"></asp:TextBox>
+                <asp:TextBox ID="birthCity" runat="server" CssClass="txtRegistrationField"></asp:TextBox>
             </div>
             <div style="margin: 5px 0 5px 0px; display: flex; flex-direction: column;">
                 <p style="color: #736963;">Province</p>
-                <asp:TextBox runat="server" CssClass="txtRegistrationField"></asp:TextBox>
+                <asp:TextBox ID="birthProvince" runat="server" CssClass="txtRegistrationField"></asp:TextBox>
             </div>
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">PARENT'S NAME</p>
             <div style="margin: 5px 0 5px 0px; display: flex; justify-content: space-between">
                 <p style="color: #736963;">Father's Name</p>
-                <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
+                <asp:TextBox ID="fatherName" runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
             </div>
             <div style="margin: 5px 0 5px 0px; display: flex; justify-content: space-between">
                 <p style="color: #736963;">Mother's Name</p>
-                <asp:TextBox runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
+                <asp:TextBox ID="motherName" runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
             </div>
             <div>
-                <asp:Button CssClass="btnNextPageButton" runat="server" Text="NEXT"></asp:Button>
+                <asp:Button CssClass="btnNextPageButton" runat="server" Text="NEXT" OnClick="Next_Clicked"></asp:Button>
             </div>
         </div>
     </div>
