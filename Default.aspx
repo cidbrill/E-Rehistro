@@ -76,21 +76,21 @@
 <asp:Content ID="NewsAndEventsPage" ContentPlaceHolderID="NewsAndEventsPage" runat="server">
     <div id="news-page" class="page-container" style="background-color: #FAF7EE">
         <div class="news-panel">
-            <img src="assets/unloaded-image.png" alt="article_image" />
-            <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor</p>
-            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor sit amet metus...</p>
+            <img src="assets/Nationwide.png" alt="article_image" />
+            <p class="article-headline">E-Rehistro Launches Nationwide Voter ID Registration Drive, Bringing Convenience</p>
+            <p class="article-preview">E-Rehistro, the leading online platform for voter registration in the Philippines, initiates a comprehensive nationwide campaign to...</p>
             <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
         </div>
         <div class="news-panel">
-            <img src="assets/unloaded-image.png" alt="article_image" />
-            <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor</p>
-            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor sit amet metus...</p>
+            <img src="assets/Biometric.png" alt="article_image" />
+            <p class="article-headline">E-Rehistro Introduces Biometric Verification for Enhanced Voter ID Security</p>
+            <p class="article-preview">E-Rehistro raises the bar in voter ID security by implementing biometric verification, ensuring the integrity of voter registrations and...</p>
             <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
         </div>
         <div class="news-panel">
-            <img src="assets/unloaded-image.png" alt="article_image" />
-            <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor</p>
-            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor sit amet metus...</p>
+            <img src="assets/Partners.png" alt="article_image" />
+            <p class="article-headline">E-Rehistro Partners with Local Governments</p>
+            <p class="article-preview">In a landmark collaboration, E-Rehistro joins forces with local government units nationwide to widen the reach of voter registration...</p>
             <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
         </div>
         <div class="news-panel">
