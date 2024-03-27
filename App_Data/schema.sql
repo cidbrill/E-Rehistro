@@ -1,5 +1,10 @@
-﻿Create Table UserData( 
+﻿Create Table Register(
 userId int identity(1,1) primary key not null,
+email varchar(max) not null,
+password varchar(max) not null)
+
+Create Table UserData( 
+userId int identity(1,1) foreign key references Register(userId) not null,
 userLast varchar(max) not null,
 userFirst varchar(max) not null,
 userSuffix varchar(8),
@@ -22,8 +27,6 @@ registered varchar(100) not null
 )
 
 create table userInfoPic(
-userId int foreign key references UserData(userId),
+userId int identity(1,1) foreign key references Register(userId) not null,
 fileBytes varbinary(max) not null,
 fileName varchar(max) not null)
-
- 

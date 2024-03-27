@@ -16,6 +16,82 @@ namespace e_rehistro
 
         }
 
+        protected void Signup_Click(object sender, EventArgs e)
+        {
+            string email = txtSignupEmail.Text;
+            string password = txtSignupPassword.Text;
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dayao\Documents\GitHub\e-rehistro\App_Data\Database2.mdf;Integrated Security=True";
+            string query = "INSERT INTO Register (email, password) VALUES (@email, @password)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@email", email);
+                        command.Parameters.AddWithValue("@password", password);
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            Response.Write("<script>alert('Registered successfully')</script>");
+                            Home_Click(this, EventArgs.Empty);
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('Registration failed. Try again')</script>");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('Connection failed')</script>");
+                }
+            }
+        }
+
+        protected void LogIn_Click(object sender, EventArgs e)
+        {
+            {
+                string email = txtSigninEmail.Text;
+                string password = txtSigninPassword.Text;
+                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dayao\Documents\GitHub\e-rehistro\App_Data\Database2.mdf;Integrated Security=True";
+                string query = "SELECT email,password FROM Register WHERE email=@email ";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@email", email);
+                        try
+                        {
+                            connection.Open();
+                            SqlDataReader reader = command.ExecuteReader();
+                            if (reader.Read())
+                            {
+                                string dbPassword = reader["Password"].ToString();
+                                if (dbPassword == password)
+                                {
+                                    Response.Write("<script>alert('Logged in')</script>");
+                                    Home_Click(sender, EventArgs.Empty);
+                                }
+                                else
+                                {
+                                    Response.Write("<script>alert('Invalid email or password. Try again')</script>");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Response.Write("<script>alert('Connection failed')</script>");
+                        }
+                    }
+                }
+            }
+        }
+
+
         protected void Home_Click(object sender, EventArgs e)
         {
             ((MasterPage)this.Master).Home_Click(this, EventArgs.Empty);
@@ -28,38 +104,102 @@ namespace e_rehistro
 
         protected void FirstRegistrationForm_Click(object sender, EventArgs e)
         {
+            ContentPlaceHolder authenticationPage = (ContentPlaceHolder)Master.FindControl("AuthenticationPage");
+            ContentPlaceHolder homePage = (ContentPlaceHolder)Master.FindControl("HomePage");
             ContentPlaceHolder registrationPage = (ContentPlaceHolder)Master.FindControl("RegistrationPage");
             ContentPlaceHolder firstRegistrationForm = (ContentPlaceHolder)Master.FindControl("FirstRegistrationForm");
+            ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
+            ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
+            ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
+            ContentPlaceHolder newsAndEventsPage = (ContentPlaceHolder)Master.FindControl("NewsAndEventsPage");
+            ContentPlaceHolder aboutPage = (ContentPlaceHolder)Master.FindControl("AboutPage");
+            ContentPlaceHolder contactsPage = (ContentPlaceHolder)Master.FindControl("ContactsPage");
 
+            authenticationPage.Visible = false;
+            homePage.Visible = false;
             registrationPage.Visible = false;
             firstRegistrationForm.Visible = true;
+            secondRegistrationForm.Visible = false;
+            uploadDocumentPage.Visible = false;
+            voterIDInfo.Visible = false;
+            newsAndEventsPage.Visible = false;
+            aboutPage.Visible = false;
+            contactsPage.Visible = false;
         }
 
         protected void NextPage_Click(object sender, EventArgs e)
         {
+            ContentPlaceHolder authenticationPage = (ContentPlaceHolder)Master.FindControl("AuthenticationPage");
+            ContentPlaceHolder homePage = (ContentPlaceHolder)Master.FindControl("HomePage");
+            ContentPlaceHolder registrationPage = (ContentPlaceHolder)Master.FindControl("RegistrationPage");
             ContentPlaceHolder firstRegistrationForm = (ContentPlaceHolder)Master.FindControl("FirstRegistrationForm");
             ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
+            ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
+            ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
+            ContentPlaceHolder newsAndEventsPage = (ContentPlaceHolder)Master.FindControl("NewsAndEventsPage");
+            ContentPlaceHolder aboutPage = (ContentPlaceHolder)Master.FindControl("AboutPage");
+            ContentPlaceHolder contactsPage = (ContentPlaceHolder)Master.FindControl("ContactsPage");
 
+            authenticationPage.Visible = false;
+            homePage.Visible = false;
+            registrationPage.Visible = false;
             firstRegistrationForm.Visible = false;
             secondRegistrationForm.Visible = true;
+            uploadDocumentPage.Visible = false;
+            voterIDInfo.Visible = false;
+            newsAndEventsPage.Visible = false;
+            aboutPage.Visible = false;
+            contactsPage.Visible = false;
         }
 
         protected void UploadDocumentPage_Click(object sender, EventArgs e)
         {
+            ContentPlaceHolder authenticationPage = (ContentPlaceHolder)Master.FindControl("AuthenticationPage");
+            ContentPlaceHolder homePage = (ContentPlaceHolder)Master.FindControl("HomePage");
             ContentPlaceHolder registrationPage = (ContentPlaceHolder)Master.FindControl("RegistrationPage");
+            ContentPlaceHolder firstRegistrationForm = (ContentPlaceHolder)Master.FindControl("FirstRegistrationForm");
+            ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
             ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
+            ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
+            ContentPlaceHolder newsAndEventsPage = (ContentPlaceHolder)Master.FindControl("NewsAndEventsPage");
+            ContentPlaceHolder aboutPage = (ContentPlaceHolder)Master.FindControl("AboutPage");
+            ContentPlaceHolder contactsPage = (ContentPlaceHolder)Master.FindControl("ContactsPage");
 
+            authenticationPage.Visible = false;
+            homePage.Visible = false;
             registrationPage.Visible = false;
+            firstRegistrationForm.Visible = false;
+            secondRegistrationForm.Visible = false;
             uploadDocumentPage.Visible = true;
+            voterIDInfo.Visible = false;
+            newsAndEventsPage.Visible = false;
+            aboutPage.Visible = false;
+            contactsPage.Visible = false;
         }
 
         protected void FormSubmit_Click(object sender, EventArgs e)
         {
-            ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
+            ContentPlaceHolder authenticationPage = (ContentPlaceHolder)Master.FindControl("AuthenticationPage");
+            ContentPlaceHolder homePage = (ContentPlaceHolder)Master.FindControl("HomePage");
             ContentPlaceHolder registrationPage = (ContentPlaceHolder)Master.FindControl("RegistrationPage");
+            ContentPlaceHolder firstRegistrationForm = (ContentPlaceHolder)Master.FindControl("FirstRegistrationForm");
+            ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
+            ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
+            ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
+            ContentPlaceHolder newsAndEventsPage = (ContentPlaceHolder)Master.FindControl("NewsAndEventsPage");
+            ContentPlaceHolder aboutPage = (ContentPlaceHolder)Master.FindControl("AboutPage");
+            ContentPlaceHolder contactsPage = (ContentPlaceHolder)Master.FindControl("ContactsPage");
 
-            secondRegistrationForm.Visible = false;
+            authenticationPage.Visible = false;
+            homePage.Visible = false;
             registrationPage.Visible = true;
+            firstRegistrationForm.Visible = false;
+            secondRegistrationForm.Visible = false;
+            uploadDocumentPage.Visible = false;
+            voterIDInfo.Visible = false;
+            newsAndEventsPage.Visible = false;
+            aboutPage.Visible = false;
+            contactsPage.Visible = false;
 
             string userFirst = firstName.Text;
             string userLast = lastName.Text;
@@ -141,20 +281,52 @@ namespace e_rehistro
 
         protected void ViewVoterID_Click(object sender, EventArgs e)
         {
-            ContentPlaceHolder verifiedStatusPage = (ContentPlaceHolder)Master.FindControl("VerifiedStatusPage");
+            ContentPlaceHolder authenticationPage = (ContentPlaceHolder)Master.FindControl("AuthenticationPage");
+            ContentPlaceHolder homePage = (ContentPlaceHolder)Master.FindControl("HomePage");
+            ContentPlaceHolder registrationPage = (ContentPlaceHolder)Master.FindControl("RegistrationPage");
+            ContentPlaceHolder firstRegistrationForm = (ContentPlaceHolder)Master.FindControl("FirstRegistrationForm");
+            ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
+            ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
             ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
+            ContentPlaceHolder newsAndEventsPage = (ContentPlaceHolder)Master.FindControl("NewsAndEventsPage");
+            ContentPlaceHolder aboutPage = (ContentPlaceHolder)Master.FindControl("AboutPage");
+            ContentPlaceHolder contactsPage = (ContentPlaceHolder)Master.FindControl("ContactsPage");
 
-            verifiedStatusPage.Visible = false;
+            authenticationPage.Visible = false;
+            homePage.Visible = false;
+            registrationPage.Visible = false;
+            firstRegistrationForm.Visible = false;
+            secondRegistrationForm.Visible = false;
+            uploadDocumentPage.Visible = false;
             voterIDInfo.Visible = true;
+            newsAndEventsPage.Visible = false;
+            aboutPage.Visible = false;
+            contactsPage.Visible = false;
         }
 
         protected void DocumentSubmit_Click(object sender, EventArgs e)
         {
-            ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
+            ContentPlaceHolder authenticationPage = (ContentPlaceHolder)Master.FindControl("AuthenticationPage");
+            ContentPlaceHolder homePage = (ContentPlaceHolder)Master.FindControl("HomePage");
             ContentPlaceHolder registrationPage = (ContentPlaceHolder)Master.FindControl("RegistrationPage");
+            ContentPlaceHolder firstRegistrationForm = (ContentPlaceHolder)Master.FindControl("FirstRegistrationForm");
+            ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
+            ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
+            ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
+            ContentPlaceHolder newsAndEventsPage = (ContentPlaceHolder)Master.FindControl("NewsAndEventsPage");
+            ContentPlaceHolder aboutPage = (ContentPlaceHolder)Master.FindControl("AboutPage");
+            ContentPlaceHolder contactsPage = (ContentPlaceHolder)Master.FindControl("ContactsPage");
 
-            uploadDocumentPage.Visible = false;
+            authenticationPage.Visible = false;
+            homePage.Visible = false;
             registrationPage.Visible = true;
+            firstRegistrationForm.Visible = false;
+            secondRegistrationForm.Visible = false;
+            uploadDocumentPage.Visible = false;
+            voterIDInfo.Visible = false;
+            newsAndEventsPage.Visible = false;
+            aboutPage.Visible = false;
+            contactsPage.Visible = false;
 
             if (fileUploadControl.HasFile)
             {
@@ -164,7 +336,7 @@ namespace e_rehistro
                     byte[] fileBytes = fileUploadControl.FileBytes;
 
                     // Establish connection to the database
-                    string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dayao\\Documents\\GitHub\\e-rehistro\\App_Data\\Database2.mdf;Integrated Security=True";
+                    string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dayao\Documents\GitHub\e-rehistro\App_Data\Database2.mdf;Integrated Security=True";
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
                         // Insert the picture into the database
