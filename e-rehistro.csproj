@@ -67,9 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Registration.mdf" />
-    <Content Include="App_Data\Registration_log.ldf">
-      <DependentUpon>Registration.mdf</DependentUpon>
+    <Content Include="App_Data\Database2.mdf" />
+    <Content Include="App_Data\Database2_log.ldf">
+      <DependentUpon>Database2.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\schema.sql" />
     <Content Include="Default.aspx" />

@@ -251,14 +251,14 @@
         <div class="form-divider" style="width: 1155px; display: flex; flex-direction: column; align-items: center;">
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">OATH, NOTICE, and CONSENT (REGULAR)</p>
             <div style="margin: 5px 0 5px 0px;">
-                <asp:RadioButtonList runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
+                <asp:RadioButtonList ID="oathVal" runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
                     <asp:ListItem Text="REGISTRATION" Value="Registration" Style="font-weight: 700; color: #294278;" />
                     <asp:ListItem Text="TRANSFER" Value="Transfer" Style="font-weight: 700; color: #294278;" />
                 </asp:RadioButtonList>
             </div>
             <p style="margin: 5px 0 5px 0px; text-align:justify; color: #736963;">I do solemnly swear that the above statements regarding my person are true and correct; that I possess all the qualifications and none of the disqualifications of a voter; and that I am:</p>
             <div style="margin: 5px 0 5px 0px;">
-                <asp:RadioButtonList runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
+                <asp:RadioButtonList ID="isRegistered" runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
                     <asp:ListItem Text="not registered at the<br>precinct" Value="notRegisteredInPrecinct" Style="text-align: center; color: #736963;" />
                     <asp:ListItem Text="registered in a precinct of another City/<br>Municipality/District in the Philippines" Value="registeredInPrecinct" Style="text-align: center; color: #736963;" />
                 </asp:RadioButtonList>

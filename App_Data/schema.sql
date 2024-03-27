@@ -16,5 +16,8 @@ userCitizenship varchar(20) not null,
 userDateofNat date,
 userCertNo varchar(max),
 fatherName varchar(max) not null,
-motherName varchar(max) not null
+motherName varchar(max) not null,
+oath varchar(15) not null,
+registered varchar(100) not null
 )
+ 
