@@ -276,6 +276,24 @@ namespace e_rehistro
         protected global::System.Web.UI.WebControls.TextBox motherName;
 
         /// <summary>
+        /// oathVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList oathVal;
+
+        /// <summary>
+        /// isRegistered control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList isRegistered;
+
+        /// <summary>
         /// btnFormSubmit control.
         /// </summary>
         /// <remarks>

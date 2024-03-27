@@ -13,7 +13,7 @@ namespace e_rehistro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void Home_Click(object sender, EventArgs e)
@@ -156,6 +156,37 @@ namespace e_rehistro
 
             uploadDocumentPage.Visible = false;
             registrationPage.Visible = true;
+
+            if (fileUploadControl.HasFile)
+            {
+                try
+                {
+                    // Read the file into a byte array
+                    byte[] fileBytes = fileUploadControl.FileBytes;
+
+                    // Establish connection to the database
+                    string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dayao\\Documents\\GitHub\\e-rehistro\\App_Data\\Database2.mdf;Integrated Security=True";
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        // Insert the picture into the database
+                        string query = "INSERT INTO userInfoPic (fileBytes, fileName) VALUES (@PictureData, @FileName)";
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@PictureData", fileBytes);
+                            command.Parameters.AddWithValue("@FileName", fileUploadControl.FileName);
+                            connection.Open();
+                            command.ExecuteNonQuery();
+                        }
+                    } // Connection will be automatically closed here
+
+                    // Display success message or redirect to another page
+                    Response.Write("<script>alert('Picture uploaded successfully!')</script>");
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("Error: " + ex.Message);
+                }
+            }
         }
     }
 }

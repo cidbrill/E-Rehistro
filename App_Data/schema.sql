@@ -20,4 +20,10 @@ motherName varchar(max) not null,
 oath varchar(15) not null,
 registered varchar(100) not null
 )
+
+create table userInfoPic(
+userId int foreign key references UserData(userId),
+fileBytes varbinary(max) not null,
+fileName varchar(max) not null)
+
  
