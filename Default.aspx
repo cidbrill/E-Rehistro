@@ -14,15 +14,15 @@
                 <p>Welcome back!</p>
             </div>
             <div id="signin-email" class="input-field">
-                <asp:TextBox ID="txtSigninEmail" runat="server" CssClass="txtInputField" required></asp:TextBox>
+                <asp:TextBox ID="txtSigninEmail" runat="server" CssClass="txtInputField" ></asp:TextBox>
                 <label for="txtSigninEmail">Email</label>
             </div>
             <div id="signin-password" class="input-field">
-                <asp:TextBox ID="txtSigninPassword" runat="server" TextMode="Password" CssClass="txtInputField" required></asp:TextBox>
+                <asp:TextBox ID="txtSigninPassword" runat="server" TextMode="Password" CssClass="txtInputField" ></asp:TextBox>
                 <label for="txtSigninPassword">Password</label>
             </div>
             <div id="signin-button">
-                <asp:Button ID="btnSignInButton" runat="server" Text="Sign In" CssClass="btnSubmitForm" />
+                <asp:Button ID="btnSignInButton" runat="server" Text="Sign In" CssClass="btnSubmitForm" OnClick="LogIn_Click" />
             </div>
             <div id="switch-to-signup">
                 <p>Need an account? <b id="sign-up">Sign Up</b></p>
@@ -38,19 +38,19 @@
                 <p style="font-size: 20px; font-weight: 400;">Let's get started</p>
             </div>
             <div id="signup-email" class="input-field">
-                <asp:TextBox ID="txtSignupEmail" runat="server" CssClass="txtInputField" required></asp:TextBox>
+                <asp:TextBox ID="txtSignupEmail" runat="server" CssClass="txtInputField"></asp:TextBox>
                 <label for="txtSignupEmail">Email</label>
             </div>
             <div id="signup-password" class="input-field">
-                <asp:TextBox ID="txtSignupPassword" runat="server" TextMode="Password" CssClass="txtInputField" required></asp:TextBox>
+                <asp:TextBox ID="txtSignupPassword" runat="server" TextMode="Password" CssClass="txtInputField"></asp:TextBox>
                 <label for="txtSignupPassword">Password</label>
             </div>
             <div id="signup-confirm-password" class="input-field">
-                <asp:TextBox ID="txtSignupConfirmPassword" runat="server" TextMode="Password" CssClass="txtInputField" required></asp:TextBox>
+                <asp:TextBox ID="txtSignupConfirmPassword" runat="server" TextMode="Password" CssClass="txtInputField"></asp:TextBox>
                 <label for="txtSignupPassword">Confirm Password</label>
             </div>
             <div id="signup-button">
-                <asp:Button ID="btnSignUpButton" runat="server" Text="Sign Up" CssClass="btnSubmitForm" />
+                <asp:Button ID="btnSignUpButton" runat="server" Text="Sign Up" CssClass="btnSubmitForm" OnClick="Signup_Click" />
             </div>
             <div id="switch-to-signin">
                 <p>Already have an account? <b id="sign-in">Sign In</b></p>
@@ -279,7 +279,6 @@
             <p style="margin: 5px 0 5px 0; align-self: flex-start; font-size: 15px; font-weight: 700; color: #E5A73A;">Example: DelaCruz_Juan_1.jpeg</p>
             <div style="width: 100%; box-sizing: border-box; margin: 5px 0 5px 0;  padding: 10px; background-color: #FFFFFF; border: 2px dashed #000000; border-radius: 50px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                 <img src="assets/upload-icon.png" style="width: 250px; height: 250px;" />
-                <button id="pseudoFileUploadButton" onclick="clickFileUpload()">CHOOSE FILE</button>
                 <asp:FileUpload ID="fileUploadControl" runat="server" ClientIDMode="Static" CssClass="fileUpload" />
             </div>
             <asp:Button ID="btnDocumentSubmit" runat="server" Text="SUBMIT" OnClick="DocumentSubmit_Click" CssClass="btnSubmitButton" Style="border-radius: 25px;"></asp:Button>
