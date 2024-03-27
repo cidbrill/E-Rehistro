@@ -78,7 +78,6 @@ namespace e_rehistro
 
             string Gender = gender.SelectedValue;
 
-
             string birthdate = birthDate.Text;
             string birthMuni = birthCity.Text;
             string birthProv = birthProvince.Text;

@@ -15,9 +15,9 @@ html {
     background: #FAF7EE;
 }
 
-    html::-webkit-scrollbar {
-        display: none;
-    }
+html::-webkit-scrollbar {
+    display: none;
+}
 
 /*Navigation Bar*/
 
@@ -45,9 +45,9 @@ html {
     padding: 0;
 }
 
-    #nav-list li {
-        display: inline;
-    }
+#nav-list li {
+    display: inline;
+}
 
 .lnkBtnNavLink {
     text-decoration: none;
