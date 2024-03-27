@@ -94,21 +94,21 @@
             <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
         </div>
         <div class="news-panel">
-            <img src="assets/unloaded-image.png" alt="article_image" />
-            <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor</p>
-            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor sit amet metus...</p>
+            <img src="assets/Filipino.png" alt="article_image" />
+            <p class="article-headline">E-Rehistro's Online Voter ID Registration Sparks Excitement Among Filipinos</p>
+            <p class="article-preview">E-Rehistro's user-friendly online platform ignites enthusiasm among Filipinos, driving a surge in youth participation in the voter...</p>
             <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
         </div>
         <div class="news-panel">
-            <img src="assets/unloaded-image.png" alt="article_image" />
-            <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor</p>
-            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor sit amet metus...</p>
+            <img src="assets/Workshop.png" alt="article_image" />
+            <p class="article-headline">Empowering Communities: E-Rehistro Hosts Voter Education Workshops</p>
+            <p class="article-preview">E-Rehistro takes proactive steps to empower communities by organizing voter education workshops, equipping citizens with the...</p>
             <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
         </div>
         <div class="news-panel">
-            <img src="assets/unloaded-image.png" alt="article_image" />
-            <p class="article-headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor</p>
-            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor sit amet metus...</p>
+            <img src="assets/MobilePhone.png" alt="article_image" />
+            <p class="article-headline">E-Rehistro Launches Mobile App for Convenient Voter ID Registration</p>
+            <p class="article-preview">E-Rehistro unveils its innovative mobile app, enabling Filipinos to register for voter IDs anytime, anywhere, revolutionizing...</p>
             <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
         </div>
     </div>
