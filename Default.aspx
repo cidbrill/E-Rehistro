@@ -400,14 +400,14 @@
                     <input type="radio" name="accordion" id="first">
                     <label for="first">What is E-Rehistro?</label>
                     <div class="content">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit eius corporis blanditiis eaque, consequatur ab iusto voluptate soluta aspernatur enim ipsam. Architecto, atque suscipit? Consectetur unde earum molestiae quis in.</p>
+                        <p>E-Rehistro is a groundbreaking online platform designed to simplify and modernize the voter registration process for Filipinos. Serving as a one-stop destination, E-Rehistro allows citizens to conveniently register for their voter IDs from the comfort of their homes using just an internet connection and a device. By harnessing the power of technology, E-Rehistro eliminates the need for long queues and cumbersome paperwork traditionally associated with voter registration, making it accessible to a wider demographic, including busy professionals, students, and those residing in remote areas.</p>
                     </div>
                 </li>
                 <li>
                     <input type="radio" name="accordion" id="second">
                     <label for="second">How long is the validity of E-Rehistro?</label>
                     <div class="content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione officiis recusandae voluptates mollitia explicabo odit soluta consequuntur ipsam nulla? Quia distinctio ex, expedita quos quod natus saepe provident magni accusantium.</p>
+                        <p>E-Rehistro sets a new standard in voter registration validity by offering a lifetime validity for registered users. Unlike traditional registration systems that may require periodic renewals or updates, E-Rehistro's lifetime validity ensures that once registered, citizens can confidently participate in elections for the entirety of their voting eligibility without the hassle of re-registering. This commitment to lifetime validity not only simplifies the process for voters but also underscores the platform's dedication to facilitating long-term civic engagement and ensuring the continuity of democratic participation among Filipinos.</p>
                     </div>
                 </li>
             </ul>
@@ -419,14 +419,14 @@
                     <input type="radio" name="accordion" id="third">
                     <label for="third">What are the steps in registering in E-Rehistro?</label>
                     <div class="content">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit eius corporis blanditiis eaque, consequatur ab iusto voluptate soluta aspernatur enim ipsam. Architecto, atque suscipit? Consectetur unde earum molestiae quis in.</p>
+                        <p>The registration process with E-Rehistro is designed to be swift and hassle-free, comprising just three simple steps. First, users are prompted to complete their personal details, providing essential information accurately and securely. Next, they are prompted to upload the required documents, ensuring that all necessary documentation is conveniently submitted electronically. Finally, users can sit back and await verification, confident that their registration is in progress. With this streamlined approach, E-Rehistro minimizes the time and effort required for voter registration, empowering Filipinos to engage in the democratic process swiftly and efficiently.</p>
                     </div>
                 </li>
                 <li>
                     <input type="radio" name="accordion" id="fourth">
                     <label for="fourth">How long  is the Registration Process?</label>
                     <div class="content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione officiis recusandae voluptates mollitia explicabo odit soluta consequuntur ipsam nulla? Quia distinctio ex, expedita quos quod natus saepe provident magni accusantium.</p>
+                        <p>The registration process with E-Rehistro is designed to be incredibly time-efficient, with each step requiring just 10 minutes of the user's time. In the initial stage, users swiftly complete their personal details in a user-friendly interface, taking no more than 10 minutes to provide accurate information. Following this, the document upload step is similarly streamlined, allowing users to electronically submit required documentation within another brief 10-minute timeframe. Once these steps are completed, users can expect their registration to undergo verification, with the process typically taking between 1 to 3 business days. This expedited timeline ensures that Filipinos can swiftly register for their voter IDs and participate in the democratic process with minimal delay.</p>
                     </div>
                 </li>
             </ul>
@@ -438,7 +438,7 @@
                     <input type="radio" name="accordion" id="fifth">
                     <label for="fifth">How will E-Rehistro ensure the data privacy and security of the informations being uploaded?</label>
                     <div class="content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione officiis recusandae voluptates mollitia explicabo odit soluta consequuntur ipsam nulla? Quia distinctio ex, expedita quos quod natus saepe provident magni accusantium.</p>
+                        <p>E-Rehistro prioritizes the utmost privacy and security of user data through a robust set of measures. Firstly, the platform employs industry-standard encryption protocols to safeguard all information transmitted during the registration process, ensuring that data remains confidential and protected from unauthorized access. Additionally, E-Rehistro adheres strictly to data protection regulations, implementing stringent access controls and regularly updating security protocols to mitigate potential risks. Moreover, the platform employs advanced cybersecurity measures such as firewalls and intrusion detection systems to fortify its defenses against cyber threats. Furthermore, E-Rehistro operates on secure servers with restricted access, further bolstering the protection of user data. By continuously monitoring and enhancing its security infrastructure, E-Rehistro maintains the trust and confidence of users, guaranteeing the integrity and confidentiality of their personal information throughout the registration process.</p>
                     </div>
                 </li>
             </ul>
