@@ -21,18 +21,20 @@ namespace e_rehistro
             RegistrationPage.Visible = false;
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
+            UploadDocumentPage.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = false;
             ContactsPage.Visible = false;
         }
 
-        protected void Registration_Click(object sender, EventArgs e)
+        public void Registration_Click(object sender, EventArgs e)
         {
             AuthenticationPage.Visible = false;
             HomePage.Visible = false;
             RegistrationPage.Visible = true;
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
+            UploadDocumentPage.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = false;
             ContactsPage.Visible = false;
@@ -45,6 +47,7 @@ namespace e_rehistro
             RegistrationPage.Visible = false;
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
+            UploadDocumentPage.Visible = false;
             NewsAndEventsPage.Visible = true;
             AboutPage.Visible = false;
             ContactsPage.Visible = false;
@@ -57,6 +60,7 @@ namespace e_rehistro
             RegistrationPage.Visible = false;
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
+            UploadDocumentPage.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = true;
             ContactsPage.Visible = false;
@@ -69,6 +73,7 @@ namespace e_rehistro
             RegistrationPage.Visible = false;
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
+            UploadDocumentPage.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = false;
             ContactsPage.Visible = true;

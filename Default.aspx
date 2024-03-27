@@ -65,9 +65,9 @@
             <p>Welcome to E-Rehistro,</p>
             <p style="font-size: 25px; font-family: 'Pragati Narrow';">where Filipinos can easily register for their Voter's ID online. Join us in streamlining the process and empowering every citizen's voice.</p>
             <div id="shortcut-buttons">
-                <asp:Button ID="btnViewStatus" runat="server" Text="View Status" CssClass="btnShortcutButton" />
+                <asp:Button ID="btnHomeViewStatus" runat="server" Text="View Status" CssClass="btnShortcutButton" />
                 <div style="width: 150px; height: 50px;"></div>
-                <asp:Button ID="btnRegisterNow" runat="server" Text="Register Now" CssClass="btnShortcutButton" />
+                <asp:Button ID="btnRegisterNow" runat="server" Text="Register Now" OnClick="Registration_Click" CssClass="btnShortcutButton" />
             </div>
         </div>
     </div>
@@ -86,7 +86,7 @@
                 <p class="step-description">Fill out the Personal Information Form</p>
             </div>
             <div class="step-container-button">
-                <asp:Button ID="btnCompleteFormButton" runat="server" Text="COMPLETE FORM" CssClass="btnRegistrationButton" />
+                <asp:Button ID="btnFirstRegistrationForm" runat="server" Text="COMPLETE FORM" OnClick="FirstRegistrationForm_Click" CssClass="btnRegistrationButton" />
             </div>
         </div>
         <div class="next-step-indicator">
@@ -100,7 +100,7 @@
                 <p class="step-description">Upload required documents</p>
             </div>
             <div class="step-container-button">
-                <asp:Button ID="btnUploadDocumentButton" runat="server" Text="UPLOAD DOCUMENT" CssClass="btnRegistrationButton" />
+                <asp:Button ID="btnSecondRegistrationForm" runat="server" Text="UPLOAD DOCUMENT" OnClick="UploadDocumentPage_Click" CssClass="btnRegistrationButton" />
             </div>
         </div>
         <div class="next-step-indicator">
@@ -114,7 +114,7 @@
                 <p class="step-description">Wait for verification</p>
             </div>
             <div class="step-container-button">
-                <asp:Button ID="btnViewStatusButton" runat="server" Text="VIEW STATUS" CssClass="btnRegistrationButton" />
+                <asp:Button ID="btnRegistrationViewStatus" runat="server" Text="VIEW STATUS" CssClass="btnRegistrationButton" />
             </div>
         </div>
     </div>
@@ -228,7 +228,7 @@
                 <asp:TextBox ID="motherName" runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
             </div>
             <div>
-                <asp:Button CssClass="btnNextPageButton" runat="server" Text="NEXT" OnClick="Next_Clicked"></asp:Button>
+                <asp:Button CssClass="btnNextPageButton" runat="server" Text="NEXT" OnClick="NextPage_Click"></asp:Button>
             </div>
         </div>
     </div>
@@ -266,7 +266,7 @@
             <p style="margin: 5px 0 5px 0px; text-align:justify; color: #736963;">and that I have reviewed the entries encoded in the VRS and I  confirm that the same are correct, accurate and consistent with  the information I supplied in this application form. Further, by  affixing my signature below, I authorize and give my consent to  the Commission on Elections and the concerned Election  Registration Board to collect and process the personal data I  supplied herein for purposes of voter registration and  elections, and for other purposes and allowable disclosures  under B.P. Blg. 881, R.A. No. 8189, 10173 and 10367, and the  relevant Resolutions of the Commission on Elections.</p>
         </div>
         <div>
-            <asp:Button runat="server" Text="SUBMIT" CssClass="btnSubmitButton"></asp:Button>
+            <asp:Button ID="btnFormSubmit" runat="server" Text="SUBMIT" OnClick="FormSubmit_Click" CssClass="btnSubmitButton"></asp:Button>
         </div>
     </div>
 </asp:Content>
@@ -282,7 +282,7 @@
                 <button id="pseudoFileUploadButton" onclick="clickFileUpload()">CHOOSE FILE</button>
                 <asp:FileUpload ID="fileUploadControl" runat="server" ClientIDMode="Static" CssClass="fileUpload" />
             </div>
-            <asp:Button runat="server" Text="SUBMIT" CssClass="btnSubmitButton" Style="border-radius: 25px;"></asp:Button>
+            <asp:Button ID="btnDocumentSubmit" runat="server" Text="SUBMIT" OnClick="DocumentSubmit_Click" CssClass="btnSubmitButton" Style="border-radius: 25px;"></asp:Button>
         </div>
         <div class="form-divider" style="width: 50%; box-sizing: border-box; margin: 0 25px 0 25px; padding: 20px; background-color: #FFFFFF; border: 2px solid #000000; border-radius: 25px; display: flex; flex-direction: column; font-size: 15px;">
             <p style="margin: 0 0 5px 0; font-size: 35px; font-weight: 700; color: #294278;">DOCUMENTARY REQUIREMENTS</p>
