@@ -11,10 +11,10 @@ namespace e_rehistro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*AuthenticationPage.Visible = true;*/
+            //AuthenticationPage.Visible = true;
         }
 
-        protected void Home_Click(object sender, EventArgs e)
+        public void Home_Click(object sender, EventArgs e)
         {
             AuthenticationPage.Visible = false;
             HomePage.Visible = true;
@@ -22,6 +22,8 @@ namespace e_rehistro
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
             UploadDocumentPage.Visible = false;
+            PendingStatusPage.Visible = false;
+            VerifiedStatusPage.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = false;
             ContactsPage.Visible = false;
@@ -35,6 +37,8 @@ namespace e_rehistro
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
             UploadDocumentPage.Visible = false;
+            PendingStatusPage.Visible = false;
+            VerifiedStatusPage.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = false;
             ContactsPage.Visible = false;
@@ -48,6 +52,8 @@ namespace e_rehistro
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
             UploadDocumentPage.Visible = false;
+            PendingStatusPage.Visible = false;
+            VerifiedStatusPage.Visible = false;
             NewsAndEventsPage.Visible = true;
             AboutPage.Visible = false;
             ContactsPage.Visible = false;
@@ -61,6 +67,8 @@ namespace e_rehistro
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
             UploadDocumentPage.Visible = false;
+            PendingStatusPage.Visible = false;
+            VerifiedStatusPage.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = true;
             ContactsPage.Visible = false;
@@ -74,6 +82,8 @@ namespace e_rehistro
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
             UploadDocumentPage.Visible = false;
+            PendingStatusPage.Visible = false;
+            VerifiedStatusPage.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = false;
             ContactsPage.Visible = true;

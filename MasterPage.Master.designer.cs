@@ -114,6 +114,33 @@ namespace e_rehistro
         protected global::System.Web.UI.WebControls.ContentPlaceHolder UploadDocumentPage;
 
         /// <summary>
+        /// PendingStatusPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder PendingStatusPage;
+
+        /// <summary>
+        /// VerifiedStatusPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder VerifiedStatusPage;
+
+        /// <summary>
+        /// VoterIDInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder VoterIDInfo;
+
+        /// <summary>
         /// NewsAndEventsPage control.
         /// </summary>
         /// <remarks>

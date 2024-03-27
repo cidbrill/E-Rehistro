@@ -14,11 +14,11 @@
                 <p>Welcome back!</p>
             </div>
             <div id="signin-email" class="input-field">
-                <asp:TextBox ID="txtSigninEmail" runat="server" CssClass="txtInputField" required=""></asp:TextBox>
+                <asp:TextBox ID="txtSigninEmail" runat="server" CssClass="txtInputField" required></asp:TextBox>
                 <label for="txtSigninEmail">Email</label>
             </div>
             <div id="signin-password" class="input-field">
-                <asp:TextBox ID="txtSigninPassword" runat="server" TextMode="Password" CssClass="txtInputField" required=""></asp:TextBox>
+                <asp:TextBox ID="txtSigninPassword" runat="server" TextMode="Password" CssClass="txtInputField" required></asp:TextBox>
                 <label for="txtSigninPassword">Password</label>
             </div>
             <div id="signin-button">
@@ -38,15 +38,15 @@
                 <p style="font-size: 20px; font-weight: 400;">Let's get started</p>
             </div>
             <div id="signup-email" class="input-field">
-                <asp:TextBox ID="txtSignupEmail" runat="server" CssClass="txtInputField" required=""></asp:TextBox>
+                <asp:TextBox ID="txtSignupEmail" runat="server" CssClass="txtInputField" required></asp:TextBox>
                 <label for="txtSignupEmail">Email</label>
             </div>
             <div id="signup-password" class="input-field">
-                <asp:TextBox ID="txtSignupPassword" runat="server" TextMode="Password" CssClass="txtInputField" required=""></asp:TextBox>
+                <asp:TextBox ID="txtSignupPassword" runat="server" TextMode="Password" CssClass="txtInputField" required></asp:TextBox>
                 <label for="txtSignupPassword">Password</label>
             </div>
             <div id="signup-confirm-password" class="input-field">
-                <asp:TextBox ID="txtSignupConfirmPassword" runat="server" TextMode="Password" CssClass="txtInputField" required=""></asp:TextBox>
+                <asp:TextBox ID="txtSignupConfirmPassword" runat="server" TextMode="Password" CssClass="txtInputField" required></asp:TextBox>
                 <label for="txtSignupPassword">Confirm Password</label>
             </div>
             <div id="signup-button">
@@ -133,7 +133,7 @@
         </div>
         <div class="triangle-right"></div>
     </div>
-    <div id="first-registration-form" class="page-container" style="background-color: #FAF7EE;">
+    <div id="first-registration-form" class="page-container" style="height: calc(100vh - 174px); background-color: #FAF7EE;">
         <div class="form-divider" style="width: 630px;">
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">NAME</p>
             <div style="display: flex; align-items: center; justify-content: space-between;">
@@ -251,14 +251,14 @@
         <div class="form-divider" style="width: 1155px; display: flex; flex-direction: column; align-items: center;">
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">OATH, NOTICE, and CONSENT (REGULAR)</p>
             <div style="margin: 5px 0 5px 0px;">
-                <asp:RadioButtonList ID="oathVal" runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
+                <asp:RadioButtonList runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
                     <asp:ListItem Text="REGISTRATION" Value="Registration" Style="font-weight: 700; color: #294278;" />
                     <asp:ListItem Text="TRANSFER" Value="Transfer" Style="font-weight: 700; color: #294278;" />
                 </asp:RadioButtonList>
             </div>
             <p style="margin: 5px 0 5px 0px; text-align:justify; color: #736963;">I do solemnly swear that the above statements regarding my person are true and correct; that I possess all the qualifications and none of the disqualifications of a voter; and that I am:</p>
             <div style="margin: 5px 0 5px 0px;">
-                <asp:RadioButtonList ID="isRegistered" runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
+                <asp:RadioButtonList runat="server" RepeatDirection="Horizontal" CssClass="radioButtonList">
                     <asp:ListItem Text="not registered at the<br>precinct" Value="notRegisteredInPrecinct" Style="text-align: center; color: #736963;" />
                     <asp:ListItem Text="registered in a precinct of another City/<br>Municipality/District in the Philippines" Value="registeredInPrecinct" Style="text-align: center; color: #736963;" />
                 </asp:RadioButtonList>
@@ -301,6 +301,51 @@
             <p style="margin: 5px 0 5px 0; color: #736963;">12. Certificate of Confirmation issued by the National Commission on Indigenous People (NCIP) in case of members of ICCs or Ips</p>
             <p style="margin: 5px 0 5px 0; color: #736963;">13. Barangay Identification / Certification with photo</p>
             <p style="margin: 5px 0 0 0; color: #736963;">14. Any other Government issued valid IDs</p>
+        </div>
+    </div>
+</asp:Content>
+
+<asp:Content ID="PendingStatusPage" ContentPlaceHolderID="PendingStatusPage" runat="server">
+    <div id="pending-status-page" class="page-container" style="height: calc(100vh - 115px); padding: 15px 0 0 0; background-color: #FAF7EE; display: flex; flex-direction: column; align-items: center;">
+        <div style="width: 900px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <img src="assets/pending-status-icon.png" style="width: 500px; height: 500px;" />
+            <p style="text-align: center; font-size: 40px; font-weight: 700; color: #294278;">Please note that your voter registration status is still pending</p>
+        </div>
+    </div>
+</asp:Content>
+
+<asp:Content ID="VerifiedStatusPage" ContentPlaceHolderID="VerifiedStatusPage" runat="server">
+    <div id="verified-status-page" class="page-container" style="height: calc(100vh - 100px); background-color: #FAF7EE; display: flex; flex-direction: column; align-items: center;">
+        <div style="width: 1000px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <img src="assets/verified-status-icon.png" style="width: 500px; height: 500px;" />
+            <p style="text-align: center; font-size: 40px; font-weight: 700; color: #294278;">You are now a verified voter on our platform!</p>
+            <p style="text-align: center; font-size: 20px; color: #736C6D;">Click to view your voters identification number</p>
+        </div>
+        <asp:Button ID="btnViewVoterID" runat="server" Text="VIEW VOTER'S ID" OnClick="ViewVoterID_Click" CssClass="btnViewVoterID"></asp:Button>
+    </div>
+</asp:Content>
+
+<asp:Content ID="VoterIDInfo" ContentPlaceHolderID="VoterIDInfo" runat="server">
+    <div id="voter-id-page" class="page-container" style="height: calc(100vh - 100px); box-sizing: border-box; padding: 50px; background-color: #FAF7EE; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div style="width: 1000px; height: 300px; background-color: #FFFFFF; border: 2px solid #000000; border-radius: 25px; display: flex; flex-direction: column; justify-content: center;">
+            <p style="margin: 0 0 10px 0; text-align: center; font-size: 50px; font-weight: 700; color: #294278;">VOTER'S IDENTIFICATION NUMBER</p>
+            <div style="margin: 10px 0 0 0; display: flex; justify-content: space-around;">
+                <div class="voter-id-infos">
+                    <p style="text-align: center; font-size: 40px; font-weight: 700;">Part I</p>
+                    <asp:TextBox runat="server" ReadOnly="true" CssClass="txtVoterIDInfo"></asp:TextBox>
+                    <p style="margin: 5px 0 5px 0; color: #88818F">Prov. Code/City/Mun/Dist. Code</p>
+                </div>
+                <div class="voter-id-infos">
+                    <p style="text-align: center; font-size: 40px; font-weight: 700;">Part II</p>
+                    <asp:TextBox runat="server" ReadOnly="true" CssClass="txtVoterIDInfo"></asp:TextBox>
+                    <p style="margin: 5px 0 5px 0; color: #88818F">Precinct Assignment</p>
+                </div>
+                <div class="voter-id-infos">
+                    <p style="text-align: center; font-size: 40px; font-weight: 700;">Part III</p>
+                    <asp:TextBox runat="server" ReadOnly="true" CssClass="txtVoterIDInfo"></asp:TextBox>
+                    <p style="margin: 5px 0 5px 0; color: #88818F">Prov. Code/City/Mun/Dist. Code</p>
+                </div>
+            </div>
         </div>
     </div>
 </asp:Content>

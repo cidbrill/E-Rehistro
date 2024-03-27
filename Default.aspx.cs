@@ -16,6 +16,11 @@ namespace e_rehistro
             
         }
 
+        protected void Home_Click(object sender, EventArgs e)
+        {
+            ((MasterPage)this.Master).Home_Click(this, EventArgs.Empty);
+        }
+
         protected void Registration_Click(object sender, EventArgs e)
         {
             ((MasterPage)this.Master).Registration_Click(this, EventArgs.Empty);
@@ -55,6 +60,7 @@ namespace e_rehistro
 
             secondRegistrationForm.Visible = false;
             registrationPage.Visible = true;
+
             string userFirst = firstName.Text;
             string userLast = lastName.Text;
             string userMiddle = middleName.Text;
@@ -132,6 +138,15 @@ namespace e_rehistro
                     connection.Close();
                 }
             }
+        }
+
+        protected void ViewVoterID_Click(object sender, EventArgs e)
+        {
+            ContentPlaceHolder verifiedStatusPage = (ContentPlaceHolder)Master.FindControl("VerifiedStatusPage");
+            ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
+
+            verifiedStatusPage.Visible = false;
+            voterIDInfo.Visible = true;
         }
 
         protected void DocumentSubmit_Click(object sender, EventArgs e)
