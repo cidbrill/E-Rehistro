@@ -33,11 +33,12 @@ namespace e_rehistro
         {
             AuthenticationPage.Visible = false;
             HomePage.Visible = false;
-            RegistrationPage.Visible = true;
+            RegistrationPage.Visible = false;
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
             UploadDocumentPage.Visible = false;
             PendingStatusPage.Visible = false;
+            DeclinedStatusPage.Visible = true;
             VerifiedStatusPage.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = false;

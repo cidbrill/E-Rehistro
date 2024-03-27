@@ -313,6 +313,15 @@
     </div>
 </asp:Content>
 
+<asp:Content ID="DeclinedStatusPage" ContentPlaceHolderID="DeclinedStatusPage" runat="server">
+    <div id="declined-status-page" class="page-container" style="height: calc(100vh - 115px); padding: 15px 0 0 0; background-color: #FAF7EE; display: flex; flex-direction: column; align-items: center;">
+        <div style="width: 900px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <img src="assets/declined-status-icon.png" style="width: 500px; height: 500px;" />
+            <p style="text-align: center; font-size: 40px; font-weight: 700; color: #294278;">Your registration has been declined. Please review your documents and personal details.</p>
+        </div>
+    </div>
+</asp:Content>
+
 <asp:Content ID="VerifiedStatusPage" ContentPlaceHolderID="VerifiedStatusPage" runat="server">
     <div id="verified-status-page" class="page-container" style="height: calc(100vh - 100px); background-color: #FAF7EE; display: flex; flex-direction: column; align-items: center;">
         <div style="width: 1000px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
