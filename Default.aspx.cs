@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace e_rehistro
@@ -13,7 +15,60 @@ namespace e_rehistro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack) // Make sure to fetch data only on initial load
+            {
+                FetchAndBindData();
+            }
+        }
 
+        private void FetchAndBindData()
+        {
+            string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\admin\\Documents\\eRehistro.mdf;Integrated Security=True;Connect Timeout=30";
+
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
+                string query = "SELECT (UserData.userFirst+' '+UserData.userLast) as Name, userInfoPic.fileBytes FROM UserData join userInfoPic on UserData.userId=userInfoPic.userId";  // Replace with your actual query
+                SqlCommand cmd = new SqlCommand(query, connection);
+                connection.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                // Create divs and populate them
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    HtmlGenericControl itemDiv = new HtmlGenericControl("div");
+                    itemDiv.Attributes.Add("class", "data-item");
+                    itemDiv.InnerHtml = "<b>Full Name:</b> " + row["Name"] + "<br/>" +
+                                        "<b>Document:</b> " + row["fileBytes"] + "<br/>";
+                    // Create buttons
+                    Button btnApprove = new Button();
+                    btnApprove.Text = "Approve";
+                    btnApprove.CssClass = "button approve-button"; // Optionally add CSS classes 
+                    btnApprove.Click += Approve_Click; // Add event handler (see below)
+
+                    Button btnDeny = new Button();
+                    btnDeny.Text = "Reject";
+                    btnDeny.CssClass = "button reject-button";
+                    btnDeny.Click += Reject_Click;  // Add event handler (see below)
+
+                    // Add buttons to the div
+                    itemDiv.Controls.Add(btnApprove);
+                    itemDiv.Controls.Add(btnDeny);
+                    dataContainer.Controls.Add(itemDiv);
+                }
+
+                void Approve_Click(object sender, EventArgs e)
+                {
+                    // Handle approval logic here
+                }
+
+                void Reject_Click(object sender, EventArgs e)
+                {
+                    // Handle denial logic here
+                }
+            }
         }
 
         protected void Signup_Click(object sender, EventArgs e)

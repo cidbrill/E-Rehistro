@@ -59,6 +59,55 @@
     </div>
 </asp:Content>
 
+<asp:Content ID="AdminPage" ContentPlaceHolderID="AdminPage" runat="server">
+    <div id="admin-page" class="page-container" style="background-color: #FAF7EE;">
+        <div id="admin-nav">
+            <div id="admin-pic">
+                <img src="/assets/admin-profile.png" alt="Admin-pic">
+            </div>
+            <div id="admin-name">
+                <p>Cid Borja</p>
+            </div>
+            <div id="change-password">
+                <img class="image" src="/assets/lock.png" alt="Change Password">
+                <p class="text">Change Password</p>
+            </div>
+            <div id="verification">
+                <img class="image" src="/assets/verification.png" alt="Verification">
+                <p class="text">Verification</p>
+            </div>
+        </div>
+        <div id="verification-title">
+            <img src="/assets/arrow.png" alt="Arrow" />
+            <p>Verification</p>
+        </div>
+        <div id="document-table">
+            <p>Full Name</p>
+            <p>Documents</p>
+            <p>Status</p>
+        </div>
+        <div class="data-container" id="dataContainer" runat="server"> 
+        </div>
+
+        <%--<div id="user-info-1">
+            <div id="user-name">
+                <p>Arcillas, Jyrel</p>
+            </div>
+            <div id="user-document">
+                <p>/file/3sLKE6ErTk94Krd5FSOSBA</p>
+            </div>
+            <div id="status">
+                <div id="approve">
+                    <img src="/assets/approve.png" alt="Approve"/>
+                </div>
+                <div id="reject">
+                    <img src="/assets/reject.png" alt="Reject"/>
+                </div>
+            </div>
+        </div>--%>
+    </div>
+</asp:Content>
+
 <asp:Content ID="HomePage" ContentPlaceHolderID="HomePage" runat="server">
     <div id="home-page" class="page-container" style="background-image: url('assets/home-page.png'); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment: fixed; display: flex; flex-direction: column;">
         <div id="home-message">

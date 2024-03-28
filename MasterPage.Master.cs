@@ -17,12 +17,14 @@ namespace e_rehistro
         public void Home_Click(object sender, EventArgs e)
         {
             AuthenticationPage.Visible = false;
+            AdminPage.Visible = false;
             HomePage.Visible = true;
             RegistrationPage.Visible = false;
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
             UploadDocumentPage.Visible = false;
             PendingStatusPage.Visible = false;
+            DeclinedStatusPage.Visible = false;
             VerifiedStatusPage.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = false;
@@ -32,13 +34,14 @@ namespace e_rehistro
         public void Registration_Click(object sender, EventArgs e)
         {
             AuthenticationPage.Visible = false;
+            AdminPage.Visible = false;
             HomePage.Visible = false;
-            RegistrationPage.Visible = false;
+            RegistrationPage.Visible = true;
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
             UploadDocumentPage.Visible = false;
             PendingStatusPage.Visible = false;
-            DeclinedStatusPage.Visible = true;
+            DeclinedStatusPage.Visible = false;
             VerifiedStatusPage.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = false;
@@ -48,12 +51,14 @@ namespace e_rehistro
         protected void NewsAndEvents_Click(object sender, EventArgs e)
         {
             AuthenticationPage.Visible = false;
+            AdminPage.Visible = false;
             HomePage.Visible = false;
             RegistrationPage.Visible = false;
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
             UploadDocumentPage.Visible = false;
             PendingStatusPage.Visible = false;
+            DeclinedStatusPage.Visible = false;
             VerifiedStatusPage.Visible = false;
             NewsAndEventsPage.Visible = true;
             AboutPage.Visible = false;
@@ -63,12 +68,14 @@ namespace e_rehistro
         protected void About_Click(object sender, EventArgs e)
         {
             AuthenticationPage.Visible = false;
+            AdminPage.Visible = false;
             HomePage.Visible = false;
             RegistrationPage.Visible = false;
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
             UploadDocumentPage.Visible = false;
             PendingStatusPage.Visible = false;
+            DeclinedStatusPage.Visible = false;
             VerifiedStatusPage.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = true;
@@ -78,12 +85,14 @@ namespace e_rehistro
         protected void Contacts_Click(object sender, EventArgs e)
         {
             AuthenticationPage.Visible = false;
+            AdminPage.Visible = false;
             HomePage.Visible = false;
             RegistrationPage.Visible = false;
             FirstRegistrationForm.Visible = false;
             SecondRegistrationForm.Visible = false;
             UploadDocumentPage.Visible = false;
             PendingStatusPage.Visible = false;
+            DeclinedStatusPage.Visible = false;
             VerifiedStatusPage.Visible = false;
             NewsAndEventsPage.Visible = false;
             AboutPage.Visible = false;
