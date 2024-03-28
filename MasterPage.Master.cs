@@ -77,7 +77,16 @@ namespace e_rehistro
 
         protected void Contacts_Click(object sender, EventArgs e)
         {
-
+            AuthenticationPage.Visible = false;
+            HomePage.Visible = false;
+            RegistrationPage.Visible = false;
+            FirstRegistrationForm.Visible = false;
+            SecondRegistrationForm.Visible = false;
+            UploadDocumentPage.Visible = false;
+            PendingStatusPage.Visible = false;
+            VerifiedStatusPage.Visible = false;
+            NewsAndEventsPage.Visible = false;
+            AboutPage.Visible = false;
             ContactsPage.Visible = true;
         }
     }
