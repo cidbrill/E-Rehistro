@@ -24,6 +24,24 @@ namespace e_rehistro
         protected global::System.Web.UI.WebControls.LinkButton HomeLink;
 
         /// <summary>
+        /// RegistrationLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton RegistrationLink;
+
+        /// <summary>
+        /// NewsAndEventsLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton NewsAndEventsLink;
+
+        /// <summary>
         /// AboutLink control.
         /// </summary>
         /// <remarks>
@@ -67,6 +85,69 @@ namespace e_rehistro
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder RegistrationPage;
+
+        /// <summary>
+        /// FirstRegistrationForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder FirstRegistrationForm;
+
+        /// <summary>
+        /// SecondRegistrationForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder SecondRegistrationForm;
+
+        /// <summary>
+        /// UploadDocumentPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder UploadDocumentPage;
+
+        /// <summary>
+        /// PendingStatusPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder PendingStatusPage;
+
+        /// <summary>
+        /// DeclinedStatusPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder DeclinedStatusPage;
+
+        /// <summary>
+        /// VerifiedStatusPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder VerifiedStatusPage;
+
+        /// <summary>
+        /// VoterIDInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder VoterIDInfo;
 
         /// <summary>
         /// NewsAndEventsPage control.

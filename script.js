@@ -1,6 +1,7 @@
 ﻿window.addEventListener('load', function () {
     document.getElementById('signin-container').style.display = 'none';
     document.getElementById('nav-bar').style.display = 'none';
+    document.getElementById('copyright').style.display = 'none';
 });
 
 function toggleAuthenticationSlider() {
@@ -16,7 +17,7 @@ function toggleAuthenticationSlider() {
             signInContainer.style.zIndex = '2';
             signUpContainer.style.zIndex = '1';
         }, 300);
-            signInContainer.style.display = 'flex';
+        signInContainer.style.display = 'flex';
         setTimeout(() => {
             signInContainer.style.left = '0px';
         }, 50);
@@ -46,3 +47,4 @@ const switchToSignUp = document.getElementById('sign-up');
 
 switchToSignIn.addEventListener('click', toggleAuthenticationSlider);
 switchToSignUp.addEventListener('click', toggleAuthenticationSlider);
+

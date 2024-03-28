@@ -11,24 +11,73 @@ namespace e_rehistro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*AuthenticationPage.Visible = true;*/
+            AuthenticationPage.Visible = false;
         }
 
-        protected void Home_Click(object sender, EventArgs e)
+        public void Home_Click(object sender, EventArgs e)
         {
+            AuthenticationPage.Visible = false;
             HomePage.Visible = true;
+            RegistrationPage.Visible = false;
+            FirstRegistrationForm.Visible = false;
+            SecondRegistrationForm.Visible = false;
+            UploadDocumentPage.Visible = false;
+            PendingStatusPage.Visible = false;
+            VerifiedStatusPage.Visible = false;
+            NewsAndEventsPage.Visible = false;
             AboutPage.Visible = false;
+            ContactsPage.Visible = false;
+        }
+
+        public void Registration_Click(object sender, EventArgs e)
+        {
+            AuthenticationPage.Visible = false;
+            HomePage.Visible = false;
+            RegistrationPage.Visible = false;
+            FirstRegistrationForm.Visible = false;
+            SecondRegistrationForm.Visible = false;
+            UploadDocumentPage.Visible = false;
+            PendingStatusPage.Visible = false;
+            DeclinedStatusPage.Visible = true;
+            VerifiedStatusPage.Visible = false;
+            NewsAndEventsPage.Visible = false;
+            AboutPage.Visible = false;
+            ContactsPage.Visible = false;
+        }
+
+        protected void NewsAndEvents_Click(object sender, EventArgs e)
+        {
+            AuthenticationPage.Visible = false;
+            HomePage.Visible = false;
+            RegistrationPage.Visible = false;
+            FirstRegistrationForm.Visible = false;
+            SecondRegistrationForm.Visible = false;
+            UploadDocumentPage.Visible = false;
+            PendingStatusPage.Visible = false;
+            VerifiedStatusPage.Visible = false;
+            NewsAndEventsPage.Visible = true;
+            AboutPage.Visible = false;
+            ContactsPage.Visible = false;
         }
 
         protected void About_Click(object sender, EventArgs e)
         {
+            AuthenticationPage.Visible = false;
             HomePage.Visible = false;
+            RegistrationPage.Visible = false;
+            FirstRegistrationForm.Visible = false;
+            SecondRegistrationForm.Visible = false;
+            UploadDocumentPage.Visible = false;
+            PendingStatusPage.Visible = false;
+            VerifiedStatusPage.Visible = false;
+            NewsAndEventsPage.Visible = false;
             AboutPage.Visible = true;
+            ContactsPage.Visible = false;
         }
 
         protected void Contacts_Click(object sender, EventArgs e)
         {
-            HomePage.Visible = false;
+
             ContactsPage.Visible = true;
         }
     }
