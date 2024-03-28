@@ -114,7 +114,7 @@
             <p>Welcome to E-Rehistro,</p>
             <p style="font-size: 25px; font-family: 'Pragati Narrow';">where Filipinos can easily register for their Voter's ID online. Join us in streamlining the process and empowering every citizen's voice.</p>
             <div id="shortcut-buttons">
-                <asp:Button ID="btnHomeViewStatus" runat="server" Text="View Status" CssClass="btnShortcutButton" />
+                <asp:Button ID="btnHomeViewStatus" runat="server" Text="View Status" CssClass="btnShortcutButton" OnClick="Pending_Click" />
                 <div style="width: 150px; height: 50px;"></div>
                 <asp:Button ID="btnRegisterNow" runat="server" Text="Register Now" OnClick="Registration_Click" CssClass="btnShortcutButton" />
             </div>
@@ -163,7 +163,7 @@
                 <p class="step-description">Wait for verification</p>
             </div>
             <div class="step-container-button">
-                <asp:Button ID="btnRegistrationViewStatus" runat="server" Text="VIEW STATUS" CssClass="btnRegistrationButton" />
+                <asp:Button ID="btnRegistrationViewStatus" runat="server" Text="VIEW STATUS" CssClass="btnRegistrationButton" onclick="Pending_Click"/>
             </div>
         </div>
     </div>
