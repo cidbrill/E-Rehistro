@@ -456,5 +456,69 @@
 
 <asp:Content ID="ContactsPage" ContentPlaceHolderID="ContactsPage" runat="server">
     <div id="contacts-page" class="page-container" style="background-color: #FAF7EE;">
+        <div id="contact-label">
+            <p>CONTACT US</p>
+        </div>
+        <div id="left-panel">
+            <div id="email-label">
+                <p>EMAIL US</p>
+            </div>
+            <div id="email-info">
+                <a href="mailto:info@e-rehistro.gov.ph">info@e-rehistro.gov.ph</a>
+            </div>
+            <div id="number-label">
+                <p>CALL US</p>
+            </div>
+            <div id="contact-number">
+                <a href="tel:09123456789">09123456789</a>
+            </div>
+            <div id="social-media-accs">
+                <div id="connect-with-us-label">
+                    <p>CONNECT WITH US</p>
+                </div>
+                <div id="facebook-acc" class="social-account">
+                    <div class="icon-text">
+                        <img src="/assets/facebook.svg" alt="Facebook Logo" />
+                        <p>E-RehistroOfficial</p>
+                    </div>
+                </div>
+                <div id="viber-acc" class="social-account">
+                    <div class="icon-text">
+                        <img src="/assets/viber.svg" alt="Viber Logo" />
+                        <p>E-Rehistro</p>
+                    </div>
+                </div>
+                <div id="youtube-acc" class="social-account">
+                    <div class="icon-text">
+                        <img src="/assets/youtube.svg" alt="Youtube Logo" />
+                        <p>E-REHISTRO</p>
+                    </div>
+                </div>
+                <div id="instagram-acc" class="social-account">
+                    <div class="icon-text">
+                        <img src="/assets/instagram.svg" alt="Instagram Logo" />
+                        <p>E-Rehistro</p>
+                    </div>
+                </div>
+            </div>
+        <div class="right-panel">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <asp:TextBox ID="txtSubject" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message:</label>
+                <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" Rows="9" CssClass="form-control no-resize"></asp:TextBox>
+            </div>
+            <asp:Button ID="Button1" runat="server" Text="SUBMIT" CssClass="btnSubmitForm" />
+        </div>
     </div>
 </asp:Content>
