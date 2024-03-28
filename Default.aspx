@@ -455,6 +455,6 @@
 </asp:Content>
 
 <asp:Content ID="ContactsPage" ContentPlaceHolderID="ContactsPage" runat="server">
-    <div id="contacts-page" class="page-container" style="background-color: #FAF7EE;">
+
     </div>
 </asp:Content>
