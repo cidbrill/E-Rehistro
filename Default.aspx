@@ -3,11 +3,11 @@
 <asp:Content ID="AuthenticationPage" ContentPlaceHolderID="AuthenticationPage" runat="server">     
     <div id="authentication-page" class="page-container">
         <div id="authentication-slider">
-            <img src="assets/authentication-slider.png" alt="logo_ng_pinas">
+            <img src="Content/authentication-slider.png" alt="logo_ng_pinas">
         </div>
         <div id="signin-container">
             <div class="website-title">
-                <img src="assets/e-rehistro-icon.png" alt="e_rehistro_icon">
+                <img src="Content/e-rehistro-icon.png" alt="e_rehistro_icon">
                 <p>E-Rehistro</p>
             </div>
             <div id="signin-message">
@@ -30,7 +30,7 @@
         </div>
         <div id="signup-container">
             <div class="website-title">
-                <img src="assets/e-rehistro-icon.png" alt="e_rehistro_icon">
+                <img src="Content/e-rehistro-icon.png" alt="e_rehistro_icon">
                 <p>E-Rehistro</p>
             </div>
             <div id="signup-message">
@@ -63,22 +63,22 @@
     <div id="admin-page" class="page-container" style="background-color: #FAF7EE;">
         <div id="admin-nav">
             <div id="admin-pic">
-                <img src="/assets/admin-profile.png" alt="Admin-pic">
+                <img src="/Content/admin-profile.png" alt="Admin-pic">
             </div>
             <div id="admin-name">
                 <p>Cid Borja</p>
             </div>
             <div id="change-password">
-                <img class="image" src="/assets/lock.png" alt="Change Password">
+                <img class="image" src="/Content/lock.png" alt="Change Password">
                 <p class="text">Change Password</p>
             </div>
             <div id="verification">
-                <img class="image" src="/assets/verification.png" alt="Verification">
+                <img class="image" src="/Content/verification.png" alt="Verification">
                 <p class="text">Verification</p>
             </div>
         </div>
         <div id="verification-title">
-            <img src="/assets/arrow.png" alt="Arrow" />
+            <img src="/Content/arrow.png" alt="Arrow" />
             <p>Verification</p>
         </div>
         <div id="document-table">
@@ -109,7 +109,7 @@
 </asp:Content>
 
 <asp:Content ID="HomePage" ContentPlaceHolderID="HomePage" runat="server">
-    <div id="home-page" class="page-container" style="background-image: url('assets/home-page.png'); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment: fixed; display: flex; flex-direction: column;">
+    <div id="home-page" class="page-container" style="background-image: url('content/home-page.png'); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment: fixed; display: flex; flex-direction: column;">
         <div id="home-message">
             <p>Welcome to E-Rehistro,</p>
             <p style="font-size: 25px; font-family: 'Pragati Narrow';">where Filipinos can easily register for their Voter's ID online. Join us in streamlining the process and empowering every citizen's voice.</p>
@@ -139,7 +139,7 @@
             </div>
         </div>
         <div class="next-step-indicator">
-            <img src="assets/next-step-indicator.png" />
+            <img src="Content/next-step-indicator.png" />
         </div>
         <div class="steps-container">
             <div class="instruction"></div>
@@ -153,7 +153,7 @@
             </div>
         </div>
         <div class="next-step-indicator">
-            <img src="assets/next-step-indicator.png" />
+            <img src="Content/next-step-indicator.png" />
         </div>
         <div class="steps-container">
             <div class="instruction"></div>
@@ -172,12 +172,12 @@
 <asp:Content ID="FirstRegistrationForm" ContentPlaceHolderID="FirstRegistrationForm" runat="server">
     <div class="page-indicator">
         <div class="page-text">
-            <img src="assets/page-one.png" />
+            <img src="Content/page-one.png" />
             <p>Personal Information</p>
         </div>
         <div class="triangle-right"></div>
         <div class="page-text">
-            <img src="assets/page-two.png" />
+            <img src="Content/page-two.png" />
             <p>Oath and Consent</p>
         </div>
         <div class="triangle-right"></div>
@@ -286,12 +286,12 @@
 <asp:Content ID="SecondRegistrationForm" ContentPlaceHolderID="SecondRegistrationForm" runat="server">
     <div class="page-indicator">
         <div class="page-text">
-            <img src="assets/page-one.png" />
+            <img src="Content/page-one.png" />
             <p>Personal Information</p>
         </div>
         <div class="triangle-right"></div>
         <div class="page-text">
-            <img src="assets/page-two.png" />
+            <img src="Content/page-two.png" />
             <p>Oath and Consent</p>
         </div>
         <div class="triangle-right"></div>
@@ -327,7 +327,7 @@
             <p style="margin: 5px 0 5px 0; text-align: justify; font-size: 15px; color: #736963;">Please rename the file by incorporating your last name followed by your first name, along with the number of your valid document. The number can be found on the right panel.</p>
             <p style="margin: 5px 0 5px 0; align-self: flex-start; font-size: 15px; font-weight: 700; color: #E5A73A;">Example: DelaCruz_Juan_1.jpeg</p>
             <div style="width: 100%; box-sizing: border-box; margin: 5px 0 5px 0;  padding: 10px; background-color: #FFFFFF; border: 2px dashed #000000; border-radius: 50px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                <img src="assets/upload-icon.png" style="width: 250px; height: 250px;" />
+                <img src="Content/upload-icon.png" style="width: 250px; height: 250px;" />
                 <asp:FileUpload ID="fileUploadControl" runat="server" ClientIDMode="Static" CssClass="fileUpload" />
             </div>
             <asp:Button ID="btnDocumentSubmit" runat="server" Text="SUBMIT" OnClick="DocumentSubmit_Click" CssClass="btnSubmitButton" Style="border-radius: 25px;"></asp:Button>
@@ -356,7 +356,7 @@
 <asp:Content ID="PendingStatusPage" ContentPlaceHolderID="PendingStatusPage" runat="server">
     <div id="pending-status-page" class="page-container" style="height: calc(100vh - 115px); padding: 15px 0 0 0; background-color: #FAF7EE; display: flex; flex-direction: column; align-items: center;">
         <div style="width: 900px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <img src="assets/pending-status-icon.png" style="width: 500px; height: 500px;" />
+            <img src="Content/pending-status-icon.png" style="width: 500px; height: 500px;" />
             <p style="text-align: center; font-size: 40px; font-weight: 700; color: #294278;">Please note that your voter registration status is still pending</p>
         </div>
     </div>
@@ -365,7 +365,7 @@
 <asp:Content ID="DeclinedStatusPage" ContentPlaceHolderID="DeclinedStatusPage" runat="server">
     <div id="declined-status-page" class="page-container" style="height: calc(100vh - 115px); padding: 15px 0 0 0; background-color: #FAF7EE; display: flex; flex-direction: column; align-items: center;">
         <div style="width: 900px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <img src="assets/declined-status-icon.png" style="width: 500px; height: 500px;" />
+            <img src="Content/declined-status-icon.png" style="width: 500px; height: 500px;" />
             <p style="text-align: center; font-size: 40px; font-weight: 700; color: #294278;">Your registration has been declined. Please review your documents and personal details.</p>
         </div>
     </div>
@@ -374,7 +374,7 @@
 <asp:Content ID="VerifiedStatusPage" ContentPlaceHolderID="VerifiedStatusPage" runat="server">
     <div id="verified-status-page" class="page-container" style="height: calc(100vh - 100px); background-color: #FAF7EE; display: flex; flex-direction: column; align-items: center;">
         <div style="width: 1000px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <img src="assets/verified-status-icon.png" style="width: 500px; height: 500px;" />
+            <img src="Content/verified-status-icon.png" style="width: 500px; height: 500px;" />
             <p style="text-align: center; font-size: 40px; font-weight: 700; color: #294278;">You are now a verified voter on our platform!</p>
             <p style="text-align: center; font-size: 20px; color: #736C6D;">Click to view your voters identification number</p>
         </div>
@@ -410,37 +410,37 @@
 <asp:Content ID="NewsAndEventsPage" ContentPlaceHolderID="NewsAndEventsPage" runat="server">
     <div id="news-page" class="page-container" style="background-color: #FAF7EE;">
         <div class="news-panel">
-            <img src="assets/Nationwide.png" alt="article_image" />
+            <img src="Content/Nationwide.png" alt="article_image" />
             <p class="article-headline">E-Rehistro Launches Nationwide Voter ID Registration Drive, Bringing Convenience</p>
             <p class="article-preview">E-Rehistro, the leading online platform for voter registration in the Philippines, initiates a comprehensive nationwide campaign to...</p>
             <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
         </div>
         <div class="news-panel">
-            <img src="assets/Biometric.png" alt="article_image" />
+            <img src="Content/Biometric.png" alt="article_image" />
             <p class="article-headline">E-Rehistro Introduces Biometric Verification for Enhanced Voter ID Security</p>
             <p class="article-preview">E-Rehistro raises the bar in voter ID security by implementing biometric verification, ensuring the integrity of voter registrations and...</p>
             <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
         </div>
         <div class="news-panel">
-            <img src="assets/Partners.png" alt="article_image" />
+            <img src="Content/Partners.png" alt="article_image" />
             <p class="article-headline">E-Rehistro Partners with Local Governments</p>
             <p class="article-preview">In a landmark collaboration, E-Rehistro joins forces with local government units nationwide to widen the reach of voter registration...</p>
             <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
         </div>
         <div class="news-panel">
-            <img src="assets/Filipino.png" alt="article_image" />
+            <img src="Content/Filipino.png" alt="article_image" />
             <p class="article-headline">E-Rehistro's Online Voter ID Registration Sparks Excitement Among Filipinos</p>
             <p class="article-preview">E-Rehistro's user-friendly online platform ignites enthusiasm among Filipinos, driving a surge in youth participation in the voter...</p>
             <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
         </div>
         <div class="news-panel">
-            <img src="assets/Workshop.png" alt="article_image" />
+            <img src="Content/Workshop.png" alt="article_image" />
             <p class="article-headline">Empowering Communities: E-Rehistro Hosts Voter Education Workshops</p>
             <p class="article-preview">E-Rehistro takes proactive steps to empower communities by organizing voter education workshops, equipping citizens with the...</p>
             <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
         </div>
         <div class="news-panel">
-            <img src="assets/MobilePhone.png" alt="article_image" />
+            <img src="Content/MobilePhone.png" alt="article_image" />
             <p class="article-headline">E-Rehistro Launches Mobile App for Convenient Voter ID Registration</p>
             <p class="article-preview">E-Rehistro unveils its innovative mobile app, enabling Filipinos to register for voter IDs anytime, anywhere, revolutionizing...</p>
             <asp:Button runat="server" Text="READ MORE" CssClass="btnReadMoreButton" />
@@ -527,25 +527,25 @@
                 </div>
                 <div id="facebook-acc" class="social-account">
                     <div class="icon-text">
-                        <img src="/assets/facebook.svg" alt="Facebook Logo" />
+                        <img src="/Content/facebook.svg" alt="Facebook Logo" />
                         <p>E-RehistroOfficial</p>
                     </div>
                 </div>
                 <div id="viber-acc" class="social-account">
                     <div class="icon-text">
-                        <img src="/assets/viber.svg" alt="Viber Logo" />
+                        <img src="/Content/viber.svg" alt="Viber Logo" />
                         <p>E-Rehistro</p>
                     </div>
                 </div>
                 <div id="youtube-acc" class="social-account">
                     <div class="icon-text">
-                        <img src="/assets/youtube.svg" alt="Youtube Logo" />
+                        <img src="/Content/youtube.svg" alt="Youtube Logo" />
                         <p>E-REHISTRO</p>
                     </div>
                 </div>
                 <div id="instagram-acc" class="social-account">
                     <div class="icon-text">
-                        <img src="/assets/instagram.svg" alt="Instagram Logo" />
+                        <img src="/Content/instagram.svg" alt="Instagram Logo" />
                         <p>E-Rehistro</p>
                     </div>
                 </div>
