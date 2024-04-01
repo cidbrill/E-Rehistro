@@ -23,7 +23,7 @@ namespace e_rehistro
 
         private void FetchAndBindData()
         {
-            string connString = "Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=LeufUser@e-rehistrodbserver;Password=LeufPassword123";
+            string connString = "Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=**@e-rehistrodbserver;Password=**";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
@@ -75,7 +75,7 @@ namespace e_rehistro
         {
             string email = txtSignupEmail.Text;
             string password = txtSignupPassword.Text;
-            string connectionString = @"Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=LeufUser@e-rehistrodbserver;Password=LeufPassword123";
+            string connectionString = @"Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=**@e-rehistrodbserver;Password=**";
             string query = "INSERT INTO Register (email, password) VALUES (@email, @password)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -111,7 +111,7 @@ namespace e_rehistro
             {
                 string email = txtSigninEmail.Text;
                 string password = txtSigninPassword.Text;
-                string connectionString = @"Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=LeufUser@e-rehistrodbserver;Password=LeufPassword123";
+                string connectionString = @"Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=**@e-rehistrodbserver;Password=**";
                 string query = "SELECT email,password, substring(email,1,5) as adminVal FROM Register WHERE email=@email ";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -318,7 +318,7 @@ namespace e_rehistro
             string oath = oathVal.SelectedValue;
             string registered = isRegistered.SelectedValue;
 
-            string connectionString = @"Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=LeufUser@e-rehistrodbserver;Password=LeufPassword123";
+            string connectionString = @"Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=**@e-rehistrodbserver;Password=**";
             string query = "INSERT INTO UserData (userLast, userFirst, userSuffix, userMiddle, userGender, userBirthday, userBirthCity, userBirthProvince, userProvince, userCity, userBarangay, userBlknlot, userCitizenship, userDateofNat, userCertNo, fatherName, motherName, oath, registered) VALUES (@userFirst, @userLast, @userSuffix, @userMiddle, @gender, @birthDate, @birthMuni, @birthProv, @userProv, @userCity, @userBarangay, @userHouseNum, @citizenship, @dateOfnat, @certNum, @fatName, @motName, @oath, @registered)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -459,7 +459,7 @@ namespace e_rehistro
                     byte[] fileBytes = fileUploadControl.FileBytes;
 
                     // Establish connection to the database
-                    string connectionString = @"Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=LeufUser@e-rehistrodbserver;Password=LeufPassword123";
+                    string connectionString = @"Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=**@e-rehistrodbserver;Password=**";
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
                         // Insert the picture into the database
