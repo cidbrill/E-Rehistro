@@ -79,6 +79,28 @@
       <DependentUpon>Database2.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\schema.sql" />
+    <Content Include="Content\approve.png" />
+    <Content Include="Content\arrow.png" />
+    <Content Include="Content\authentication-slider.png" />
+    <Content Include="Content\Biometric.png" />
+    <Content Include="Content\declined-status-icon.png" />
+    <Content Include="Content\e-rehistro-icon.png" />
+    <Content Include="Content\Filipino.png" />
+    <Content Include="Content\hamburger-menu.png" />
+    <Content Include="Content\home-page.png" />
+    <Content Include="Content\lock.png" />
+    <Content Include="Content\MobilePhone.png" />
+    <Content Include="Content\Nationwide.png" />
+    <Content Include="Content\next-step-indicator.png" />
+    <Content Include="Content\page-one.png" />
+    <Content Include="Content\page-two.png" />
+    <Content Include="Content\Partners.png" />
+    <Content Include="Content\pending-status-icon.png" />
+    <Content Include="Content\unloaded-image.png" />
+    <Content Include="Content\upload-icon.png" />
+    <Content Include="Content\verification.png" />
+    <Content Include="Content\verified-status-icon.png" />
+    <Content Include="Content\Workshop.png" />
     <Content Include="Default.aspx" />
     <Content Include="script.js" />
     <Content Include="styles.css" />
@@ -112,6 +134,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
