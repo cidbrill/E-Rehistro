@@ -74,10 +74,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database2.mdf" />
-    <Content Include="App_Data\Database2_log.ldf">
-      <DependentUpon>Database2.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\schema.sql" />
     <Content Include="Content\approve.png" />
     <Content Include="Content\arrow.png" />
