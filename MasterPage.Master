@@ -23,6 +23,7 @@
                         <li><asp:LinkButton ID="AboutLink" runat="server" OnClick="About_Click" CssClass="lnkBtnNavLink">ABOUT</asp:LinkButton></li>
                         <li><asp:LinkButton ID="ContactsLink" runat="server" OnClick="Contacts_Click" CssClass="lnkBtnNavLink">CONTACT US</asp:LinkButton></li>
                     </ul>
+                    <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="btn-logout" OnClick="Logout_Click" />
                 </div>
                 <div id="hamburger-menu" style="width: 100px; box-sizing: border-box; padding-bottom: 4px; display: flex; align-items: center; justify-content: center;">
                     <img src="Content/hamburger-menu.png" style="width: 40px; height: 40px;">

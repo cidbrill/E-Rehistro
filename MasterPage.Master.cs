@@ -11,92 +11,75 @@ namespace e_rehistro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            AuthenticationPage.Visible = true;
+            btnLogout.Visible = SessionManager.IsLoggedIn;
+
+            if (!IsPostBack)
+            {
+                if (SessionManager.IsLoggedIn)
+                {
+                    if (SessionManager.IsAdmin)
+                        ShowPage("AdminPage");
+                    else
+                        ShowPage("HomePage");
+                }
+                else
+                {
+                    ShowPage("AuthenticationPage");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Shows the specified page and hides all others.
+        /// Centralizes visibility management to prevent state leaks.
+        /// </summary>
+        public void ShowPage(string pageName)
+        {
+            AuthenticationPage.Visible = (pageName == "AuthenticationPage");
+            AdminPage.Visible = (pageName == "AdminPage");
+            HomePage.Visible = (pageName == "HomePage");
+            RegistrationPage.Visible = (pageName == "RegistrationPage");
+            FirstRegistrationForm.Visible = (pageName == "FirstRegistrationForm");
+            SecondRegistrationForm.Visible = (pageName == "SecondRegistrationForm");
+            UploadDocumentPage.Visible = (pageName == "UploadDocumentPage");
+            PendingStatusPage.Visible = (pageName == "PendingStatusPage");
+            DeclinedStatusPage.Visible = (pageName == "DeclinedStatusPage");
+            VerifiedStatusPage.Visible = (pageName == "VerifiedStatusPage");
+            VoterIDInfo.Visible = (pageName == "VoterIDInfo");
+            NewsAndEventsPage.Visible = (pageName == "NewsAndEventsPage");
+            AboutPage.Visible = (pageName == "AboutPage");
+            ContactsPage.Visible = (pageName == "ContactsPage");
         }
 
         public void Home_Click(object sender, EventArgs e)
         {
-            AuthenticationPage.Visible = false;
-            AdminPage.Visible = false;
-            HomePage.Visible = true;
-            RegistrationPage.Visible = false;
-            FirstRegistrationForm.Visible = false;
-            SecondRegistrationForm.Visible = false;
-            UploadDocumentPage.Visible = false;
-            PendingStatusPage.Visible = false;
-            DeclinedStatusPage.Visible = false;
-            VerifiedStatusPage.Visible = false;
-            NewsAndEventsPage.Visible = false;
-            AboutPage.Visible = false;
-            ContactsPage.Visible = false;
+            ShowPage("HomePage");
         }
 
         public void Registration_Click(object sender, EventArgs e)
         {
-            AuthenticationPage.Visible = false;
-            AdminPage.Visible = false;
-            HomePage.Visible = false;
-            RegistrationPage.Visible = true;
-            FirstRegistrationForm.Visible = false;
-            SecondRegistrationForm.Visible = false;
-            UploadDocumentPage.Visible = false;
-            PendingStatusPage.Visible = false;
-            DeclinedStatusPage.Visible = false;
-            VerifiedStatusPage.Visible = false;
-            NewsAndEventsPage.Visible = false;
-            AboutPage.Visible = false;
-            ContactsPage.Visible = false;
+            ShowPage("RegistrationPage");
         }
 
         protected void NewsAndEvents_Click(object sender, EventArgs e)
         {
-            AuthenticationPage.Visible = false;
-            AdminPage.Visible = false;
-            HomePage.Visible = false;
-            RegistrationPage.Visible = false;
-            FirstRegistrationForm.Visible = false;
-            SecondRegistrationForm.Visible = false;
-            UploadDocumentPage.Visible = false;
-            PendingStatusPage.Visible = false;
-            DeclinedStatusPage.Visible = false;
-            VerifiedStatusPage.Visible = false;
-            NewsAndEventsPage.Visible = true;
-            AboutPage.Visible = false;
-            ContactsPage.Visible = false;
+            ShowPage("NewsAndEventsPage");
         }
 
         protected void About_Click(object sender, EventArgs e)
         {
-            AuthenticationPage.Visible = false;
-            AdminPage.Visible = false;
-            HomePage.Visible = false;
-            RegistrationPage.Visible = false;
-            FirstRegistrationForm.Visible = false;
-            SecondRegistrationForm.Visible = false;
-            UploadDocumentPage.Visible = false;
-            PendingStatusPage.Visible = false;
-            DeclinedStatusPage.Visible = false;
-            VerifiedStatusPage.Visible = false;
-            NewsAndEventsPage.Visible = false;
-            AboutPage.Visible = true;
-            ContactsPage.Visible = false;
+            ShowPage("AboutPage");
         }
 
         protected void Contacts_Click(object sender, EventArgs e)
         {
-            AuthenticationPage.Visible = false;
-            AdminPage.Visible = false;
-            HomePage.Visible = false;
-            RegistrationPage.Visible = false;
-            FirstRegistrationForm.Visible = false;
-            SecondRegistrationForm.Visible = false;
-            UploadDocumentPage.Visible = false;
-            PendingStatusPage.Visible = false;
-            DeclinedStatusPage.Visible = false;
-            VerifiedStatusPage.Visible = false;
-            NewsAndEventsPage.Visible = false;
-            AboutPage.Visible = false;
-            ContactsPage.Visible = true;
+            ShowPage("ContactsPage");
+        }
+
+        protected void Logout_Click(object sender, EventArgs e)
+        {
+            SessionManager.Clear();
+            ShowPage("AuthenticationPage");
         }
     }
 }
