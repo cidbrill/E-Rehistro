@@ -123,6 +123,7 @@
     </Compile>
     <Compile Include="PasswordHelper.cs" />
     <Compile Include="SessionManager.cs" />
+    <Compile Include="UserDataHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
