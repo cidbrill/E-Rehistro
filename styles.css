@@ -890,3 +890,11 @@ html::-webkit-scrollbar {
     background: #E5A73A;
     color: #294278;
 }
+
+.validation-error {
+    color: #c0392b;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    margin-top: 2px;
+}

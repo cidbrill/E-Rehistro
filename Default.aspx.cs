@@ -101,6 +101,7 @@ namespace e_rehistro
 
         protected void Signup_Click(object sender, EventArgs e)
         {
+            if (!Page.IsValid) return;
             string email = txtSignupEmail.Text;
             string password = txtSignupPassword.Text;
             string hashedPassword = PasswordHelper.HashPassword(password);
@@ -234,6 +235,7 @@ namespace e_rehistro
         protected void NextPage_Click(object sender, EventArgs e)
         {
             if (!RequireLogin()) return;
+            if (!Page.IsValid) return;
             ((MasterPage)this.Master).ShowPage("SecondRegistrationForm");
         }
 
@@ -246,6 +248,7 @@ namespace e_rehistro
         protected void FormSubmit_Click(object sender, EventArgs e)
         {
             if (!RequireLogin()) return;
+            if (!Page.IsValid) return;
 
             try
             {
@@ -296,6 +299,7 @@ namespace e_rehistro
         {
             if (!RequireLogin()) return;
             if (!fileUploadControl.HasFile) return;
+            if (!Page.IsValid) return;
 
             try
             {

@@ -41,16 +41,32 @@
                 <asp:TextBox ID="txtSignupEmail" runat="server" CssClass="txtInputField"></asp:TextBox>
                 <label for="txtSignupEmail">Email</label>
             </div>
+            <asp:RequiredFieldValidator ID="rfvSignupEmail" runat="server"
+                ControlToValidate="txtSignupEmail"
+                ErrorMessage="Email is required."
+                CssClass="validation-error"
+                ValidationGroup="SignUp" Display="Dynamic" />
             <div id="signup-password" class="input-field">
                 <asp:TextBox ID="txtSignupPassword" runat="server" TextMode="Password" CssClass="txtInputField"></asp:TextBox>
                 <label for="txtSignupPassword">Password</label>
             </div>
+            <asp:RequiredFieldValidator ID="rfvSignupPassword" runat="server"
+                ControlToValidate="txtSignupPassword"
+                ErrorMessage="Password is required."
+                CssClass="validation-error"
+                ValidationGroup="SignUp" Display="Dynamic" />
             <div id="signup-confirm-password" class="input-field">
                 <asp:TextBox ID="txtSignupConfirmPassword" runat="server" TextMode="Password" CssClass="txtInputField"></asp:TextBox>
                 <label for="txtSignupPassword">Confirm Password</label>
             </div>
+            <asp:CompareValidator ID="cvSignupConfirmPassword" runat="server"
+                ControlToValidate="txtSignupConfirmPassword"
+                ControlToCompare="txtSignupPassword"
+                ErrorMessage="Passwords do not match."
+                CssClass="validation-error"
+                ValidationGroup="SignUp" Display="Dynamic" />
             <div id="signup-button">
-                <asp:Button ID="btnSignUpButton" runat="server" Text="Sign Up" CssClass="btnSubmitForm" OnClick="Signup_Click" />
+                <asp:Button ID="btnSignUpButton" runat="server" Text="Sign Up" CssClass="btnSubmitForm" OnClick="Signup_Click" ValidationGroup="SignUp" />
             </div>
             <div id="switch-to-signin">
                 <p>Already have an account? <b id="sign-in">Sign In</b></p>
@@ -191,10 +207,16 @@
                         <p style="color: #736963;">First</p>
                         <asp:TextBox ID="firstName" runat="server" CssClass="txtRegistrationField" Style="width: 325px; margin: 0 0 0 20px;"></asp:TextBox>
                     </div>
+                    <asp:RequiredFieldValidator ID="rfvFirstName" runat="server"
+                        ControlToValidate="firstName" ErrorMessage="First name is required."
+                        CssClass="validation-error" ValidationGroup="RegistrationForm1" Display="Dynamic" />
                     <div style="margin: 5px 0 5px 0px; display: flex;">
                         <p style="color: #736963;">Last</p>
                         <asp:TextBox ID="lastName" runat="server" CssClass="txtRegistrationField" Style="width: 325px; margin: 0 0 0 20px;"></asp:TextBox>
                     </div>
+                    <asp:RequiredFieldValidator ID="rfvLastName" runat="server"
+                        ControlToValidate="lastName" ErrorMessage="Last name is required."
+                        CssClass="validation-error" ValidationGroup="RegistrationForm1" Display="Dynamic" />
                 </div>
                 <div style="display: flex; flex-direction: column;">
                     <div style="margin: 5px 0 5px 0px; display: flex;">
@@ -211,20 +233,32 @@
             <div style="margin: 5px 0 5px 0px; display: flex; flex-direction: column;">
                 <p style="color: #736963;">House No./ Street</p>
                 <asp:TextBox ID="houseNum" runat="server" CssClass="txtRegistrationField"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvHouseNum" runat="server"
+                    ControlToValidate="houseNum" ErrorMessage="House No./Street is required."
+                    CssClass="validation-error" ValidationGroup="RegistrationForm1" Display="Dynamic" />
             </div>
             <div style="margin: 5px 0 5px 0px; display: flex; justify-content: space-between;">
                 <div>
                     <p style="color: #736963;">Baranggay/Sitio/Purok</p>
                     <asp:TextBox ID="barangay" runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvBarangay" runat="server"
+                        ControlToValidate="barangay" ErrorMessage="Barangay is required."
+                        CssClass="validation-error" ValidationGroup="RegistrationForm1" Display="Dynamic" />
                 </div>
                 <div>
                     <p style="color: #736963;">City/Municipality</p>
                     <asp:TextBox ID="municipality" runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvMunicipality" runat="server"
+                        ControlToValidate="municipality" ErrorMessage="City/Municipality is required."
+                        CssClass="validation-error" ValidationGroup="RegistrationForm1" Display="Dynamic" />
                 </div>
             </div>
             <div style="margin: 5px 0 5px 0px; display: flex; flex-direction: column;">
                 <p style="color: #736963;">Province</p>
                 <asp:TextBox ID="prov" runat="server" CssClass="txtRegistrationField"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvProv" runat="server"
+                    ControlToValidate="prov" ErrorMessage="Province is required."
+                    CssClass="validation-error" ValidationGroup="RegistrationForm1" Display="Dynamic" />
             </div>
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">CITIZENSHIP</p>
             <div style="margin: 5px 0 5px 0px;">
@@ -257,27 +291,42 @@
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">DATE OF BIRTH</p>
             <div style="margin: 5px 0 5px 0px; display: flex; flex-direction: column;">
                 <asp:TextBox ID="birthDate" runat="server" CssClass="txtRegistrationField"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvBirthDate" runat="server"
+                    ControlToValidate="birthDate" ErrorMessage="Date of birth is required."
+                    CssClass="validation-error" ValidationGroup="RegistrationForm1" Display="Dynamic" />
             </div>
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">PLACE OF BIRTH</p>
             <div style="margin: 5px 0 5px 0px; display: flex; flex-direction: column;">
                 <p style="color: #736963;">City/Municipality</p>
                 <asp:TextBox ID="birthCity" runat="server" CssClass="txtRegistrationField"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvBirthCity" runat="server"
+                    ControlToValidate="birthCity" ErrorMessage="Birth city is required."
+                    CssClass="validation-error" ValidationGroup="RegistrationForm1" Display="Dynamic" />
             </div>
             <div style="margin: 5px 0 5px 0px; display: flex; flex-direction: column;">
                 <p style="color: #736963;">Province</p>
                 <asp:TextBox ID="birthProvince" runat="server" CssClass="txtRegistrationField"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvBirthProvince" runat="server"
+                    ControlToValidate="birthProvince" ErrorMessage="Birth province is required."
+                    CssClass="validation-error" ValidationGroup="RegistrationForm1" Display="Dynamic" />
             </div>
             <p style="margin: 5px 0 5px 0px; font-weight: 700; color: #294278;">PARENT'S NAME</p>
             <div style="margin: 5px 0 5px 0px; display: flex; justify-content: space-between">
                 <p style="color: #736963;">Father's Name</p>
                 <asp:TextBox ID="fatherName" runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
             </div>
+            <asp:RequiredFieldValidator ID="rfvFatherName" runat="server"
+                ControlToValidate="fatherName" ErrorMessage="Father's name is required."
+                CssClass="validation-error" ValidationGroup="RegistrationForm1" Display="Dynamic" />
             <div style="margin: 5px 0 5px 0px; display: flex; justify-content: space-between">
                 <p style="color: #736963;">Mother's Name</p>
                 <asp:TextBox ID="motherName" runat="server" CssClass="txtRegistrationField" Style="width: 300px;"></asp:TextBox>
             </div>
+            <asp:RequiredFieldValidator ID="rfvMotherName" runat="server"
+                ControlToValidate="motherName" ErrorMessage="Mother's name is required."
+                CssClass="validation-error" ValidationGroup="RegistrationForm1" Display="Dynamic" />
             <div>
-                <asp:Button CssClass="btnNextPageButton" runat="server" Text="NEXT" OnClick="NextPage_Click"></asp:Button>
+                <asp:Button ID="btnNextPage" CssClass="btnNextPageButton" runat="server" Text="NEXT" OnClick="NextPage_Click" ValidationGroup="RegistrationForm1"></asp:Button>
             </div>
         </div>
     </div>
@@ -330,7 +379,18 @@
                 <img src="Content/upload-icon.png" style="width: 250px; height: 250px;" />
                 <asp:FileUpload ID="fileUploadControl" runat="server" ClientIDMode="Static" CssClass="fileUpload" />
             </div>
-            <asp:Button ID="btnDocumentSubmit" runat="server" Text="SUBMIT" OnClick="DocumentSubmit_Click" CssClass="btnSubmitButton" Style="border-radius: 25px;"></asp:Button>
+            <asp:RequiredFieldValidator ID="rfvFile" runat="server"
+                ControlToValidate="fileUploadControl"
+                ErrorMessage="Please select a file."
+                CssClass="validation-error"
+                ValidationGroup="DocumentUpload" Display="Dynamic" />
+            <asp:RegularExpressionValidator ID="revFile" runat="server"
+                ControlToValidate="fileUploadControl"
+                ValidationExpression="^.*\.(jpg|jpeg|png|pdf|JPG|JPEG|PNG|PDF)$"
+                ErrorMessage="Only JPG, PNG, or PDF files are accepted."
+                CssClass="validation-error"
+                ValidationGroup="DocumentUpload" Display="Dynamic" />
+            <asp:Button ID="btnDocumentSubmit" runat="server" Text="SUBMIT" OnClick="DocumentSubmit_Click" CssClass="btnSubmitButton" Style="border-radius: 25px;" ValidationGroup="DocumentUpload"></asp:Button>
         </div>
         <div class="form-divider" style="width: 50%; box-sizing: border-box; margin: 0 25px 0 25px; padding: 20px; background-color: #FFFFFF; border: 2px solid #000000; border-radius: 25px; display: flex; flex-direction: column; font-size: 15px;">
             <p style="margin: 0 0 5px 0; font-size: 35px; font-weight: 700; color: #294278;">DOCUMENTARY REQUIREMENTS</p>
