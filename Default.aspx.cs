@@ -301,7 +301,7 @@ namespace e_rehistro
 
             // Part II: Voter ID number — userId zero-padded + birth date
             string birthdate = Convert.ToDateTime(row["userBirthday"]).ToString("yyyyMMdd");
-            txtVoterPartII.Text = $"{row["userId"]:D8}-{birthdate}";
+            txtVoterPartII.Text = $"{Convert.ToInt32(row["userId"]):D8}-{birthdate}";
 
             // Part III: Full name (Last, First Middle Suffix)
             string middle = row["userMiddle"] != DBNull.Value ? " " + row["userMiddle"].ToString() : string.Empty;
