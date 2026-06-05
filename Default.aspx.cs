@@ -115,9 +115,9 @@ namespace e_rehistro
                     connection.Open();
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@email", email);
-                        command.Parameters.AddWithValue("@password", hashedPassword);
-                        command.Parameters.AddWithValue("@role", "user");
+                        command.Parameters.Add("@email",    SqlDbType.VarChar).Value = email;
+                        command.Parameters.Add("@password", SqlDbType.VarChar).Value = hashedPassword;
+                        command.Parameters.Add("@role",     SqlDbType.VarChar, 20).Value = "user";
                         int rowsAffected = command.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
@@ -148,56 +148,56 @@ namespace e_rehistro
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@email", email);
+                    command.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
                     try
                     {
                         connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-                        if (reader.Read())
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            string dbPassword = reader["password"].ToString();
-                            if (PasswordHelper.VerifyPassword(password, dbPassword))
+                            if (reader.Read())
                             {
-                                string role = reader["role"].ToString();
-
-                                // Store user identity in session
-                                SessionManager.UserId = Convert.ToInt32(reader["userId"]);
-                                SessionManager.Email = email;
-                                SessionManager.Role = role;
-
-                                if (role == "admin")
+                                string dbPassword = reader["password"].ToString();
+                                if (PasswordHelper.VerifyPassword(password, dbPassword))
                                 {
-                                    AdminHome_Click(sender, EventArgs.Empty);
-                                    // FetchAndBindData() removed — Page_Load handles this
+                                    string role = reader["role"].ToString();
+
+                                    SessionManager.UserId = Convert.ToInt32(reader["userId"]);
+                                    SessionManager.Email = email;
+                                    SessionManager.Role = role;
+
+                                    if (role == "admin")
+                                    {
+                                        AdminHome_Click(sender, EventArgs.Empty);
+                                    }
+                                    else
+                                    {
+                                        string status = UserDataHelper.GetUserStatus(SessionManager.UserId);
+                                        switch (status)
+                                        {
+                                            case "approved":
+                                                ((MasterPage)this.Master).ShowPage("VerifiedStatusPage");
+                                                break;
+                                            case "declined":
+                                                ((MasterPage)this.Master).ShowPage("DeclinedStatusPage");
+                                                break;
+                                            case "pending":
+                                                ((MasterPage)this.Master).ShowPage("PendingStatusPage");
+                                                break;
+                                            default:
+                                                Home_Click(sender, EventArgs.Empty);
+                                                break;
+                                        }
+                                    }
                                 }
                                 else
                                 {
-                                    string status = UserDataHelper.GetUserStatus(SessionManager.UserId);
-                                    switch (status)
-                                    {
-                                        case "approved":
-                                            ((MasterPage)this.Master).ShowPage("VerifiedStatusPage");
-                                            break;
-                                        case "declined":
-                                            ((MasterPage)this.Master).ShowPage("DeclinedStatusPage");
-                                            break;
-                                        case "pending":
-                                            ((MasterPage)this.Master).ShowPage("PendingStatusPage");
-                                            break;
-                                        default:
-                                            Home_Click(sender, EventArgs.Empty);
-                                            break;
-                                    }
+                                    Response.Write("<script>alert('Invalid email or password. Try again')</script>");
                                 }
                             }
                             else
                             {
                                 Response.Write("<script>alert('Invalid email or password. Try again')</script>");
                             }
-                        }
-                        else
-                        {
-                            Response.Write("<script>alert('Invalid email or password. Try again')</script>");
                         }
                     }
                     catch (Exception ex)
