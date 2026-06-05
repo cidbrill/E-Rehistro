@@ -292,6 +292,22 @@ namespace e_rehistro
         protected void ViewVoterID_Click(object sender, EventArgs e)
         {
             if (!RequireLogin()) return;
+
+            var row = UserDataHelper.GetVoterData(SessionManager.UserId);
+            if (row == null) return;
+
+            // Part I: Province / City / Barangay (location)
+            txtVoterPartI.Text = $"{row["userProvince"]}, {row["userCity"]}, {row["userBarangay"]}";
+
+            // Part II: Voter ID number — userId zero-padded + birth date
+            string birthdate = Convert.ToDateTime(row["userBirthday"]).ToString("yyyyMMdd");
+            txtVoterPartII.Text = $"{row["userId"]:D8}-{birthdate}";
+
+            // Part III: Full name (Last, First Middle Suffix)
+            string middle = row["userMiddle"] != DBNull.Value ? " " + row["userMiddle"].ToString() : string.Empty;
+            string sfx    = row["userSuffix"] != DBNull.Value ? " " + row["userSuffix"].ToString()  : string.Empty;
+            txtVoterPartIII.Text = $"{row["userLast"]}, {row["userFirst"]}{middle}{sfx}".Trim();
+
             ((MasterPage)this.Master).ShowPage("VoterIDInfo");
         }
 

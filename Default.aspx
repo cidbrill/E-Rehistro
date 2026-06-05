@@ -449,17 +449,17 @@
             <div style="margin: 10px 0 0 0; display: flex; justify-content: space-around;">
                 <div class="voter-id-infos">
                     <p style="text-align: center; font-size: 40px; font-weight: 700;">Part I</p>
-                    <asp:TextBox runat="server" ReadOnly="true" CssClass="txtVoterIDInfo"></asp:TextBox>
+                    <asp:TextBox ID="txtVoterPartI" runat="server" ReadOnly="true" CssClass="txtVoterIDInfo"></asp:TextBox>
                     <p style="margin: 5px 0 5px 0; color: #88818F">Prov. Code/City/Mun/Dist. Code</p>
                 </div>
                 <div class="voter-id-infos">
                     <p style="text-align: center; font-size: 40px; font-weight: 700;">Part II</p>
-                    <asp:TextBox runat="server" ReadOnly="true" CssClass="txtVoterIDInfo"></asp:TextBox>
+                    <asp:TextBox ID="txtVoterPartII" runat="server" ReadOnly="true" CssClass="txtVoterIDInfo"></asp:TextBox>
                     <p style="margin: 5px 0 5px 0; color: #88818F">Precinct Assignment</p>
                 </div>
                 <div class="voter-id-infos">
                     <p style="text-align: center; font-size: 40px; font-weight: 700;">Part III</p>
-                    <asp:TextBox runat="server" ReadOnly="true" CssClass="txtVoterIDInfo"></asp:TextBox>
+                    <asp:TextBox ID="txtVoterPartIII" runat="server" ReadOnly="true" CssClass="txtVoterIDInfo"></asp:TextBox>
                     <p style="margin: 5px 0 5px 0; color: #88818F">Prov. Code/City/Mun/Dist. Code</p>
                 </div>
             </div>
