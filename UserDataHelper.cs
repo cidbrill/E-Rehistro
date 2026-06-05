@@ -69,9 +69,9 @@ namespace e_rehistro
                         results.Add(new UserSubmission
                         {
                             UserId   = Convert.ToInt32(reader["userId"]),
-                            FullName = reader["FullName"].ToString(),
-                            FileName = reader["fileName"].ToString(),
-                            Status   = reader["status"].ToString()
+                            FullName = reader["FullName"] != DBNull.Value ? reader["FullName"].ToString() : string.Empty,
+                            FileName = reader["fileName"] != DBNull.Value ? reader["fileName"].ToString() : string.Empty,
+                            Status   = reader["status"]   != DBNull.Value ? reader["status"].ToString()   : string.Empty
                         });
                     }
                 }
