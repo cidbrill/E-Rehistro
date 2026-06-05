@@ -347,10 +347,10 @@ namespace e_rehistro
                 using (var conn = new SqlConnection(connString))
                 using (var cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.Add("@name",    SqlDbType.VarChar).Value = txtName.Text;
-                    cmd.Parameters.Add("@email",   SqlDbType.VarChar).Value = txtEmail.Text;
-                    cmd.Parameters.Add("@subject", SqlDbType.VarChar).Value = txtSubject.Text;
-                    cmd.Parameters.Add("@body",    SqlDbType.VarChar).Value = txtMessage.Text;
+                    cmd.Parameters.Add("@name",    SqlDbType.VarChar, -1).Value = txtName.Text;
+                    cmd.Parameters.Add("@email",   SqlDbType.VarChar, -1).Value = txtEmail.Text;
+                    cmd.Parameters.Add("@subject", SqlDbType.VarChar, -1).Value = txtSubject.Text;
+                    cmd.Parameters.Add("@body",    SqlDbType.VarChar, -1).Value = txtMessage.Text;
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }

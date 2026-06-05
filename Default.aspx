@@ -641,6 +641,12 @@
             <div class="form-group">
                 <label for="subject">Subject:</label>
                 <asp:TextBox ID="txtSubject" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvContactSubject" runat="server"
+                    ControlToValidate="txtSubject"
+                    ErrorMessage="Subject is required."
+                    CssClass="validation-error"
+                    Display="Dynamic"
+                    ValidationGroup="ContactForm" />
             </div>
             <div class="form-group">
                 <label for="message">Your Message:</label>
