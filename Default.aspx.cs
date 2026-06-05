@@ -130,7 +130,7 @@ namespace e_rehistro
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     Response.Write("<script>alert('Connection failed')</script>");
                 }
