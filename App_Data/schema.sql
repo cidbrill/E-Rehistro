@@ -1,32 +1,44 @@
-﻿Create Table Register(
-userId int identity(1,1) primary key not null,
-email varchar(max) not null,
-password varchar(max) not null)
+-- E-Rehistro database schema (final state after migration_002)
+-- Run this to create a fresh database from scratch.
+-- For existing databases, run the migration files in App_Data/ instead.
 
-Create Table UserData( 
-userId int identity(1,1) foreign key references Register(userId) not null,
-userLast varchar(max) not null,
-userFirst varchar(max) not null,
-userSuffix varchar(8),
-userMiddle varchar(max),
-userGender varchar(8) not null,
-userBirthday date not null,
-userBirthCity varchar(max) not null,
-userBirthProvince varchar(max) not null,
-userProvince varchar(max) not null,
-userCity varchar(max) not null,
-userBarangay varchar(max) not null,
-userBlknlot varchar(max) not null,
-userCitizenship varchar(20) not null,
-userDateofNat date,
-userCertNo varchar(max),
-fatherName varchar(max) not null,
-motherName varchar(max) not null,
-oath varchar(15) not null,
-registered varchar(100) not null
-)
+CREATE TABLE Register (
+    userId   int           IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    email    varchar(max)  NOT NULL,
+    password varchar(max)  NOT NULL,
+    role     varchar(20)   NOT NULL DEFAULT 'user'
+);
 
-create table userInfoPic(
-userId int identity(1,1) foreign key references Register(userId) not null,
-fileBytes varbinary(max) not null,
-fileName varchar(max) not null)
+CREATE TABLE UserData (
+    userId            int           NOT NULL,
+    userLast          varchar(max)  NOT NULL,
+    userFirst         varchar(max)  NOT NULL,
+    userSuffix        varchar(8)    NULL,
+    userMiddle        varchar(max)  NULL,
+    userGender        varchar(8)    NOT NULL,
+    userBirthday      date          NOT NULL,
+    userBirthCity     varchar(max)  NOT NULL,
+    userBirthProvince varchar(max)  NOT NULL,
+    userProvince      varchar(max)  NOT NULL,
+    userCity          varchar(max)  NOT NULL,
+    userBarangay      varchar(max)  NOT NULL,
+    userBlknlot       varchar(max)  NOT NULL,
+    userCitizenship   varchar(20)   NOT NULL,
+    userDateofNat     date          NULL,
+    userCertNo        varchar(max)  NULL,
+    fatherName        varchar(max)  NOT NULL,
+    motherName        varchar(max)  NOT NULL,
+    oath              varchar(15)   NOT NULL,
+    registered        varchar(100)  NOT NULL,
+    status            varchar(20)   NOT NULL DEFAULT 'pending',
+    CONSTRAINT PK_UserData PRIMARY KEY (userId),
+    CONSTRAINT FK_UserData_Register FOREIGN KEY (userId) REFERENCES Register(userId)
+);
+
+CREATE TABLE userInfoPic (
+    userId    int            NOT NULL,
+    fileBytes varbinary(max) NOT NULL,
+    fileName  varchar(max)   NOT NULL,
+    CONSTRAINT PK_userInfoPic PRIMARY KEY (userId),
+    CONSTRAINT FK_userInfoPic_Register FOREIGN KEY (userId) REFERENCES Register(userId)
+);

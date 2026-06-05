@@ -247,30 +247,37 @@ namespace e_rehistro
         {
             if (!RequireLogin()) return;
 
-            UserDataHelper.InsertUserData(
-                userId:       SessionManager.UserId,
-                userLast:     lastName.Text,
-                userFirst:    firstName.Text,
-                userSuffix:   suffix.Text,
-                userMiddle:   middleName.Text,
-                userHouseNum: houseNum.Text,
-                userBarangay: barangay.Text,
-                userCity:     municipality.Text,
-                userProv:     prov.Text,
-                citizenship:  citizenship.SelectedValue,
-                dateOfnat:    dateOfNat.Text,
-                certNum:      certNo.Text,
-                gender:       gender.SelectedValue,
-                birthdate:    birthDate.Text,
-                birthMuni:    birthCity.Text,
-                birthProv:    birthProvince.Text,
-                fatName:      fatherName.Text,
-                motName:      motherName.Text,
-                oath:         oathVal.SelectedValue,
-                registered:   isRegistered.SelectedValue
-            );
-
-            ((MasterPage)this.Master).ShowPage("PendingStatusPage");
+            try
+            {
+                UserDataHelper.InsertUserData(
+                    userId:       SessionManager.UserId,
+                    userLast:     lastName.Text,
+                    userFirst:    firstName.Text,
+                    userSuffix:   suffix.Text,
+                    userMiddle:   middleName.Text,
+                    userHouseNum: houseNum.Text,
+                    userBarangay: barangay.Text,
+                    userCity:     municipality.Text,
+                    userProv:     prov.Text,
+                    citizenship:  citizenship.SelectedValue,
+                    dateOfnat:    dateOfNat.Text,
+                    certNum:      certNo.Text,
+                    gender:       gender.SelectedValue,
+                    birthdate:    birthDate.Text,
+                    birthMuni:    birthCity.Text,
+                    birthProv:    birthProvince.Text,
+                    fatName:      fatherName.Text,
+                    motName:      motherName.Text,
+                    oath:         oathVal.SelectedValue,
+                    registered:   isRegistered.SelectedValue
+                );
+                ((MasterPage)this.Master).ShowPage("PendingStatusPage");
+            }
+            catch
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "formErr",
+                    "alert('Could not save your details. Please try again.');", true);
+            }
         }
 
         protected void Pending_Click(object sender, EventArgs e)
@@ -290,13 +297,20 @@ namespace e_rehistro
             if (!RequireLogin()) return;
             if (!fileUploadControl.HasFile) return;
 
-            UserDataHelper.InsertDocument(
-                userId:    SessionManager.UserId,
-                fileBytes: fileUploadControl.FileBytes,
-                fileName:  fileUploadControl.FileName
-            );
-
-            ((MasterPage)this.Master).ShowPage("RegistrationPage");
+            try
+            {
+                UserDataHelper.InsertDocument(
+                    userId:    SessionManager.UserId,
+                    fileBytes: fileUploadControl.FileBytes,
+                    fileName:  fileUploadControl.FileName
+                );
+                ((MasterPage)this.Master).ShowPage("RegistrationPage");
+            }
+            catch
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "docErr",
+                    "alert('Could not upload the document. Please try again.');", true);
+            }
         }
     }
 }
