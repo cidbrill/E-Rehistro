@@ -197,6 +197,7 @@ namespace e_rehistro
 
         protected void Home_Click(object sender, EventArgs e)
         {
+            if (!RequireLogin()) return;
             ((MasterPage)this.Master).ShowPage("HomePage");
         }
 
