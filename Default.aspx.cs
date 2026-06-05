@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -21,9 +23,30 @@ namespace e_rehistro
             }
         }
 
+        private bool RequireLogin()
+        {
+            if (!SessionManager.IsLoggedIn)
+            {
+                ((MasterPage)this.Master).ShowPage("AuthenticationPage");
+                return false;
+            }
+            return true;
+        }
+
+        private bool RequireAdmin()
+        {
+            if (!RequireLogin()) return false;
+            if (!SessionManager.IsAdmin)
+            {
+                ((MasterPage)this.Master).ShowPage("HomePage");
+                return false;
+            }
+            return true;
+        }
+
         private void FetchAndBindData()
         {
-            string connString = "Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=**@e-rehistrodbserver;Password=**";
+            string connString = ConfigurationManager.ConnectionStrings["ERehistroDB"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
@@ -75,8 +98,9 @@ namespace e_rehistro
         {
             string email = txtSignupEmail.Text;
             string password = txtSignupPassword.Text;
-            string connectionString = @"Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=**@e-rehistrodbserver;Password=**";
-            string query = "INSERT INTO Register (email, password) VALUES (@email, @password)";
+            string hashedPassword = PasswordHelper.HashPassword(password);
+            string connectionString = ConfigurationManager.ConnectionStrings["ERehistroDB"].ConnectionString;
+            string query = "INSERT INTO Register (email, password, role) VALUES (@email, @password, @role)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -86,7 +110,8 @@ namespace e_rehistro
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@email", email);
-                        command.Parameters.AddWithValue("@password", password);
+                        command.Parameters.AddWithValue("@password", hashedPassword);
+                        command.Parameters.AddWithValue("@role", "user");
                         int rowsAffected = command.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
@@ -108,50 +133,57 @@ namespace e_rehistro
 
         protected void LogIn_Click(object sender, EventArgs e)
         {
-            {
-                string email = txtSigninEmail.Text;
-                string password = txtSigninPassword.Text;
-                string connectionString = @"Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=**@e-rehistrodbserver;Password=**";
-                string query = "SELECT email,password, substring(email,1,5) as adminVal FROM Register WHERE email=@email ";
+            string email = txtSigninEmail.Text;
+            string password = txtSigninPassword.Text;
+            string connectionString = ConfigurationManager.ConnectionStrings["ERehistroDB"].ConnectionString;
+            string query = "SELECT userId, email, password, role FROM Register WHERE email=@email";
 
-                using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    command.Parameters.AddWithValue("@email", email);
+                    try
                     {
-                        command.Parameters.AddWithValue("@email", email);
-                        try
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        if (reader.Read())
                         {
-                            connection.Open();
-                            SqlDataReader reader = command.ExecuteReader();
-                            if (reader.Read())
+                            string dbPassword = reader["password"].ToString();
+                            if (PasswordHelper.VerifyPassword(password, dbPassword))
                             {
-                                string adminVal = reader["adminVal"].ToString();
-                                string dbPassword = reader["Password"].ToString();
-                                if (dbPassword == password)
+                                string role = reader["role"].ToString();
+
+                                // Store user identity in session
+                                SessionManager.UserId = Convert.ToInt32(reader["userId"]);
+                                SessionManager.Email = email;
+                                SessionManager.Role = role;
+
+                                if (role == "admin")
                                 {
-                                    if (adminVal == "admin")
-                                    {
-                                        Response.Write("<script>alert('Logged in')</script>");
-                                        AdminHome_Click(sender, EventArgs.Empty);
-                                        FetchAndBindData();
-                                    }
-                                    else
-                                    {
-                                        Response.Write("<script>alert('Logged in')</script>");
-                                        Home_Click(sender, EventArgs.Empty);
-                                    }
-                                    
+                                    Response.Write("<script>alert('Logged in')</script>");
+                                    AdminHome_Click(sender, EventArgs.Empty);
+                                    FetchAndBindData();
                                 }
                                 else
                                 {
-                                    Response.Write("<script>alert('Invalid email or password. Try again')</script>");
+                                    Response.Write("<script>alert('Logged in')</script>");
+                                    Home_Click(sender, EventArgs.Empty);
                                 }
                             }
+                            else
+                            {
+                                Response.Write("<script>alert('Invalid email or password. Try again')</script>");
+                            }
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            Response.Write("<script>alert('Connection failed')</script>");
+                            Response.Write("<script>alert('Invalid email or password. Try again')</script>");
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write("<script>alert('Connection failed')</script>");
                     }
                 }
             }
@@ -159,138 +191,43 @@ namespace e_rehistro
 
         protected void AdminHome_Click(object sender, EventArgs e)
         {
-            ContentPlaceHolder authenticationPage = (ContentPlaceHolder)Master.FindControl("AuthenticationPage");
-            ContentPlaceHolder homePage = (ContentPlaceHolder)Master.FindControl("HomePage");
-            ContentPlaceHolder registrationPage = (ContentPlaceHolder)Master.FindControl("RegistrationPage");
-            ContentPlaceHolder firstRegistrationForm = (ContentPlaceHolder)Master.FindControl("FirstRegistrationForm");
-            ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
-            ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
-            ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
-            ContentPlaceHolder newsAndEventsPage = (ContentPlaceHolder)Master.FindControl("NewsAndEventsPage");
-            ContentPlaceHolder aboutPage = (ContentPlaceHolder)Master.FindControl("AboutPage");
-            ContentPlaceHolder contactsPage = (ContentPlaceHolder)Master.FindControl("ContactsPage");
-            ContentPlaceHolder adminPage = (ContentPlaceHolder)Master.FindControl("AdminPage");
-
-            authenticationPage.Visible = false;
-            homePage.Visible = false;
-            registrationPage.Visible = false;
-            firstRegistrationForm.Visible = false;
-            secondRegistrationForm.Visible = false;
-            uploadDocumentPage.Visible = false;
-            voterIDInfo.Visible = false;
-            newsAndEventsPage.Visible = false;
-            aboutPage.Visible = false;
-            contactsPage.Visible = false;
-            adminPage.Visible = true;
+            if (!RequireAdmin()) return;
+            ((MasterPage)this.Master).ShowPage("AdminPage");
         }
+
         protected void Home_Click(object sender, EventArgs e)
         {
-            ((MasterPage)this.Master).Home_Click(this, EventArgs.Empty);
+            ((MasterPage)this.Master).ShowPage("HomePage");
         }
 
         protected void Registration_Click(object sender, EventArgs e)
         {
-            ((MasterPage)this.Master).Registration_Click(this, EventArgs.Empty);
+            if (!RequireLogin()) return;
+            ((MasterPage)this.Master).ShowPage("RegistrationPage");
         }
 
         protected void FirstRegistrationForm_Click(object sender, EventArgs e)
         {
-            ContentPlaceHolder authenticationPage = (ContentPlaceHolder)Master.FindControl("AuthenticationPage");
-            ContentPlaceHolder homePage = (ContentPlaceHolder)Master.FindControl("HomePage");
-            ContentPlaceHolder registrationPage = (ContentPlaceHolder)Master.FindControl("RegistrationPage");
-            ContentPlaceHolder firstRegistrationForm = (ContentPlaceHolder)Master.FindControl("FirstRegistrationForm");
-            ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
-            ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
-            ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
-            ContentPlaceHolder newsAndEventsPage = (ContentPlaceHolder)Master.FindControl("NewsAndEventsPage");
-            ContentPlaceHolder aboutPage = (ContentPlaceHolder)Master.FindControl("AboutPage");
-            ContentPlaceHolder contactsPage = (ContentPlaceHolder)Master.FindControl("ContactsPage");
-
-            authenticationPage.Visible = false;
-            homePage.Visible = false;
-            registrationPage.Visible = false;
-            firstRegistrationForm.Visible = true;
-            secondRegistrationForm.Visible = false;
-            uploadDocumentPage.Visible = false;
-            voterIDInfo.Visible = false;
-            newsAndEventsPage.Visible = false;
-            aboutPage.Visible = false;
-            contactsPage.Visible = false;
+            if (!RequireLogin()) return;
+            ((MasterPage)this.Master).ShowPage("FirstRegistrationForm");
         }
 
         protected void NextPage_Click(object sender, EventArgs e)
         {
-            ContentPlaceHolder authenticationPage = (ContentPlaceHolder)Master.FindControl("AuthenticationPage");
-            ContentPlaceHolder homePage = (ContentPlaceHolder)Master.FindControl("HomePage");
-            ContentPlaceHolder registrationPage = (ContentPlaceHolder)Master.FindControl("RegistrationPage");
-            ContentPlaceHolder firstRegistrationForm = (ContentPlaceHolder)Master.FindControl("FirstRegistrationForm");
-            ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
-            ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
-            ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
-            ContentPlaceHolder newsAndEventsPage = (ContentPlaceHolder)Master.FindControl("NewsAndEventsPage");
-            ContentPlaceHolder aboutPage = (ContentPlaceHolder)Master.FindControl("AboutPage");
-            ContentPlaceHolder contactsPage = (ContentPlaceHolder)Master.FindControl("ContactsPage");
-
-            authenticationPage.Visible = false;
-            homePage.Visible = false;
-            registrationPage.Visible = false;
-            firstRegistrationForm.Visible = false;
-            secondRegistrationForm.Visible = true;
-            uploadDocumentPage.Visible = false;
-            voterIDInfo.Visible = false;
-            newsAndEventsPage.Visible = false;
-            aboutPage.Visible = false;
-            contactsPage.Visible = false;
+            if (!RequireLogin()) return;
+            ((MasterPage)this.Master).ShowPage("SecondRegistrationForm");
         }
 
         protected void UploadDocumentPage_Click(object sender, EventArgs e)
         {
-            ContentPlaceHolder authenticationPage = (ContentPlaceHolder)Master.FindControl("AuthenticationPage");
-            ContentPlaceHolder homePage = (ContentPlaceHolder)Master.FindControl("HomePage");
-            ContentPlaceHolder registrationPage = (ContentPlaceHolder)Master.FindControl("RegistrationPage");
-            ContentPlaceHolder firstRegistrationForm = (ContentPlaceHolder)Master.FindControl("FirstRegistrationForm");
-            ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
-            ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
-            ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
-            ContentPlaceHolder newsAndEventsPage = (ContentPlaceHolder)Master.FindControl("NewsAndEventsPage");
-            ContentPlaceHolder aboutPage = (ContentPlaceHolder)Master.FindControl("AboutPage");
-            ContentPlaceHolder contactsPage = (ContentPlaceHolder)Master.FindControl("ContactsPage");
-
-            authenticationPage.Visible = false;
-            homePage.Visible = false;
-            registrationPage.Visible = false;
-            firstRegistrationForm.Visible = false;
-            secondRegistrationForm.Visible = false;
-            uploadDocumentPage.Visible = true;
-            voterIDInfo.Visible = false;
-            newsAndEventsPage.Visible = false;
-            aboutPage.Visible = false;
-            contactsPage.Visible = false;
+            if (!RequireLogin()) return;
+            ((MasterPage)this.Master).ShowPage("UploadDocumentPage");
         }
 
         protected void FormSubmit_Click(object sender, EventArgs e)
         {
-            ContentPlaceHolder authenticationPage = (ContentPlaceHolder)Master.FindControl("AuthenticationPage");
-            ContentPlaceHolder homePage = (ContentPlaceHolder)Master.FindControl("HomePage");
-            ContentPlaceHolder registrationPage = (ContentPlaceHolder)Master.FindControl("RegistrationPage");
-            ContentPlaceHolder firstRegistrationForm = (ContentPlaceHolder)Master.FindControl("FirstRegistrationForm");
-            ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
-            ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
-            ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
-            ContentPlaceHolder newsAndEventsPage = (ContentPlaceHolder)Master.FindControl("NewsAndEventsPage");
-            ContentPlaceHolder aboutPage = (ContentPlaceHolder)Master.FindControl("AboutPage");
-            ContentPlaceHolder contactsPage = (ContentPlaceHolder)Master.FindControl("ContactsPage");
-
-            authenticationPage.Visible = false;
-            homePage.Visible = false;
-            registrationPage.Visible = true;
-            firstRegistrationForm.Visible = false;
-            secondRegistrationForm.Visible = false;
-            uploadDocumentPage.Visible = false;
-            voterIDInfo.Visible = false;
-            newsAndEventsPage.Visible = false;
-            aboutPage.Visible = false;
-            contactsPage.Visible = false;
+            if (!RequireLogin()) return;
+            ((MasterPage)this.Master).ShowPage("RegistrationPage");
 
             string userFirst = firstName.Text;
             string userLast = lastName.Text;
@@ -318,8 +255,8 @@ namespace e_rehistro
             string oath = oathVal.SelectedValue;
             string registered = isRegistered.SelectedValue;
 
-            string connectionString = @"Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=**@e-rehistrodbserver;Password=**";
-            string query = "INSERT INTO UserData (userLast, userFirst, userSuffix, userMiddle, userGender, userBirthday, userBirthCity, userBirthProvince, userProvince, userCity, userBarangay, userBlknlot, userCitizenship, userDateofNat, userCertNo, fatherName, motherName, oath, registered) VALUES (@userFirst, @userLast, @userSuffix, @userMiddle, @gender, @birthDate, @birthMuni, @birthProv, @userProv, @userCity, @userBarangay, @userHouseNum, @citizenship, @dateOfnat, @certNum, @fatName, @motName, @oath, @registered)";
+            string connectionString = ConfigurationManager.ConnectionStrings["ERehistroDB"].ConnectionString;
+            string query = "INSERT INTO UserData (userLast, userFirst, userSuffix, userMiddle, userGender, userBirthday, userBirthCity, userBirthProvince, userProvince, userCity, userBarangay, userBlknlot, userCitizenship, userDateofNat, userCertNo, fatherName, motherName, oath, registered) VALUES (@userLast, @userFirst, @userSuffix, @userMiddle, @gender, @birthDate, @birthMuni, @birthProv, @userProv, @userCity, @userBarangay, @userHouseNum, @citizenship, @dateOfnat, @certNum, @fatName, @motName, @oath, @registered)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -372,97 +309,30 @@ namespace e_rehistro
 
         protected void Pending_Click(object sender, EventArgs e)
         {
-            ContentPlaceHolder authenticationPage = (ContentPlaceHolder)Master.FindControl("AuthenticationPage");
-            ContentPlaceHolder homePage = (ContentPlaceHolder)Master.FindControl("HomePage");
-            ContentPlaceHolder registrationPage = (ContentPlaceHolder)Master.FindControl("RegistrationPage");
-            ContentPlaceHolder firstRegistrationForm = (ContentPlaceHolder)Master.FindControl("FirstRegistrationForm");
-            ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
-            ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
-            ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
-            ContentPlaceHolder newsAndEventsPage = (ContentPlaceHolder)Master.FindControl("NewsAndEventsPage");
-            ContentPlaceHolder aboutPage = (ContentPlaceHolder)Master.FindControl("AboutPage");
-            ContentPlaceHolder contactsPage = (ContentPlaceHolder)Master.FindControl("ContactsPage");
-            ContentPlaceHolder pendingStatusPage = (ContentPlaceHolder)Master.FindControl("PendingStatusPage");
-
-
-            authenticationPage.Visible = false;
-            homePage.Visible = false;
-            registrationPage.Visible = false;
-            firstRegistrationForm.Visible = false;
-            secondRegistrationForm.Visible = false;
-            uploadDocumentPage.Visible = false;
-            voterIDInfo.Visible = false;
-            newsAndEventsPage.Visible = false;
-            aboutPage.Visible = false;
-            contactsPage.Visible = false;
-            pendingStatusPage.Visible = true;
-
-
+            if (!RequireLogin()) return;
+            ((MasterPage)this.Master).ShowPage("PendingStatusPage");
         }
 
         protected void ViewVoterID_Click(object sender, EventArgs e)
         {
-            ContentPlaceHolder authenticationPage = (ContentPlaceHolder)Master.FindControl("AuthenticationPage");
-            ContentPlaceHolder homePage = (ContentPlaceHolder)Master.FindControl("HomePage");
-            ContentPlaceHolder registrationPage = (ContentPlaceHolder)Master.FindControl("RegistrationPage");
-            ContentPlaceHolder firstRegistrationForm = (ContentPlaceHolder)Master.FindControl("FirstRegistrationForm");
-            ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
-            ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
-            ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
-            ContentPlaceHolder newsAndEventsPage = (ContentPlaceHolder)Master.FindControl("NewsAndEventsPage");
-            ContentPlaceHolder aboutPage = (ContentPlaceHolder)Master.FindControl("AboutPage");
-            ContentPlaceHolder contactsPage = (ContentPlaceHolder)Master.FindControl("ContactsPage");
-
-            authenticationPage.Visible = false;
-            homePage.Visible = false;
-            registrationPage.Visible = false;
-            firstRegistrationForm.Visible = false;
-            secondRegistrationForm.Visible = false;
-            uploadDocumentPage.Visible = false;
-            voterIDInfo.Visible = true;
-            newsAndEventsPage.Visible = false;
-            aboutPage.Visible = false;
-            contactsPage.Visible = false;
-
-            
+            if (!RequireLogin()) return;
+            ((MasterPage)this.Master).ShowPage("VoterIDInfo");
         }
 
         protected void DocumentSubmit_Click(object sender, EventArgs e)
         {
-            ContentPlaceHolder authenticationPage = (ContentPlaceHolder)Master.FindControl("AuthenticationPage");
-            ContentPlaceHolder homePage = (ContentPlaceHolder)Master.FindControl("HomePage");
-            ContentPlaceHolder registrationPage = (ContentPlaceHolder)Master.FindControl("RegistrationPage");
-            ContentPlaceHolder firstRegistrationForm = (ContentPlaceHolder)Master.FindControl("FirstRegistrationForm");
-            ContentPlaceHolder secondRegistrationForm = (ContentPlaceHolder)Master.FindControl("SecondRegistrationForm");
-            ContentPlaceHolder uploadDocumentPage = (ContentPlaceHolder)Master.FindControl("UploadDocumentPage");
-            ContentPlaceHolder voterIDInfo = (ContentPlaceHolder)Master.FindControl("VoterIDInfo");
-            ContentPlaceHolder newsAndEventsPage = (ContentPlaceHolder)Master.FindControl("NewsAndEventsPage");
-            ContentPlaceHolder aboutPage = (ContentPlaceHolder)Master.FindControl("AboutPage");
-            ContentPlaceHolder contactsPage = (ContentPlaceHolder)Master.FindControl("ContactsPage");
-
-            authenticationPage.Visible = false;
-            homePage.Visible = false;
-            registrationPage.Visible = true;
-            firstRegistrationForm.Visible = false;
-            secondRegistrationForm.Visible = false;
-            uploadDocumentPage.Visible = false;
-            voterIDInfo.Visible = false;
-            newsAndEventsPage.Visible = false;
-            aboutPage.Visible = false;
-            contactsPage.Visible = false;
+            if (!RequireLogin()) return;
+            ((MasterPage)this.Master).ShowPage("RegistrationPage");
 
             if (fileUploadControl.HasFile)
             {
                 try
                 {
-                    // Read the file into a byte array
                     byte[] fileBytes = fileUploadControl.FileBytes;
 
-                    // Establish connection to the database
-                    string connectionString = @"Data Source=tcp:e-rehistrodbserver.database.windows.net,1433;Initial Catalog=e-rehistro_db;User Id=**@e-rehistrodbserver;Password=**";
+                    string connectionString = ConfigurationManager.ConnectionStrings["ERehistroDB"].ConnectionString;
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
-                        // Insert the picture into the database
                         string query = "INSERT INTO userInfoPic (fileBytes, fileName) VALUES (@PictureData, @FileName)";
                         using (SqlCommand command = new SqlCommand(query, connection))
                         {
@@ -471,9 +341,8 @@ namespace e_rehistro
                             connection.Open();
                             command.ExecuteNonQuery();
                         }
-                    } // Connection will be automatically closed here
+                    }
 
-                    // Display success message or redirect to another page
                     Response.Write("<script>alert('Picture uploaded successfully!')</script>");
                 }
                 catch (Exception ex)
