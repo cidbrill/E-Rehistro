@@ -106,7 +106,7 @@ namespace e_rehistro
             string password = txtSignupPassword.Text;
             string hashedPassword = PasswordHelper.HashPassword(password);
             string connectionString = ConfigurationManager.ConnectionStrings["ERehistroDB"].ConnectionString;
-            string query = "INSERT INTO Register (email, password, role) VALUES (@email, @password, @role)";
+            string query = "INSERT INTO Register (email, password, role) OUTPUT INSERTED.userId VALUES (@email, @password, @role)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -118,11 +118,13 @@ namespace e_rehistro
                         command.Parameters.Add("@email",    SqlDbType.VarChar).Value = email;
                         command.Parameters.Add("@password", SqlDbType.VarChar).Value = hashedPassword;
                         command.Parameters.Add("@role",     SqlDbType.VarChar, 20).Value = "user";
-                        int rowsAffected = command.ExecuteNonQuery();
-                        if (rowsAffected > 0)
+                        var result = command.ExecuteScalar();
+                        if (result != null)
                         {
-                            Response.Write("<script>alert('Registered successfully')</script>");
-                            Home_Click(this, EventArgs.Empty);
+                            SessionManager.UserId = Convert.ToInt32(result);
+                            SessionManager.Email  = email;
+                            SessionManager.Role   = "user";
+                            ((MasterPage)this.Master).ShowPage("HomePage");
                         }
                         else
                         {
@@ -200,7 +202,7 @@ namespace e_rehistro
                             }
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         Response.Write("<script>alert('Connection failed')</script>");
                     }
@@ -250,6 +252,13 @@ namespace e_rehistro
             if (!RequireLogin()) return;
             if (!Page.IsValid) return;
 
+            if (UserDataHelper.HasSubmittedForm(SessionManager.UserId))
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "dupForm",
+                    "alert('You have already submitted your registration form.');", true);
+                return;
+            }
+
             try
             {
                 UserDataHelper.InsertUserData(
@@ -274,7 +283,7 @@ namespace e_rehistro
                     oath:         oathVal.SelectedValue,
                     registered:   isRegistered.SelectedValue
                 );
-                ((MasterPage)this.Master).ShowPage("PendingStatusPage");
+                ((MasterPage)this.Master).ShowPage("UploadDocumentPage");
             }
             catch
             {
@@ -317,6 +326,13 @@ namespace e_rehistro
             if (!fileUploadControl.HasFile) return;
             if (!Page.IsValid) return;
 
+            if (UserDataHelper.HasUploadedDocument(SessionManager.UserId))
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "dupDoc",
+                    "alert('You have already uploaded your document.');", true);
+                return;
+            }
+
             try
             {
                 UserDataHelper.InsertDocument(
@@ -324,7 +340,7 @@ namespace e_rehistro
                     fileBytes: fileUploadControl.FileBytes,
                     fileName:  fileUploadControl.FileName
                 );
-                ((MasterPage)this.Master).ShowPage("RegistrationPage");
+                ((MasterPage)this.Master).ShowPage("PendingStatusPage");
             }
             catch
             {

@@ -53,11 +53,13 @@ namespace e_rehistro
 
         public void Home_Click(object sender, EventArgs e)
         {
+            if (!SessionManager.IsLoggedIn) { ShowPage("AuthenticationPage"); return; }
             ShowPage("HomePage");
         }
 
         public void Registration_Click(object sender, EventArgs e)
         {
+            if (!SessionManager.IsLoggedIn) { ShowPage("AuthenticationPage"); return; }
             ShowPage("RegistrationPage");
         }
 

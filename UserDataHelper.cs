@@ -41,6 +41,9 @@ namespace e_rehistro
                @userCity, @userBarangay, @userHouseNum, @citizenship,
                @dateOfnat, @certNum, @fatName, @motName, @oath, @registered)";
 
+        private const string QueryHasDocument =
+            "SELECT COUNT(1) FROM userInfoPic WHERE userId = @userId";
+
         private const string QueryInsertDocument =
             "INSERT INTO userInfoPic (userId, fileBytes, fileName) VALUES (@userId, @fileBytes, @fileName)";
 
@@ -94,6 +97,17 @@ namespace e_rehistro
         public static bool HasSubmittedForm(int userId)
         {
             return GetUserStatus(userId) != string.Empty;
+        }
+
+        public static bool HasUploadedDocument(int userId)
+        {
+            using (var conn = new SqlConnection(_connString))
+            using (var cmd = new SqlCommand(QueryHasDocument, conn))
+            {
+                cmd.Parameters.Add("@userId", SqlDbType.Int).Value = userId;
+                conn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+            }
         }
 
         public static void UpdateStatus(int userId, string status)
