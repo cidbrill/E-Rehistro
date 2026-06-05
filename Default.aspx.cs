@@ -214,6 +214,7 @@ namespace e_rehistro
         {
             if (!RequireAdmin()) return;
             ((MasterPage)this.Master).ShowPage("AdminPage");
+            FetchAndBindData();
         }
 
         protected void Home_Click(object sender, EventArgs e)
