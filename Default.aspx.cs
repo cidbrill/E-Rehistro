@@ -17,10 +17,8 @@ namespace e_rehistro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) // Make sure to fetch data only on initial load
-            {
+            if (SessionManager.IsAdmin)
                 FetchAndBindData();
-            }
         }
 
         private bool RequireLogin()
@@ -46,52 +44,59 @@ namespace e_rehistro
 
         private void FetchAndBindData()
         {
-            string connString = ConfigurationManager.ConnectionStrings["ERehistroDB"].ConnectionString;
+            if (!RequireAdmin()) return;
 
-            using (SqlConnection connection = new SqlConnection(connString))
+            dataContainer.Controls.Clear();
+            var submissions = UserDataHelper.GetAllSubmissions();
+
+            foreach (var submission in submissions)
             {
-                string query = "SELECT (UserData.userFirst+' '+UserData.userLast) as Name, userInfoPic.fileBytes FROM UserData join userInfoPic on UserData.userId=userInfoPic.userId";  // Replace with your actual query
-                SqlCommand cmd = new SqlCommand(query, connection);
-                connection.Open();
+                var itemDiv = new HtmlGenericControl("div");
+                itemDiv.Attributes["class"] = "submission-row";
 
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
+                itemDiv.InnerHtml =
+                    $"<b>Full Name:</b> {HttpUtility.HtmlEncode(submission.FullName)}<br/>" +
+                    $"<b>Document:</b> {HttpUtility.HtmlEncode(submission.FileName)}<br/>" +
+                    $"<b>Status:</b> {HttpUtility.HtmlEncode(submission.Status)}<br/>";
 
-                // Create divs and populate them
-                foreach (DataRow row in dataTable.Rows)
+                if (submission.Status == "pending")
                 {
-                    HtmlGenericControl itemDiv = new HtmlGenericControl("div");
-                    itemDiv.Attributes.Add("document-table", "data-item");
-                    itemDiv.InnerHtml = "<b>Full Name:</b> " + row["Name"] + "<br/>" +
-                                        "<b>Document:</b> " + row["fileBytes"] + "<br/>";
-                    // Create buttons
-                    Button btnApprove = new Button();
+                    var btnApprove = new Button();
                     btnApprove.Text = "Approve";
-                    btnApprove.CssClass = "button approve-button"; // Optionally add CSS classes 
-                    btnApprove.Click += Approve_Click; // Add event handler (see below)
+                    btnApprove.CssClass = "button approve-button";
+                    btnApprove.CommandArgument = submission.UserId.ToString();
+                    btnApprove.Click += Approve_Click;
 
-                    Button btnDeny = new Button();
-                    btnDeny.Text = "Reject";
-                    btnDeny.CssClass = "button reject-button";
-                    btnDeny.Click += Reject_Click;  // Add event handler (see below)
+                    var btnReject = new Button();
+                    btnReject.Text = "Reject";
+                    btnReject.CssClass = "button reject-button";
+                    btnReject.CommandArgument = submission.UserId.ToString();
+                    btnReject.Click += Reject_Click;
 
-                    // Add buttons to the div
                     itemDiv.Controls.Add(btnApprove);
-                    itemDiv.Controls.Add(btnDeny);
-                    dataContainer.Controls.Add(itemDiv);
+                    itemDiv.Controls.Add(btnReject);
                 }
 
-                void Approve_Click(object sender, EventArgs e)
-                {
-                    // Handle approval logic here
-                }
-
-                void Reject_Click(object sender, EventArgs e)
-                {
-                    // Handle denial logic here
-                }
+                dataContainer.Controls.Add(itemDiv);
             }
+        }
+
+        protected void Approve_Click(object sender, EventArgs e)
+        {
+            if (!RequireAdmin()) return;
+            var btn = (Button)sender;
+            int targetUserId = Convert.ToInt32(btn.CommandArgument);
+            UserDataHelper.UpdateStatus(targetUserId, "approved");
+            FetchAndBindData();
+        }
+
+        protected void Reject_Click(object sender, EventArgs e)
+        {
+            if (!RequireAdmin()) return;
+            var btn = (Button)sender;
+            int targetUserId = Convert.ToInt32(btn.CommandArgument);
+            UserDataHelper.UpdateStatus(targetUserId, "declined");
+            FetchAndBindData();
         }
 
         protected void Signup_Click(object sender, EventArgs e)
