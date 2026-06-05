@@ -17,7 +17,7 @@ namespace e_rehistro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (SessionManager.IsAdmin)
+            if (!IsPostBack && SessionManager.IsAdmin)
                 FetchAndBindData();
         }
 
