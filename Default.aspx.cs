@@ -332,5 +332,42 @@ namespace e_rehistro
                     "alert('Could not upload the document. Please try again.');", true);
             }
         }
+
+        protected void ContactSubmit_Click(object sender, EventArgs e)
+        {
+            if (!Page.IsValid) return;
+
+            string connString = ConfigurationManager.ConnectionStrings["ERehistroDB"].ConnectionString;
+            const string query =
+                @"INSERT INTO ContactMessages (senderName, senderEmail, subject, body)
+                  VALUES (@name, @email, @subject, @body)";
+
+            try
+            {
+                using (var conn = new SqlConnection(connString))
+                using (var cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.Add("@name",    SqlDbType.VarChar).Value = txtName.Text;
+                    cmd.Parameters.Add("@email",   SqlDbType.VarChar).Value = txtEmail.Text;
+                    cmd.Parameters.Add("@subject", SqlDbType.VarChar).Value = txtSubject.Text;
+                    cmd.Parameters.Add("@body",    SqlDbType.VarChar).Value = txtMessage.Text;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+
+                txtName.Text    = string.Empty;
+                txtEmail.Text   = string.Empty;
+                txtSubject.Text = string.Empty;
+                txtMessage.Text = string.Empty;
+
+                ScriptManager.RegisterStartupScript(this, GetType(), "contactSent",
+                    "alert('Your message has been sent. Thank you!');", true);
+            }
+            catch
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "contactErr",
+                    "alert('Could not send your message. Please try again.');", true);
+            }
+        }
     }
 }

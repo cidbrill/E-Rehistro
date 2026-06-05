@@ -42,3 +42,12 @@ CREATE TABLE userInfoPic (
     CONSTRAINT PK_userInfoPic PRIMARY KEY (userId),
     CONSTRAINT FK_userInfoPic_Register FOREIGN KEY (userId) REFERENCES Register(userId)
 );
+
+CREATE TABLE ContactMessages (
+    messageId   int           IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    senderName  varchar(max)  NOT NULL,
+    senderEmail varchar(max)  NOT NULL,
+    subject     varchar(max)  NOT NULL,
+    body        varchar(max)  NOT NULL,
+    sentAt      datetime      NOT NULL DEFAULT GETDATE()
+);

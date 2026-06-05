@@ -614,10 +614,29 @@
             <div class="form-group">
                 <label for="name">Your Name:</label>
                 <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvContactName" runat="server"
+                    ControlToValidate="txtName"
+                    ErrorMessage="Name is required."
+                    CssClass="validation-error"
+                    Display="Dynamic"
+                    ValidationGroup="ContactForm" />
             </div>
             <div class="form-group">
                 <label for="email">Your Email:</label>
                 <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvContactEmail" runat="server"
+                    ControlToValidate="txtEmail"
+                    ErrorMessage="Email is required."
+                    CssClass="validation-error"
+                    Display="Dynamic"
+                    ValidationGroup="ContactForm" />
+                <asp:RegularExpressionValidator ID="revContactEmail" runat="server"
+                    ControlToValidate="txtEmail"
+                    ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$"
+                    ErrorMessage="Enter a valid email address."
+                    CssClass="validation-error"
+                    Display="Dynamic"
+                    ValidationGroup="ContactForm" />
             </div>
             <div class="form-group">
                 <label for="subject">Subject:</label>
@@ -626,8 +645,15 @@
             <div class="form-group">
                 <label for="message">Your Message:</label>
                 <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" Rows="9" CssClass="form-control no-resize"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvContactMessage" runat="server"
+                    ControlToValidate="txtMessage"
+                    ErrorMessage="Message is required."
+                    CssClass="validation-error"
+                    Display="Dynamic"
+                    ValidationGroup="ContactForm" />
             </div>
-            <asp:Button ID="Button1" runat="server" Text="SUBMIT" CssClass="btnSubmitForm" />
+            <asp:Button ID="Button1" runat="server" Text="SUBMIT" CssClass="btnSubmitForm"
+                OnClick="ContactSubmit_Click" ValidationGroup="ContactForm" />
         </div>
     </div>
 </asp:Content>
